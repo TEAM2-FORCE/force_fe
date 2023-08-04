@@ -24,7 +24,7 @@ export const Footer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  height: 35vh;
+  height: 45vh;
   width: 100vw;
   background-color: #154a39;
   color: white;
