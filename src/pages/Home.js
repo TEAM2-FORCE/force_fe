@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { Wrapper } from "../components/layout/common";
-import { Logo } from "../components/layout/common";
-import { NavCosmetic } from "../components/layout/common";
-import { NavINCIpedia } from "../components/layout/common";
+import {
+  Wrapper,
+  Logo,
+  NavCosmetic,
+  NavINCIpedia,
+} from "../components/layout/common";
+import { Nav, Section, Footer } from "../components/layout/Layout";
 
 const Home = () => {
   return (
@@ -48,36 +51,6 @@ const Home = () => {
 };
 
 export default Home;
-
-const Nav = styled.div`
-  display: flex;
-
-  width: 100vw;
-  height: 10vh;
-  background: #fdfffd;
-
-  filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.25));
-`;
-
-const Section = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  height: 150vh;
-  width: 100vw;
-`;
-
-const Footer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  height: 35vh;
-  width: 100vw;
-  background-color: #154a39;
-  color: white;
-`;
 
 const FooterStyle = styled.div`
   margin-left: 6%;
