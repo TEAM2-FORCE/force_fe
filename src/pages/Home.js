@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import { Wrapper } from "../components/layout/common";
 import {
-  Wrapper,
+  Nav,
+  Section,
+  Footer,
+  FooterStyle,
   Logo,
   NavCosmetic,
   NavINCIpedia,
-} from "../components/layout/common";
-import { Nav, Section, Footer } from "../components/layout/Layout";
+} from "../components/layout/Layout";
 
 const Home = () => {
   return (
@@ -51,10 +54,6 @@ const Home = () => {
 };
 
 export default Home;
-
-const FooterStyle = styled.div`
-  margin-left: 6%;
-`;
 
 const About = styled.div`
   width: 90%;
