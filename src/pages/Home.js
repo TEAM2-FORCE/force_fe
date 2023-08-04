@@ -63,7 +63,7 @@ const Section = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-start;
   height: 150vh;
   width: 100vw;
 `;
