@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <Wrapper>
       <Nav>
-        <Logo>Kisse</Logo>
+        <Logo>VEBE</Logo>
         <NavCosmetic>All Category</NavCosmetic>
         <NavINCIpedia>INCIpedia</NavINCIpedia>
       </Nav>
