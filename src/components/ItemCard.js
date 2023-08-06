@@ -43,7 +43,7 @@ const Card = styled.div`
 flex-direction: column;
 background-color: white;
 gap: 10px;
-width: 15%;
+width: 20%;
 height: 17rem;
 margin-left: 25px;
 margin-right: 25px;
