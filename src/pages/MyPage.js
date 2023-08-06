@@ -1,11 +1,14 @@
 import React from 'react'
 import { Wrapper } from '../components/layout/common'
-import { Footer, FooterStyle, Logo, Nav, NavCosmetic, NavINCIpedia, Section } from '../components/layout/Layout'
+import { Footer, FooterStyle, Logo, Nav, NavCosmetic, NavINCIpedia, SearchBar, SearchButton, Section, MyPageButton } from '../components/layout/Layout'
 import { styled } from 'styled-components'
 import setting from '../img/settings.png'
 import profile from '../img/profile.png'
 import ItemCard from '../components/ItemCard'
 import IngredientCard from '../components/IngredientCard'
+
+import searchIcon from "../img/searchIcon.png";
+import myPageIcon from "../img/myPageIcon.png";
 
 const MyPage = () => {
   const setProfile = () => {
@@ -25,6 +28,15 @@ const MyPage = () => {
         <Logo>VEBE</Logo>
         <NavCosmetic>All Category</NavCosmetic>
         <NavINCIpedia>INCIpedia</NavINCIpedia>
+        <SearchBar>
+          <input
+            type="text"
+            placeholder="Search"
+            style={{ border: "none", height: "1.2rem" }}
+          ></input>
+          <SearchButton src={searchIcon} />
+        </SearchBar>
+        <MyPageButton src={myPageIcon} />
       </Nav>
       <Section>
 
