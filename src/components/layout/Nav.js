@@ -24,12 +24,10 @@ const Nav = () => {
         <NavINCIpedia>INCIpedia</NavINCIpedia>
         <Right>
         <SearchBar>
-          <input
+          <Input
             type="text"
             placeholder="Search"
-            style={{ border:"none", height: "1.2rem", outline: "none", width: "100%"}}
-            
-          ></input>
+          ></Input>
           <SearchButton src={searchIcon} />
         </SearchBar>
         <MyPageButton src={myPageIcon} onClick={myPageClicked}/>
@@ -46,6 +44,13 @@ const Right = styled.div`
   align-items: center;
   position: absolute;
   width: 30%;
-  
   right: 5%;
+`
+
+const Input = styled.input`
+border: none;
+height: "1.2rem";
+outline: "none"
+width: 90%;
+position: absolute;
 `

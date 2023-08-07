@@ -92,8 +92,6 @@ export const NavINCIpedia = styled.div`
 export const SearchBar = styled.div`
   width: 90%;
   display: flex;
-  justify-content: center;
-  position: relative;
   padding: 0.5rem 1.75rem;
   align-items: center;
   gap: 0.625rem;

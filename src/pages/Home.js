@@ -15,8 +15,14 @@ import face from "../img/Face.png";
 import lip from "../img/Lip.png";
 import cleanser from "../img/Cleanser.png";
 import allProducts from "../img/AllProducts.png";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+  const goto = (where) => {
+    navigate(`/${where}`);
+  }
+
   return (
     <Wrapper>
       <Nav></Nav>
@@ -29,14 +35,14 @@ const Home = () => {
           </h2>
         </Category>
         <ImageSection>
-          <CosmeticImage src={moisturizer}></CosmeticImage>
-          <CosmeticImage></CosmeticImage>
-          <CosmeticImage></CosmeticImage>
-          <CosmeticImage></CosmeticImage>
-          <CosmeticImage></CosmeticImage>
-          <CosmeticImage></CosmeticImage>
-          <CosmeticImage></CosmeticImage>
-          <CosmeticImage></CosmeticImage>
+          <CosmeticImage onClick={() => goto("moisturizer")}src={moisturizer}></CosmeticImage>
+          <CosmeticImage onClick={() => goto("suncare")}></CosmeticImage>
+          <CosmeticImage onClick={() => goto("face")}></CosmeticImage>
+          <CosmeticImage onClick={() => goto("eye")}></CosmeticImage>
+          <CosmeticImage onClick={() => goto("lip")}></CosmeticImage>
+          <CosmeticImage onClick={() => goto("cleanser")}></CosmeticImage>
+          <CosmeticImage onClick={() => goto("masks")}></CosmeticImage>
+          <CosmeticImage onClick={() => goto("all")}></CosmeticImage>
         </ImageSection>
       </Section>
       <Footer>
