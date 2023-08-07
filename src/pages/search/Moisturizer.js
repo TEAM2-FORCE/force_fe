@@ -2,25 +2,17 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Wrapper } from "../../components/layout/common";
 import {
-  Nav,
   Section,
   Footer,
   FooterStyle,
-  Logo,
-  NavCosmetic,
-  NavINCIpedia,
-  SearchBar,
-  SearchButton,
-  MyPageButton,
 } from "../../components/layout/Layout";
 
-import searchIcon from "../../img/searchIcon.png";
-import myPageIcon from "../../img/myPageIcon.png";
 import arrowLeft from "../../img/arrowLeft.png"
 import arrowDown from "../../img/arrowDown.png"
 import CheckItemList from "../../components/CheckItemList";
 
 import ItemDataSection from "../../components/ItemDataSection";
+import Nav from "../../components/layout/Nav";
 const Moisturizer = () => {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -55,20 +47,7 @@ const Moisturizer = () => {
 
   return (
     <Wrapper>
-      <Nav>
-        <Logo>VEBE</Logo>
-        <NavCosmetic>All Category</NavCosmetic>
-        <NavINCIpedia>INCIpedia</NavINCIpedia>
-        <SearchBar>
-          <input
-            type="text"
-            placeholder="Search"
-            style={{ border: "none", height: "1.2rem" }}
-          ></input>
-          <SearchButton src={searchIcon} />
-        </SearchBar>
-        <MyPageButton src={myPageIcon} />
-      </Nav>
+      <Nav></Nav>
 
       <Top>
           <Left>Moisturizer</Left>

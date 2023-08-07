@@ -2,21 +2,14 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Wrapper } from "../components/layout/common";
 import {
-  Nav,
   Section,
   Footer,
   FooterStyle,
-  Logo,
-  NavCosmetic,
-  NavINCIpedia,
-  SearchBar,
-  SearchButton,
-  MyPageButton,
 } from "../components/layout/Layout";
 
 import searchIcon from "../img/searchIcon.png";
 import myPageIcon from "../img/myPageIcon.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import moisturizer from "../img/Moisturizer.png";
 import sunCare from "../img/SunCare.png";
@@ -26,24 +19,13 @@ import face from "../img/Face.png";
 import lip from "../img/Lip.png";
 import cleanser from "../img/Cleanser.png";
 import allProducts from "../img/AllProducts.png";
+import Nav from "../components/layout/Nav";
 
 const Home = () => {
+  
   return (
     <Wrapper>
-      <Nav>
-        <Logo>VEBE</Logo>
-        <NavCosmetic>All Category</NavCosmetic>
-        <NavINCIpedia>INCIpedia</NavINCIpedia>
-        <SearchBar>
-          <input
-            type="text"
-            placeholder="Search"
-            style={{ border: "none", height: "1.2rem" }}
-          ></input>
-          <SearchButton src={searchIcon} />
-        </SearchBar>
-        <MyPageButton src={myPageIcon} />
-      </Nav>
+      <Nav></Nav>
       <Section>
         <About></About>
         <Category>

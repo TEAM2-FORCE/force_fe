@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Nav = styled.div`
+export const NavContainer = styled.div`
   display: flex;
 
   width: 100vw;
@@ -48,6 +48,7 @@ export const Logo = styled.div`
   display: flex;
   align-items: center;
   text-align: center;
+  cursor: pointer;
 `;
 
 export const NavCosmetic = styled.div`
@@ -121,4 +122,5 @@ export const MyPageButton = styled.img`
   &:active {
     opacity: 0.5;
   }
+  cursor: pointer;
 `;

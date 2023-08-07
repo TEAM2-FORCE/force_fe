@@ -2,38 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import { Wrapper } from "../components/layout/common";
 import {
-  Nav,
   Footer,
   FooterStyle,
-  Logo,
-  NavCosmetic,
-  NavINCIpedia,
-  SearchBar,
-  SearchButton,
-  MyPageButton,
 } from "../components/layout/Layout";
-
-import searchIcon from "../img/searchIcon.png";
-import myPageIcon from "../img/myPageIcon.png";
 import itemImage from "../img/itemExample.png";
+import Nav from "../components/layout/Nav";
 
 const ItemDetail = () => {
   return (
     <Wrapper>
-      <Nav>
-        <Logo>VEBE</Logo>
-        <NavCosmetic>All Category</NavCosmetic>
-        <NavINCIpedia>INCIpedia</NavINCIpedia>
-        <SearchBar>
-          <input
-            type="text"
-            placeholder="Search"
-            style={{ border: "none", height: "1.2rem" }}
-          ></input>
-          <SearchButton src={searchIcon} />
-        </SearchBar>
-        <MyPageButton src={myPageIcon} />
-      </Nav>
+      <Nav></Nav>
       <Body>
         <ImageContainer>
           <ItemImage src={itemImage} />
