@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { styled } from 'styled-components';
-import fullHeart from '../img/fullHeart.png'
+import fullStar from '../img/fullStar.png'
 import checked from '../img/checked.png'
 import unchecked from '../img/unchecked.png'
 
@@ -26,7 +26,7 @@ const CheckItem = () => {
       <Button onClick={changeCheck}><img src={whichCheckbox()} alt="checkbox"></img></Button>
       <Text>checkContent</Text>
       <Right>
-      {wish && <Image src={fullHeart} alt="wishList"></Image>}
+      {wish && <Image src={fullStar} alt="wishList"></Image>}
       {/* HI */}
       </Right>
     </Item>
