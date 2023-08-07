@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Wrapper } from "../components/layout/common";
 import {
@@ -16,15 +16,16 @@ import {
 
 import searchIcon from "../img/searchIcon.png";
 import myPageIcon from "../img/myPageIcon.png";
+import { Link } from "react-router-dom";
 
-// import Moisturizer from "../img/Moisturizer.png";
-// import SunCare from "../img/SunCare.png";
-// import Mask from "../img/Mask.png";
-// import Eye from "../img/Eye.png";
-// import Face from "../img/Face.png";
-// import Lip from "../img/Lip.png";
-// import Cleanser from "../img/Cleanser.png";
-// import AllProducts from "../img/AllProducts.png";
+import moisturizer from "../img/Moisturizer.png";
+import sunCare from "../img/SunCare.png";
+import mask from "../img/Mask.png";
+import eye from "../img/Eye.png";
+import face from "../img/Face.png";
+import lip from "../img/Lip.png";
+import cleanser from "../img/Cleanser.png";
+import allProducts from "../img/AllProducts.png";
 
 const Home = () => {
   return (
@@ -52,7 +53,7 @@ const Home = () => {
           </h2>
         </Category>
         <ImageSection>
-          <CosmeticImage></CosmeticImage>
+          <CosmeticImage src={moisturizer}></CosmeticImage>
           <CosmeticImage></CosmeticImage>
           <CosmeticImage></CosmeticImage>
           <CosmeticImage></CosmeticImage>
@@ -100,7 +101,7 @@ const ImageSection = styled.div`
   margin-top: 0;
 `;
 
-const CosmeticImage = styled.button`
+const CosmeticImage = styled.img`
   width: 23.8%;
   height: 48%;
   background: url(), lightgray 0px -281.646px / 100% 284.444% no-repeat;

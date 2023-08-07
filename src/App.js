@@ -3,16 +3,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import MyPage from "./pages/MyPage";
-import Moisturizer from "./pages/search/Moisturizer";
+import ItemDetail from "./pages/ItemDetail";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/MyPage" element={<MyPage />} />
-        <Route path="/Moisturizer" element={<Moisturizer />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/mypage" element={<MyPage />} />
+        <Route path="/itemdetail" element={<ItemDetail />} />
       </Routes>
     </BrowserRouter>
   );
