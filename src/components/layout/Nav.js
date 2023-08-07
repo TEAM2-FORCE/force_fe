@@ -3,6 +3,7 @@ import { Logo, MyPageButton, NavContainer, NavCosmetic, NavINCIpedia, SearchBar,
 import searchIcon from "../../img/searchIcon.png";
 import myPageIcon from "../../img/myPageIcon.png";
 import { useNavigate } from 'react-router-dom';
+import { styled } from 'styled-components';
 
 const Nav = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -21,6 +22,7 @@ const Nav = () => {
         <Logo onClick={logoClicked}>VEBE</Logo>
         <NavCosmetic>All Category</NavCosmetic>
         <NavINCIpedia>INCIpedia</NavINCIpedia>
+        <Right>
         <SearchBar>
           <input
             type="text"
@@ -31,8 +33,19 @@ const Nav = () => {
           <SearchButton src={searchIcon} />
         </SearchBar>
         <MyPageButton src={myPageIcon} onClick={myPageClicked}/>
+        </Right>
     </NavContainer>
   )
 }
 
-export default Nav
+export default Nav;
+
+const Right = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 30%;
+  
+  right: 5%;
+`

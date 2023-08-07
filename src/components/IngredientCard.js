@@ -42,7 +42,7 @@ const Card = styled.div`
 flex-direction: column;
 background-color: white;
 gap: 10px;
-width: 15%;
+width: 20%;
 height: 17rem;
 margin-left: 25px;
 margin-right: 25px;
@@ -68,7 +68,7 @@ color: black;
 margin-left: 7px;
 
 font-family: Pretendard;
-font-size: 0.75rem;
+font-size: 1rem;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
@@ -116,6 +116,7 @@ gap: 0.625rem;
 border-radius: 1rem;
 background: var(--label-color-1, #FFB7EF);
 padding: 3px 5px 3px 5px;
+margin-right: 5px;
 `
 const Ingredients = styled.div`
 justify-content: center;

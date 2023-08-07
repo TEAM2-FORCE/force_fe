@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const NavContainer = styled.div`
   display: flex;
-
+  align-items: center;
   width: 100vw;
   height: 10vh;
   background: #fdfffd;
@@ -90,18 +90,16 @@ export const NavINCIpedia = styled.div`
 `;
 
 export const SearchBar = styled.div`
+  width: 90%;
   display: flex;
-  justify-content: space-evenly;
-  position: absolute;
-  top: 15%;
-  width: 27%;
-  height: 1.5rem;
+  justify-content: center;
+  position: relative;
   padding: 0.5rem 1.75rem;
   align-items: center;
   gap: 0.625rem;
   border-radius: 1.25rem 1.25rem 1.25rem 1.25rem;
   border: 1px solid var(--dark, #3c9075);
-  left: 60%;
+  margin-right: 3%;
 `;
 
 export const SearchButton = styled.img`
@@ -114,10 +112,8 @@ export const SearchButton = styled.img`
 `;
 
 export const MyPageButton = styled.img`
-  position: absolute;
-  width: 1.5rem;
+  position: relative;
   height: 1.5rem;
-  right: 5%;
   margin-right: 0.5rem;
   top: 30%;
   &:active {

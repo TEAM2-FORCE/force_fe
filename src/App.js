@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import MyPage from "./pages/MyPage";
 import ItemDetail from "./pages/ItemDetail";
 import Moisturizer from "./pages/search/Moisturizer";
+import INCIpedia from "./pages/INCIpedia";
 
 const App = () => {
   return (
@@ -15,6 +16,8 @@ const App = () => {
         <Route path="/myPage" element={<MyPage />} />
         <Route path="/itemdetail" element={<ItemDetail />} />
         <Route path="/moisturizer" element={<Moisturizer />} />
+        <Route path="/incipedia" element={<INCIpedia />} />
+        
       </Routes>
     </BrowserRouter>
   );
