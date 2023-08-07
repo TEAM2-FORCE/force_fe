@@ -94,7 +94,7 @@ export const SearchBar = styled.div`
   justify-content: space-evenly;
   position: absolute;
   top: 15%;
-  width: 18rem;
+  width: 27%;
   height: 1.5rem;
   padding: 0.5rem 1.75rem;
   align-items: center;
@@ -117,7 +117,8 @@ export const MyPageButton = styled.img`
   position: absolute;
   width: 1.5rem;
   height: 1.5rem;
-  left: 90%;
+  right: 5%;
+  margin-right: 0.5rem;
   top: 30%;
   &:active {
     opacity: 0.5;

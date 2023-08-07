@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Wrapper } from "../components/layout/common";
 import {
@@ -6,7 +6,6 @@ import {
 } from "../components/layout/Layout";
 import Nav from "../components/layout/Nav";
 import Footer from "../components/layout/Footer";
-import { Link, useNavigate } from "react-router-dom";
 
 import moisturizer from "../img/Moisturizer.png";
 import sunCare from "../img/SunCare.png";
@@ -18,7 +17,6 @@ import cleanser from "../img/Cleanser.png";
 import allProducts from "../img/AllProducts.png";
 
 const Home = () => {
-  
   return (
     <Wrapper>
       <Nav></Nav>

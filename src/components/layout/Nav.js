@@ -5,7 +5,7 @@ import myPageIcon from "../../img/myPageIcon.png";
 import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
-  const isLogin = useState(true);
+  const [isLogin, setIsLogin] = useState(true);
   const navigate = useNavigate();
   const myPageClicked = () => {
     if(isLogin)
@@ -25,7 +25,8 @@ const Nav = () => {
           <input
             type="text"
             placeholder="Search"
-            style={{ border: "none", height: "1.2rem" }}
+            style={{ border:"none", height: "1.2rem", outline: "none", width: "100%"}}
+            
           ></input>
           <SearchButton src={searchIcon} />
         </SearchBar>
