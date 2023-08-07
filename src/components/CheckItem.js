@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { styled } from 'styled-components';
 import fullHeart from '../img/fullHeart.png'
+import checked from '../img/checked.png'
+import unchecked from '../img/unchecked.png'
 
 const CheckItem = () => {
   const [check, setCheck] = useState(false);
@@ -10,14 +12,18 @@ const CheckItem = () => {
     setCheck(!check);
   }
 
-  const buttonColor = () => {
-    if(check)return 'black';
-    else return 'white';
+  // const buttonColor = () => {
+  //   if(check)return 'black';
+  //   else return 'white';
+  // }
+  const whichCheckbox = () =>{
+    if(check)return checked;
+    else return unchecked;
   }
 
   return (
     <Item>
-      <Button onClick={changeCheck} bgcolor={buttonColor()}></Button>
+      <Button onClick={changeCheck}><img src={whichCheckbox()} alt="checkbox"></img></Button>
       <Text>checkContent</Text>
       <Right>
       {wish && <Image src={fullHeart} alt="wishList"></Image>}
@@ -37,11 +43,11 @@ align-items: center;
 `
 
 const Button = styled.button`
-margin-right: 5px;
-background-color: ${(props)=>props.bgcolor};
-height: 15px;
-width: 15px;
-border-radius: 3px;
+border: none;
+background-color: white;
+width: 13px;
+height: 13px;
+margin-right: 10px;
 `
 
 const Image = styled.img`
