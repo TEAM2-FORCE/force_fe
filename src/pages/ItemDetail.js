@@ -1,12 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { Wrapper } from "../components/layout/common";
-import {
-  Footer,
-  FooterStyle,
-} from "../components/layout/Layout";
 import itemImage from "../img/itemExample.png";
 import Nav from "../components/layout/Nav";
+import Footer from "../components/layout/Footer";
 
 const ItemDetail = () => {
   return (
@@ -41,17 +38,6 @@ const ItemDetail = () => {
         </ItemDescription>
       </Body>
       <Footer>
-        <FooterStyle>
-          <h3>Contact Us</h3>
-          <div>Tel : 02-1234-5678</div>
-          <div>
-            Mail : ouremail@gmail.com
-            <br />
-            <br />
-          </div>
-          <h3>Copyright</h3>
-          <div>Image by valuavitaly on Freepik</div>
-        </FooterStyle>
       </Footer>
     </Wrapper>
   );

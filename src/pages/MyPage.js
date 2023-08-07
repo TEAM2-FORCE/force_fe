@@ -1,12 +1,13 @@
 import React from 'react'
 import { Wrapper } from '../components/layout/common'
-import { Footer, FooterStyle, Section } from '../components/layout/Layout'
+import { Section } from '../components/layout/Layout'
 import { styled } from 'styled-components'
 import setting from '../img/settings.png'
 import profile from '../img/profile.png'
 import ItemCard from '../components/ItemCard'
 import IngredientCard from '../components/IngredientCard'
 import Nav from '../components/layout/Nav'
+import Footer from '../components/layout/Footer'
 
 const MyPage = () => {
   const setProfile = () => {
@@ -79,17 +80,6 @@ const MyPage = () => {
 
       </Section>
       <Footer>
-        <FooterStyle>
-          <h3>Contact Us</h3>
-          <div>Tel : 02-1234-5678</div>
-          <div>
-            Mail : ouremail@gmail.com
-            <br />
-            <br />
-          </div>
-          <h3>Copyright</h3>
-          <div>Image by valuavitaly on Freepik</div>
-        </FooterStyle>
       </Footer>
     </Wrapper>
   )

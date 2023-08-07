@@ -20,7 +20,7 @@ export const Section = styled.div`
   margin-bottom: 15%;
 `;
 
-export const Footer = styled.div`
+export const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

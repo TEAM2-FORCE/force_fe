@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Wrapper } from "../../components/layout/common";
 import {
-  Section,
-  Footer,
-  FooterStyle,
+  Section
 } from "../../components/layout/Layout";
 
 import arrowLeft from "../../img/arrowLeft.png"
@@ -13,6 +11,8 @@ import CheckItemList from "../../components/CheckItemList";
 
 import ItemDataSection from "../../components/ItemDataSection";
 import Nav from "../../components/layout/Nav";
+import Footer from "../../components/layout/Footer";
+
 const Moisturizer = () => {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -106,17 +106,6 @@ const Moisturizer = () => {
 
       </Section>
       <Footer>
-        <FooterStyle>
-          <h3>Contact Us</h3>
-          <div>Tel : 02-1234-5678</div>
-          <div>
-            Mail : ouremail@gmail.com
-            <br />
-            <br />
-          </div>
-          <h3>Copyright</h3>
-          <div>Image by valuavitaly on Freepik</div>
-        </FooterStyle>
       </Footer>
     </Wrapper>
   );

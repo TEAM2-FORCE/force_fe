@@ -3,12 +3,9 @@ import styled from "styled-components";
 import { Wrapper } from "../components/layout/common";
 import {
   Section,
-  Footer,
-  FooterStyle,
 } from "../components/layout/Layout";
-
-import searchIcon from "../img/searchIcon.png";
-import myPageIcon from "../img/myPageIcon.png";
+import Nav from "../components/layout/Nav";
+import Footer from "../components/layout/Footer";
 import { Link, useNavigate } from "react-router-dom";
 
 import moisturizer from "../img/Moisturizer.png";
@@ -19,7 +16,6 @@ import face from "../img/Face.png";
 import lip from "../img/Lip.png";
 import cleanser from "../img/Cleanser.png";
 import allProducts from "../img/AllProducts.png";
-import Nav from "../components/layout/Nav";
 
 const Home = () => {
   
@@ -46,17 +42,7 @@ const Home = () => {
         </ImageSection>
       </Section>
       <Footer>
-        <FooterStyle>
-          <h3>Contact Us</h3>
-          <div>Tel : 02-1234-5678</div>
-          <div>
-            Mail : ouremail@gmail.com
-            <br />
-            <br />
-          </div>
-          <h3>Copyright</h3>
-          <div>Image by valuavitaly on Freepik</div>
-        </FooterStyle>
+        
       </Footer>
     </Wrapper>
   );
