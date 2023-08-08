@@ -109,7 +109,7 @@ export const SearchBar = styled.div`
 export const SearchButton = styled.img`
   width: 1.2rem;
   height: 1.2rem;
-  margin-left: 40%;
+  // margin-left: 40%;
   &:active {
     opacity: 0.5;
   }

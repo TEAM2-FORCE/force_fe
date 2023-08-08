@@ -31,9 +31,8 @@ export default IngredientDataSection;
 
 const Cards = styled.div`
 display: flex;
-flex-wrap: wrap;
 width: 100%;
-height: 100%;
+max-height: 100%;
+flex-wrap: wrap;
 overflow-y: scroll;
-
 `

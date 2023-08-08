@@ -37,7 +37,10 @@ const Nav = () => {
       <NavINCIpedia onClick={() => goto("incipedia")}>INCIpedia</NavINCIpedia>
       <Right>
         <SearchBar>
-          <Input type="text" placeholder="Search"></Input>
+          <input
+              type="text"
+              placeholder="Search"
+              style={{ border:"none", height: "1.2rem", outline: "none", width: "100%"}}></input>
           <SearchButton src={searchIcon} />
         </SearchBar>
         <MyPageButton src={myPageIcon} onClick={myPageClicked} />
@@ -55,12 +58,5 @@ const Right = styled.div`
   position: absolute;
   width: 30%;
   right: 5%;
-`;
-
-const Input = styled.input`
-  border: none;
-  height: "1.2rem";
-  outline: "none";
-  width: 50%;
-  position: absolute;
+  // background-color: green;
 `;

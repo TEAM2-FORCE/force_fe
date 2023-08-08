@@ -32,7 +32,6 @@ export default ItemDataSection;
 
 const Cards = styled.div`
 display: flex;
-justify-content: flex-start;
 width: 100%;
 max-height: 100%;
 flex-wrap: wrap;

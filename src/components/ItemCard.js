@@ -43,10 +43,9 @@ const Card = styled.div`
 flex-direction: column;
 background-color: white;
 gap: 10px;
-width: 20%;
-height: 17rem;
-margin-left: 25px;
-margin-right: 25px;
+min-width: 20%;
+max-height: 25rem;
+margin: 25px;
 `;
 
 const Picture = styled.div`
