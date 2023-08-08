@@ -42,6 +42,7 @@ export default Home;
 const About = styled.div`
   width: 90%;
   height: 30%;
+  overflow: hidden;
   background: url(<path-to-image>),
     lightgray 0px -281.646px / 100% 284.444% no-repeat;
 `;

@@ -4,9 +4,8 @@ export const NavContainer = styled.div`
   display: flex;
   align-items: center;
   width: 100vw;
-  height: 10vh;
+  height: 5rem;
   background: #fdfffd;
-
   filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.25));
 `;
 
@@ -36,9 +35,6 @@ export const FooterStyle = styled.div`
 `;
 
 export const Logo = styled.div`
-  position: absolute;
-  left: 6%;
-  top: 20%;
   color: #010d09;
   font-family: "Pretendard";
   font-style: normal;
@@ -51,10 +47,7 @@ export const Logo = styled.div`
   cursor: pointer;
 `;
 
-export const NavCosmetic = styled.div`
-  position: absolute;
-  left: 25%;
-  top: 30%;
+export const NavCategory = styled.div`
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 400;
@@ -62,30 +55,6 @@ export const NavCosmetic = styled.div`
   line-height: 24px;
   height: 24px;
   display: flex;
-  align-items: center;
-  text-align: center;
-  color: #010d09;
-  &:active {
-    opacity: 0.5;
-  }
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-export const NavINCIpedia = styled.div`
-  position: absolute;
-  left: 45%;
-  top: 30%;
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  text-align: center;
   color: #010d09;
   &:active {
     opacity: 0.5;

@@ -3,8 +3,7 @@ import {
   Logo,
   MyPageButton,
   NavContainer,
-  NavCosmetic,
-  NavINCIpedia,
+  NavCategory,
   SearchBar,
   SearchButton,
 } from "./Layout";
@@ -32,9 +31,13 @@ const Nav = () => {
 
   return (
     <NavContainer>
+      <Left>
       <Logo onClick={logoClicked}>VEBE</Logo>
-      <NavCosmetic>All Category</NavCosmetic>
-      <NavINCIpedia onClick={() => goto("incipedia")}>INCIpedia</NavINCIpedia>
+      </Left>
+      <Center>
+      <NavCategory>All Category</NavCategory>
+      <NavCategory onClick={() => goto("incipedia")}>INCIPedia</NavCategory>
+      </Center>
       <Right>
         <SearchBar>
           <input
@@ -51,6 +54,21 @@ const Nav = () => {
 
 export default Nav;
 
+const Left = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+width: 15%;
+height: 100%;
+`
+const Center = styled.div`
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+width: 50%;
+height: 100%;
+`
+
 const Right = styled.div`
   display: flex;
   justify-content: center;
@@ -58,5 +76,4 @@ const Right = styled.div`
   position: absolute;
   width: 30%;
   right: 5%;
-  // background-color: green;
 `;
