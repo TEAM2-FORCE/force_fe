@@ -12,6 +12,8 @@ import myPageIcon from "../../img/myPageIcon.png";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 
+import logo from "../../img/logo.png";
+
 const Nav = () => {
   const [isLogin, setIsLogin] = useState(true);
   const navigate = useNavigate();
@@ -32,18 +34,24 @@ const Nav = () => {
   return (
     <NavContainer>
       <Left>
-      <Logo onClick={logoClicked}>VEBE</Logo>
+        <Logo onClick={logoClicked} src={logo} />
       </Left>
       <Center>
-      <NavCategory>All Category</NavCategory>
-      <NavCategory onClick={() => goto("incipedia")}>INCIPedia</NavCategory>
+        <NavCategory>All Category</NavCategory>
+        <NavCategory onClick={() => goto("incipedia")}>INCIPedia</NavCategory>
       </Center>
       <Right>
         <SearchBar>
           <input
-              type="text"
-              placeholder="Search"
-              style={{ border:"none", height: "1.2rem", outline: "none", width: "100%"}}></input>
+            type="text"
+            placeholder="Search"
+            style={{
+              border: "none",
+              height: "1.2rem",
+              outline: "none",
+              width: "100%",
+            }}
+          ></input>
           <SearchButton src={searchIcon} />
         </SearchBar>
         <MyPageButton src={myPageIcon} onClick={myPageClicked} />
@@ -55,19 +63,19 @@ const Nav = () => {
 export default Nav;
 
 const Left = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-width: 15%;
-height: 100%;
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  height: 100%;
+`;
 const Center = styled.div`
-display: flex;
-justify-content: space-evenly;
-align-items: center;
-width: 50%;
-height: 100%;
-`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+`;
 
 const Right = styled.div`
   display: flex;

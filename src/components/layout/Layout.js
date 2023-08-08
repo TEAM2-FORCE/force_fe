@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const NavContainer = styled.div`
   display: flex;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 5rem;
   background: #fdfffd;
   filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.25));
@@ -15,7 +15,7 @@ export const Section = styled.div`
   justify-content: space-evenly;
   align-items: center;
   height: 150vh;
-  width: 100vw;
+  width: 100%;
   margin-bottom: 15%;
 `;
 
@@ -25,7 +25,7 @@ export const FooterContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   height: 45vh;
-  width: 100vw;
+  width: 100%;
   background-color: #154a39;
   color: white;
 `;
@@ -34,16 +34,11 @@ export const FooterStyle = styled.div`
   margin-left: 6%;
 `;
 
-export const Logo = styled.div`
-  color: #010d09;
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 38px;
-  display: flex;
-  align-items: center;
-  text-align: center;
+export const Logo = styled.img`
+  position: relative;
+  height: 80%;
+  object-fit: contain;
+  left: 3%;
   cursor: pointer;
 `;
 
