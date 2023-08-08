@@ -2,15 +2,18 @@ import React from 'react'
 import { styled } from 'styled-components'
 import google from '../img/google.png'
 import logo1 from '../img/logo1.png';
+import logo2 from '../img/logo2.png';
+import loginText from '../img/loginText.png';
 const Login = () => {
   const onClick = () => {
     console.log(1);
   }
 
   return (
+    <LoginWindow>
     <Container>
       <Left>
-        <Text>
+        <Text color="white" weight="400">
         VEBE is a team from LIKELION, year of 11th at <br/>
         Chung-Ang University, Korea.<br/>
         Our aim is to blah blah blah blah blah <br/>
@@ -20,12 +23,9 @@ const Login = () => {
         </Text>
       </Left>
       <Right>
-        <Top>
-          <Text>Hello! Welcome Back :)</Text>
-        </Top>
         <Middle>
-          <img src={logo1} alt="logo1"></img>
-          {/* <LogoText>VEBE</LogoText> */}
+          <Logo src={logo1} alt="logo1" width={"100%"}></Logo>
+          <Logo src={logo2} alt="logo2" width={"50%"}></Logo>
         </Middle>
         <Bottom>
           <Button onClick={onClick}>
@@ -34,24 +34,36 @@ const Login = () => {
             Log in with Google
             </ButtonText>
           </Button>
-          <Text>
+          <Text color="rgba(145, 147, 146, 1)" weight="700">
             Use without Log in
           </Text>
         </Bottom>
       </Right>
-      <DesignText>AllAbout Vegan Beauty</DesignText>
     </Container>
+      <DesignText src={loginText} alt="designText"></DesignText>
+    </LoginWindow>
+    
   )
 }
 
 export default Login
 
+const LoginWindow = styled.div`
+display: flex;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+
+`
+
 const Container = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-min-height: 100vh;
+top: 30%;
 width: 100%;
+height: 100%;
 `
 
 const Left = styled.div`
@@ -61,9 +73,7 @@ align-items: center;
 width: 35%;
 height: 36.625rem;
 border-radius: 2.5rem 0rem 0rem 2.5rem;
-border-bottom: 4px solid rgba(60, 144, 117, 0.3); 
-// background: var(--dark, #3C9075);
-// background-color: grey;
+border-bottom: 4px solid rgba(60, 144, 117, 0.3);
 background-color: rgba(60, 144, 117, 0.7);
 box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `
@@ -78,6 +88,7 @@ border-radius: 0rem 2.5rem 2.5rem 0rem;
 border-right: 4px solid rgba(60, 144, 117); 
 border-bottom: 4px solid rgba(60, 144, 117);
 flex-direction: column;
+background-color: rgba(255, 255, 255, 0.7);
 `
 
 const Text = styled.div`
@@ -86,48 +97,29 @@ justify-content: center;
 align-items: center;
 text-align: center;
 
-color: white;
+color: ${props=>props.color};
 text-align: center;
 font-family: Pretendard;
 font-size: 1rem;
 font-style: normal;
-font-weight: 400;
+font-weight: ${props=>props.weight};
 line-height: normal;
-`
-
-const Top = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-height: 10%;
-font-family: Pretendard;
-font-size: 1.25rem;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-color: var(--dark, #3C9075);
 `
 
 const Middle = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-width: 30%;
+flex-direction: column;
+width: 40%;
 height: 40%;
 `
-// const LogoText = styled.div`
-// display: flex;
-// justify-content: center;
-// align-items: center;
-
-// color: var(--black, #010D09);
-// text-align: center;
-// font-family: Caveat;
-// font-size: 1.5rem;
-// font-style: normal;
-// font-weight: 700;
-// line-height: normal;
-// `
+const Logo = styled.img`
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 0.5rem;
+`
 
 const Bottom = styled.div`
 display: flex;
@@ -181,15 +173,11 @@ margin-left: 8px;
 padding: 0;
 `
 
-const DesignText= styled.div`
+const DesignText= styled.img`
 position: absolute;
 display: inline-block;
 bottom: 0%;
-z-index: 1;
-color: rgba(21, 74, 57, 0.3);
-font-family: Qwitcher Grypen;
-font-size: 10rem;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+z-index: -1;
+width: 100%;
+height: 60%;
 `

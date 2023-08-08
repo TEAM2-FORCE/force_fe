@@ -39,7 +39,7 @@ const MyPage = () => {
             </Right>
           </Up>
           <ProfileContent>
-            <PictureStyled src={profile}></PictureStyled>
+            <PictureStyled src={profile} alt="profile"></PictureStyled>
             <ProfileText>Gildong Hong</ProfileText>
           </ProfileContent>
         </Profile>
