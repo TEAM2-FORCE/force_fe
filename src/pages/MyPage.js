@@ -2,7 +2,7 @@ import React from 'react'
 import { Wrapper } from '../components/layout/common'
 import { Section } from '../components/layout/Layout'
 import { styled } from 'styled-components'
-import setting from '../img/settings.png'
+import logout from '../img/log-out.png'
 import profile from '../img/profile.png'
 import ItemCard from '../components/ItemCard'
 import IngredientCard from '../components/IngredientCard'
@@ -10,7 +10,7 @@ import Nav from '../components/layout/Nav'
 import Footer from '../components/layout/Footer'
 
 const MyPage = () => {
-  const setProfile = () => {
+  const setLogOut = () => {
   }
 
   const moreWishList = () => {
@@ -31,11 +31,11 @@ const MyPage = () => {
             <Left>
               MyPage
             </Left>
-            <Right onClick={setProfile}>
+            <Right onClick={setLogOut}>
               <RightText>
-                Edit
+                Log Out
               </RightText>
-              <IconStyled src={setting} alt="Icon"></IconStyled>
+              <IconStyled src={logout} alt="Icon"></IconStyled>
             </Right>
           </Up>
           <ProfileContent>
@@ -54,11 +54,10 @@ const MyPage = () => {
             </Right>
           </Up>
           <Contents>
-            <ItemCard ></ItemCard>
-            <ItemCard ></ItemCard>
-            <ItemCard ></ItemCard>
-            <ItemCard ></ItemCard>
-            <ItemCard ></ItemCard>
+            <ItemCard></ItemCard>
+            <ItemCard></ItemCard>
+            <ItemCard></ItemCard>
+            <ItemCard></ItemCard>
           </Contents>
         </WishList>
 
@@ -169,10 +168,9 @@ color: var(--dark-gray, var(--dark-gray, #414241));
 font-family: Pretendard;
 font-size: 1rem;
 font-style: normal;
-font-weight: 700;
+font-weight: 400;
 line-height: normal;
 `
-
 const PictureStyled = styled.img`
 width: 10rem;
 height: 10rem;

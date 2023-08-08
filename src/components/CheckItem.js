@@ -11,11 +11,6 @@ const CheckItem = () => {
   const changeCheck = () => {
     setCheck(!check);
   }
-
-  // const buttonColor = () => {
-  //   if(check)return 'black';
-  //   else return 'white';
-  // }
   const whichCheckbox = () =>{
     if(check)return checked;
     else return unchecked;
@@ -48,6 +43,7 @@ background-color: white;
 width: 13px;
 height: 13px;
 margin-right: 10px;
+cursor: pointer;
 `
 
 const Image = styled.img`
