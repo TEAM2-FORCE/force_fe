@@ -6,7 +6,7 @@ import unchecked from '../img/unchecked.png'
 
 const CheckItem = () => {
   const [check, setCheck] = useState(false);
-  const [wish, setWish] = useState(true);
+  const wish = true;
 
   const changeCheck = () => {
     setCheck(!check);

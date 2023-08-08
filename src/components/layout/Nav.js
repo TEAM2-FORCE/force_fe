@@ -18,7 +18,10 @@ const Nav = () => {
   const navigate = useNavigate();
   const myPageClicked = () => {
     if (isLogin) navigate("/mypage");
-    else navigate("/login");
+    else {
+      navigate("/login");
+      setIsLogin(!isLogin);
+    }
   };
   const logoClicked = () => {
     navigate("/");
