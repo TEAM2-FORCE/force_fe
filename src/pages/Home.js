@@ -28,7 +28,7 @@ const Home = () => {
           <CategorySection whereTo="eye" name="Eye"/>
           <CategorySection whereTo="lip" name="Lip"/>
           <CategorySection whereTo="cleanser" name="Cleanser"/>
-          <CategorySection whereTo="mask" name="Masks"/>
+          <CategorySection whereTo="masks" name="Masks"/>
           <CategorySection whereTo="all" name="All"/>
         </ImageSection>
       </Section>

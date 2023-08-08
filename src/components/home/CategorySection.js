@@ -18,7 +18,7 @@ const CategorySection = ({whereTo, name}) => {
   const imageMapping = {
     moisturizer: moisturizer,
     suncare: suncare,
-    mask: mask,
+    masks: mask,
     eye: eye,
     face: face,
     lip: lip,
