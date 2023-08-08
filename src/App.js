@@ -18,7 +18,7 @@ import ScrollToTop from "./components/ScrollToTop";
 const App = () => {
   return (
     <BrowserRouter>
-    <ScrollToTop/>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -26,14 +26,13 @@ const App = () => {
         <Route path="/itemdetail" element={<ItemDetail />} />
         <Route path="/moisturizer" element={<Moisturizer />} />
         <Route path="/incipedia" element={<INCIpedia />} />
-        <Route path="/all" element={<All/>} />
+        <Route path="/all" element={<All />} />
         <Route path="/cleanser" element={<Cleanser />} />
         <Route path="/eye" element={<Eye />} />
         <Route path="/face" element={<Face />} />
         <Route path="/lip" element={<Lip />} />
         <Route path="/masks" element={<Masks />} />
         <Route path="/sunCare" element={<SunCare />} />
-        
       </Routes>
     </BrowserRouter>
   );

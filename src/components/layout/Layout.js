@@ -68,6 +68,9 @@ export const NavCosmetic = styled.div`
   &:active {
     opacity: 0.5;
   }
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const NavINCIpedia = styled.div`
@@ -86,6 +89,9 @@ export const NavINCIpedia = styled.div`
   color: #010d09;
   &:active {
     opacity: 0.5;
+  }
+  &:hover {
+    cursor: pointer;
   }
 `;
 
