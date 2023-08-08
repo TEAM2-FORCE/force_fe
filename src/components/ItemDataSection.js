@@ -31,10 +31,10 @@ const ItemDataSection = () => {
 export default ItemDataSection;
 
 const Cards = styled.div`
-// background-color: green;
 display: flex;
+justify-content: flex-start;
 width: 100%;
-height: 100%;
+max-height: 100%;
 flex-wrap: wrap;
 overflow-y: scroll;
 `

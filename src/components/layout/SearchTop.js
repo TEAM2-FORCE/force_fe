@@ -6,7 +6,7 @@ import { styled } from 'styled-components';
 const SearchTop = ({which}) => {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [whichSortBy, setWhichSortBy] = useState("Sort By");
+  const [whichSortBy, setWhichSortBy] = useState("Most Wishlisted");
   const sortClick = () => {
     setOpen(!open);
     setVisible(!visible);
@@ -72,7 +72,11 @@ line-height: normal;
 margin-left: 5%;
 `
 const Right = styled.button`
-width: 13%;
+display: flex;
+align-items: center;
+justify-content: right;
+
+width: 13rem;
 font-family: Pretendard;
 font-size: 1rem;
 font-style: normal;
@@ -83,9 +87,7 @@ margin-right: 5%;
 border: none;
 background-color: white;
 cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: right;
+
 position: relative;
 border-bottom: 1px solid black;
 `
@@ -117,6 +119,9 @@ font-weight: 400;
 line-height: normal;
 `
 const Text = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
 color: var(--dark-gray, var(--dark-gray, #414241));
 font-family: Pretendard;
 font-size: 1rem;
@@ -124,6 +129,7 @@ font-style: normal;
 font-weight: 700;
 line-height: normal;
 margin: 10px 10px 10px 0px;
+width: 100%;
 `
 const IconStyled = styled.img`
 width: 1.5rem;
