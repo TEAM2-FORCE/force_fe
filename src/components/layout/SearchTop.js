@@ -6,6 +6,7 @@ import { styled } from 'styled-components';
 const SearchTop = ({which}) => {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [whichSortBy, setWhichSortBy] = useState("Sort By");
   const sortClick = () => {
     setOpen(!open);
     setVisible(!visible);
@@ -14,18 +15,19 @@ const SearchTop = ({which}) => {
     if(!open)return arrowLeft;
     else return arrowDown;
   }
+
   //sort버튼별
   const mostWishlistedSort = () => {
-    console.log("1");
+    setWhichSortBy("Most Wishlisted");
   }
-  const priceLowToHighSort = () => {
-    console.log("2");
+  const priceAscendingSort = () => {
+    setWhichSortBy("Price Ascending");
   }
-  const priceHighToLow = () => {
-    console.log("3");
+  const priceDescendingSort = () => {
+    setWhichSortBy("Price Descending");
   }
   const abcSort = () => {
-    console.log("4");
+    setWhichSortBy("ABC");
   }
   return (
     <>
@@ -33,15 +35,23 @@ const SearchTop = ({which}) => {
 
     <Right onClick = {sortClick}>
       <Text>
-        Sort By
+        {whichSortBy}
       </Text>
       <IconStyled src={whichArrow()} alt="Icon"></IconStyled>
       {visible && 
       <SortBar>
-        <SortButton onClick={mostWishlistedSort}>Most Wishlisted</SortButton>
-        <SortButton onClick={priceLowToHighSort}>Price Low to High</SortButton>
-        <SortButton onClick={priceHighToLow}>Price High to Low</SortButton>
-        <SortButton onClick={abcSort}>ABC</SortButton>
+        <SortButton onClick={mostWishlistedSort} data-isselected={whichSortBy === "Most Wishlisted"}>
+          Most Wishlisted
+        </SortButton>
+        <SortButton onClick={priceAscendingSort} data-isselected={whichSortBy === "Price Ascending"}>
+          Price Ascending
+        </SortButton>
+        <SortButton onClick={priceDescendingSort} data-isselected={whichSortBy === "Price Descending"}>
+          Price Descending
+        </SortButton>
+        <SortButton onClick={abcSort} data-isselected={whichSortBy === "ABC"}>
+          ABC
+        </SortButton>
       </SortBar>
       }
       
@@ -62,7 +72,7 @@ line-height: normal;
 margin-left: 5%;
 `
 const Right = styled.button`
-float: right;
+width: 13%;
 font-family: Pretendard;
 font-size: 1rem;
 font-style: normal;
@@ -75,8 +85,9 @@ background-color: white;
 cursor: pointer;
 display: flex;
 align-items: center;
-
+justify-content: right;
 position: relative;
+border-bottom: 1px solid black;
 `
 
 const SortBar = styled.div`
@@ -96,7 +107,7 @@ height: 25%;
 width: 100%;
 border: none;
 
-background-color: white;
+background-color: ${props => (props["data-isselected"] ? "grey" : "white")};
 border-bottom: 1px solid black;
 
 font-family: Pretendard;
