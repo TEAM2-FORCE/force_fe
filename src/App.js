@@ -14,6 +14,7 @@ import Lip from "./pages/search/Lip";
 import Masks from "./pages/search/Masks";
 import SunCare from "./pages/search/SunCare";
 import ScrollToTop from "./components/ScrollToTop";
+import IncipediaDetail from "./pages/IncipediaDetail";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/myPage" element={<MyPage />} />
         <Route path="/itemdetail" element={<ItemDetail />} />
+        <Route path="/incipediadetail" element={<IncipediaDetail />} />
         <Route path="/moisturizer" element={<Moisturizer />} />
         <Route path="/incipedia" element={<INCIpedia />} />
         <Route path="/all" element={<All />} />
