@@ -1,29 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Wrapper } from "../../components/layout/common";
 import {
   Section
 } from "../../components/layout/Layout";
-
-import arrowLeft from "../../img/arrowLeft.png"
-import arrowDown from "../../img/arrowDown.png"
 import CheckItemList from "../../components/CheckItemList";
 
 import ItemDataSection from "../../components/ItemDataSection";
 import Nav from "../../components/layout/Nav";
 import Footer from "../../components/layout/Footer";
+import SearchTop from "../../components/layout/SearchTop";
 
 const Face = () => {
-  const [open, setOpen] = useState(false);
-  const [visible, setVisible] = useState(false);
-  const sortClick = () => {
-    setOpen(!open);
-    setVisible(!visible);
-  }
-  const whichArrow = () =>{
-    if(!open)return arrowLeft;
-    else return arrowDown;
-  }
   const OKButtonClicked = () => {
 
   }
@@ -31,43 +19,13 @@ const Face = () => {
 
   }
 
-  //sort버튼별
-  const mostWishlistedSort = () => {
-    console.log("1");
-  }
-  const priceLowToHighSort = () => {
-    console.log("2");
-  }
-  const priceHighToLow = () => {
-    console.log("3");
-  }
-  const abcSort = () => {
-    console.log("4");
-  }
-
   return (
     <Wrapper>
       <Nav></Nav>
 
       <Top>
-          <Left>Face</Left>
-
-          <Right onClick = {sortClick}>
-              <Text>
-                Sort By
-              </Text>
-              <IconStyled src={whichArrow()} alt="Icon"></IconStyled>
-              {visible && 
-              <SortBar>
-                <SortButton onClick={mostWishlistedSort}>Most Wishlisted</SortButton>
-                <SortButton onClick={priceLowToHighSort}>Price Low to High</SortButton>
-                <SortButton onClick={priceHighToLow}>Price High to Low</SortButton>
-                <SortButton onClick={abcSort}>ABC</SortButton>
-              </SortBar>
-              }
-              
-            </Right>
-        </Top>
+        <SearchTop which="Face"></SearchTop>
+      </Top>
         
       <Section>
         <Center>
@@ -124,32 +82,6 @@ float: top;
 margin-top: 2%;
 margin-bottom: 1%;
 `
-const Left = styled.div`
-float: left;
-font-family: Pretendard;
-font-size: 2rem;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-margin-left: 5%;
-`
-const Right = styled.button`
-float: right;
-font-family: Pretendard;
-font-size: 1rem;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-
-margin-right: 5%;
-border: none;
-background-color: white;
-cursor: pointer;
-display: flex;
-align-items: center;
-
-position: relative;
-`
 const Center = styled.div`
 display: flex;
 width: 90%;
@@ -173,12 +105,6 @@ font-style: normal;
 font-weight: 700;
 line-height: normal;
 margin: 10px 10px 10px 0px;
-`
-const IconStyled = styled.img`
-width: 1.5rem;
-height: 1.5rem;
-margin-left: 8px;
-padding: 0;
 `
 const Decision = styled.div`
 top: 0%;
@@ -216,32 +142,4 @@ const Contents = styled.div`
 width: 83%;
 height: 100%;
 margin-top: 20px;
-`
-
-const SortBar = styled.div`
-position: absolute;
-justify-content: center;
-align-items: center;
-top: 100%;
-right: 0%;
-width: 13rem;
-height: 13rem;
-`
-
-const SortButton = styled.button`
-display: flex;
-justify-content: center;
-align-items: center;
-height: 25%;
-width: 100%;
-border: none;
-
-background-color: white;
-border-bottom: 1px solid black;
-
-font-family: Pretendard;
-font-size: 1rem;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
 `

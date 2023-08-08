@@ -1,6 +1,7 @@
 import React from 'react'
 import { styled } from 'styled-components'
 import google from '../img/google.png'
+import logo1 from '../img/logo1.png';
 const Login = () => {
   const onClick = () => {
     console.log(1);
@@ -10,9 +11,12 @@ const Login = () => {
     <Container>
       <Left>
         <Text>
-          Kisse is a team from LIKELION, year of 11th at<br/>
-          Chung-Ang University, Korea.<br/>
-          Our aim is to blah blah
+        VEBE is a team from LIKELION, year of 11th at <br/>
+        Chung-Ang University, Korea.<br/>
+        Our aim is to blah blah blah blah blah <br/>
+        VEBE is a team from LIKELION, year of 11th at <br/>
+        Chung-Ang University, Korea.<br/>
+        Our aim is to blah blah blah blah blah 
         </Text>
       </Left>
       <Right>
@@ -20,7 +24,8 @@ const Login = () => {
           <Text>Hello! Welcome Back :)</Text>
         </Top>
         <Middle>
-          <Text>LOGO</Text>
+          <img src={logo1} alt="logo1"></img>
+          {/* <LogoText>VEBE</LogoText> */}
         </Middle>
         <Bottom>
           <Button onClick={onClick}>
@@ -34,6 +39,7 @@ const Login = () => {
           </Text>
         </Bottom>
       </Right>
+      <DesignText>AllAbout Vegan Beauty</DesignText>
     </Container>
   )
 }
@@ -56,7 +62,10 @@ width: 35%;
 height: 36.625rem;
 border-radius: 2.5rem 0rem 0rem 2.5rem;
 border-bottom: 4px solid rgba(60, 144, 117, 0.3); 
-background-color: white;
+// background: var(--dark, #3C9075);
+// background-color: grey;
+background-color: rgba(60, 144, 117, 0.7);
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `
 
 const Right = styled.div`
@@ -66,9 +75,9 @@ align-items: center;
 width: 35%;
 height: 36.625rem;
 border-radius: 0rem 2.5rem 2.5rem 0rem;
-border-right: 4px solid rgba(60, 144, 117, 0.3); 
+border-right: 4px solid rgba(60, 144, 117); 
+border-bottom: 4px solid rgba(60, 144, 117);
 flex-direction: column;
-background-color: rgba(168, 255, 221, 0.3)
 `
 
 const Text = styled.div`
@@ -76,7 +85,14 @@ display: flex;
 justify-content: center;
 align-items: center;
 text-align: center;
+
+color: white;
+text-align: center;
 font-family: Pretendard;
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
 `
 
 const Top = styled.div`
@@ -96,8 +112,22 @@ const Middle = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
+width: 30%;
 height: 40%;
 `
+// const LogoText = styled.div`
+// display: flex;
+// justify-content: center;
+// align-items: center;
+
+// color: var(--black, #010D09);
+// text-align: center;
+// font-family: Caveat;
+// font-size: 1.5rem;
+// font-style: normal;
+// font-weight: 700;
+// line-height: normal;
+// `
 
 const Bottom = styled.div`
 display: flex;
@@ -131,6 +161,7 @@ border: none;
 border-radius: 0.625rem;
 background: var(--white, #FDFFFD);
 box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+z-index: 2;
 `
 
 const ButtonText = styled.div`
@@ -148,4 +179,17 @@ width: 1.5rem;
 height: 1.5rem;
 margin-left: 8px;
 padding: 0;
+`
+
+const DesignText= styled.div`
+position: absolute;
+display: inline-block;
+bottom: 0%;
+z-index: 1;
+color: rgba(21, 74, 57, 0.3);
+font-family: Qwitcher Grypen;
+font-size: 10rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
 `
