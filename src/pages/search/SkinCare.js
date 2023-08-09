@@ -10,13 +10,14 @@ import Footer from "../../components/layout/Footer";
 import SearchTop from "../../components/layout/SearchTop";
 import FilterLists from "../../components/search/FilterLists";
 
-const Moisturizer = () => {
+const SkinCare = () => {
+
   return (
     <Wrapper>
       <Nav/>
 
       <Top>
-        <SearchTop which="Moisturizer"></SearchTop>
+        <SearchTop which="Skin Care"></SearchTop>
       </Top>
         
       <Section>
@@ -24,15 +25,17 @@ const Moisturizer = () => {
           <FilterLists/>
           <Contents>
             <ItemDataSection></ItemDataSection>
-          </Contents>  
+          </Contents>
+        
         </Center>
+
       </Section>
       <Footer/>
     </Wrapper>
   );
 };
 
-export default Moisturizer;
+export default SkinCare;
 
 const Top = styled.div`
 top: 0%;

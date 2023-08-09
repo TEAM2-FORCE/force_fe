@@ -16,7 +16,7 @@ const SunCare = () => {
       <Nav/>
 
       <Top>
-        <SearchTop which="SunCare"></SearchTop>
+        <SearchTop which="Sun Care"></SearchTop>
       </Top>
         
       <Section>

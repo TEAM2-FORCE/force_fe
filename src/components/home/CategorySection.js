@@ -1,14 +1,11 @@
 import React from 'react'
 import { styled } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import moisturizer from "../../img/Moisturizer.png";
+import makeup from "../../img/Makeup.png";
 import suncare from "../../img/SunCare.png";
-import mask from "../../img/Mask.png";
-import eye from "../../img/Eye.png";
-import face from "../../img/Face.png";
-import lip from "../../img/Lip.png";
-import cleanser from "../../img/Cleanser.png";
-import all from "../../img/AllProducts.png";
+import mask from "../../img/Masks.png";
+import skincare from "../../img/Skincare.png";
+// import all from "../../img/AllProducts.png";
 
 const CategorySection = ({whereTo, name}) => {
   const navigate = useNavigate();
@@ -16,14 +13,11 @@ const CategorySection = ({whereTo, name}) => {
     navigate(`/${where}`);
   };
   const imageMapping = {
-    moisturizer: moisturizer,
+    makeup: makeup,
     suncare: suncare,
+    skincare: skincare,
     masks: mask,
-    eye: eye,
-    face: face,
-    lip: lip,
-    cleanser: cleanser,
-    all: all,
+    // all: all,
   };
   return (
     <>

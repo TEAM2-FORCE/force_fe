@@ -10,13 +10,13 @@ import Footer from "../../components/layout/Footer";
 import SearchTop from "../../components/layout/SearchTop";
 import FilterLists from "../../components/search/FilterLists";
 
-const Eye = () => {
+const MakeUp = () => {
   return (
     <Wrapper>
       <Nav/>
 
       <Top>
-        <SearchTop which="Eye"></SearchTop>
+        <SearchTop which="Make Up"></SearchTop>
       </Top>
         
       <Section>
@@ -33,7 +33,7 @@ const Eye = () => {
   );
 };
 
-export default Eye;
+export default MakeUp;
 
 const Top = styled.div`
 top: 0%;

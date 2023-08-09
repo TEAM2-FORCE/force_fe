@@ -22,14 +22,10 @@ const Home = () => {
           </h2>
         </Category>
         <ImageSection>
-          <CategorySection whereTo="moisturizer" name="Moisturizer"/>
+          <CategorySection whereTo="makeup" name="Make Up"/>
+          <CategorySection whereTo="skincare" name="Skin Care"/>
           <CategorySection whereTo="suncare" name="Sun Care"/>
-          <CategorySection whereTo="face" name="Face"/>
-          <CategorySection whereTo="eye" name="Eye"/>
-          <CategorySection whereTo="lip" name="Lip"/>
-          <CategorySection whereTo="cleanser" name="Cleanser"/>
           <CategorySection whereTo="masks" name="Masks"/>
-          <CategorySection whereTo="all" name="All"/>
         </ImageSection>
       </Section>
       <Footer></Footer>
