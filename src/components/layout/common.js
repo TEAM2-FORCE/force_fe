@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   position: absolute;
   left: 0px;
   top: 0px;
+  width: 100%;
 `;
 
 export const Button = styled.button`

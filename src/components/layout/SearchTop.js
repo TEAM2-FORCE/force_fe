@@ -6,7 +6,7 @@ import { styled } from "styled-components";
 const SearchTop = ({ which }) => {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [whichSortBy, setWhichSortBy] = useState("ABC");
+  const [whichSortBy, setWhichSortBy] = useState("Most Wishlisted");
   const sortClick = () => {
     setOpen(!open);
     setVisible(!visible);
@@ -17,9 +17,9 @@ const SearchTop = ({ which }) => {
   };
 
   //sort버튼별
-  // const mostWishlistedSort = () => {
-  //   setWhichSortBy("Most Wishlisted");
-  // };
+  const mostWishlistedSort = () => {
+    setWhichSortBy("Most Wishlisted");
+  };
   // const priceAscendingSort = () => {
   //   setWhichSortBy("Price Ascending");
   // };
@@ -38,13 +38,19 @@ const SearchTop = ({ which }) => {
         <IconStyled src={whichArrow()} alt="Icon"></IconStyled>
         {visible && (
           <SortBar>
-            {/* <SortButton
+            <SortButton
               onClick={mostWishlistedSort}
               data-isselected={whichSortBy === "Most Wishlisted"}
             >
               Most Wishlisted
             </SortButton>
             <SortButton
+              onClick={abcSort}
+              data-isselected={whichSortBy === "ABC"}
+            >
+              ABC
+            </SortButton>
+            {/* <SortButton
               onClick={priceAscendingSort}
               data-isselected={whichSortBy === "Price Ascending"}
             >
@@ -56,12 +62,6 @@ const SearchTop = ({ which }) => {
             >
               Price Descending
             </SortButton> */}
-            <SortButton
-              onClick={abcSort}
-              data-isselected={whichSortBy === "ABC"}
-            >
-              ABC
-            </SortButton>
           </SortBar>
         )}
       </Right>
