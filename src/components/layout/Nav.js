@@ -44,7 +44,7 @@ const Nav = () => {
         <SearchBar>
           <input
             type="text"
-            placeholder="Search"
+            placeholder="Search Product"
             style={{
               border: "none",
               height: "1.2rem",

@@ -48,23 +48,7 @@ const INCIpedia = () => {
 
       <Top>
           <Left>INCIpedia</Left>
-
-          <Right onClick = {sortClick}>
-              <Text>
-                Sort By
-              </Text>
-              <IconStyled src={whichArrow()} alt="Icon"></IconStyled>
-              {visible && 
-              <SortBar>
-                <SortButton onClick={mostWishlistedSort}>Most Wishlisted</SortButton>
-                <SortButton onClick={priceLowToHighSort}>Price Low to High</SortButton>
-                <SortButton onClick={priceHighToLow}>Price High to Low</SortButton>
-                <SortButton onClick={abcSort}>ABC</SortButton>
-              </SortBar>
-              }
-              
-            </Right>
-        </Top>
+      </Top>
         
       <Section>
         <Center>
@@ -73,7 +57,7 @@ const INCIpedia = () => {
             <SearchBar>
             <input
               type="text"
-              placeholder="Search"
+              placeholder="Search Ingredient"
               style={{ border:"none", height: "1.2rem", outline: "none", width: "100%"}}
             ></input>
             <SearchButton src={searchIcon} />
