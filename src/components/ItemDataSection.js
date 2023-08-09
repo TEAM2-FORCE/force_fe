@@ -33,7 +33,7 @@ export default ItemDataSection;
 const Cards = styled.div`
 display: flex;
 width: 100%;
-max-height: 100%;
+max-height: 1200px;
 flex-wrap: wrap;
 overflow-y: scroll;
 `

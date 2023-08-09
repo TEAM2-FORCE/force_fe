@@ -3,6 +3,8 @@ import styled from "styled-components";
 import ingredientExample from "../img/ingredientExample.png"
 import emptyStar from "../img/emptyStar.png"
 import fullStar from "../img/fullStar.png"
+import testingX from "../img/testingX.png";
+import ingredientX from "../img/ingredientX.png";
 
 const IngredientCard = () => {
   const [bookmark, setBookmark] = useState(false);
@@ -29,8 +31,8 @@ const IngredientCard = () => {
         <div>Antibacterial, moisturizing, preservative</div>    
       </Contents>
       <Bottom>
-        <Testing>Testing {"X"}</Testing>
-        <Ingredients>Ingredients {"X"}</Ingredients>
+      <MarkImage src={testingX} alt="testingX"></MarkImage>
+        <MarkImage src={ingredientX} alt="ingredientX"></MarkImage>
       </Bottom>
     </Card>
   );
@@ -109,20 +111,25 @@ padding-left: 10px;
 padding-right: 10px;
 `
 
-const Testing = styled.div`
-justify-content: center;
-align-items: center;
-gap: 0.625rem;
-border-radius: 1rem;
-background: var(--label-color-1, #FFB7EF);
-padding: 3px 5px 3px 5px;
-margin-right: 5px;
-`
-const Ingredients = styled.div`
-justify-content: center;
-align-items: center;
-gap: 0.625rem;
-border-radius: 1rem;
-background: var(--label-color-2, #FFDBA5);
-padding: 3px 5px 3px 5px;
+// const Testing = styled.div`
+// justify-content: center;
+// align-items: center;
+// gap: 0.625rem;
+// border-radius: 1rem;
+// background: var(--label-color-1, #FFB7EF);
+// padding: 3px 5px 3px 5px;
+// margin-right: 5px;
+// `
+// const Ingredients = styled.div`
+// justify-content: center;
+// align-items: center;
+// gap: 0.625rem;
+// border-radius: 1rem;
+// background: var(--label-color-2, #FFDBA5);
+// padding: 3px 5px 3px 5px;
+// `
+
+const MarkImage = styled.img`
+width: 40%;
+margin: 0.1%;
 `

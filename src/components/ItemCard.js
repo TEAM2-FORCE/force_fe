@@ -3,6 +3,8 @@ import styled from "styled-components";
 import itemExample from "../img/itemExample.png";
 import emptyHeart from "../img/emptyHeart2.png";
 import fullHeart from "../img/fullHeart.png";
+import testingX from "../img/testingX.png";
+import ingredientX from "../img/ingredientX.png";
 
 const ItemCard = () => {
   const [wish, setWish] = useState(false);
@@ -20,7 +22,7 @@ const ItemCard = () => {
   return (
     <Card>
       <Picture>
-        <img src={itemExample} alt="item"></img>
+        <img src={itemExample} alt="item" height="70%"></img>
       </Picture>
       <Contents>
         <IngredientInfo>
@@ -33,8 +35,8 @@ const ItemCard = () => {
         <div>{10000}원</div>
       </Contents>
       <Bottom>
-        <Testing>Testing {"X"}</Testing>
-        <Ingredients>Ingredients {"X"}</Ingredients>
+        <MarkImage src={testingX} alt="testingX"></MarkImage>
+        <MarkImage src={ingredientX} alt="ingredientX"></MarkImage>
       </Bottom>
     </Card>
   );
@@ -46,9 +48,13 @@ const Card = styled.div`
   flex-direction: column;
   background-color: white;
   gap: 10px;
-  min-width: 20%;
+  // min-width: 20%;
+  // min-width: 10rem;
+  // min-height: 10rem;
   max-height: 25rem;
-  margin: 25px;
+  // max-height: 100%;
+  margin: 3%;
+  position: relative;
 `;
 
 const Picture = styled.div`
@@ -57,10 +63,13 @@ const Picture = styled.div`
   justify-content: center;
   align-items: center;
   display: flex;
-  gap: 20px;
-  height: 10rem;
-  margin-bottom: 3px;
+  // gap: 20px;
+  // height: 10rem;
+  height: 75%
+  margin-bottom: 1%;
 `;
+
+
 
 const Contents = styled.div`
   display: flex;
@@ -110,21 +119,7 @@ const Bottom = styled.div`
   padding-left: 10px;
   padding-right: 10px;
 `;
-
-const Testing = styled.div`
-  justify-content: center;
-  align-items: center;
-  gap: 0.625rem;
-  border-radius: 1rem;
-  background: var(--label-color-1, #ffb7ef);
-  padding: 3px 5px 3px 5px;
-  margin-right: 5px;
-`;
-const Ingredients = styled.div`
-  justify-content: center;
-  align-items: center;
-  gap: 0.625rem;
-  border-radius: 1rem;
-  background: var(--label-color-2, #ffdba5);
-  padding: 3px 5px 3px 5px;
-`;
+const MarkImage = styled.img`
+width: 40%;
+margin: 0.1%;
+`

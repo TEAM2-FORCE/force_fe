@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Wrapper } from "../components/layout/common";
 import { Section } from "../components/layout/Layout";
 import Nav from "../components/layout/Nav";
 import Footer from "../components/layout/Footer";
-import about from "../img/about.png";
 import CategorySection from "../components/home/CategorySection";
+import {Banner} from "../components/Banner";
 
 const Home = () => {
   return (
@@ -13,7 +13,7 @@ const Home = () => {
       <Nav></Nav>
       <Section>
         <About>
-          <AboutImage src={about} alt="Image" />
+          <Banner></Banner>
         </About>
         <Category>
           <h2>
@@ -40,18 +40,10 @@ const Home = () => {
 export default Home;
 
 const About = styled.div`
-  width: 90%;
-  height: 30%;
-  overflow: hidden;
-  background: url(<path-to-image>),
-    lightgray 0px -281.646px / 100% 284.444% no-repeat;
+  width: 100%;
 `;
 
-const AboutImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
+
 
 const ImageSection = styled.div`
   display: flex;

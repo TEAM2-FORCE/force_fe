@@ -52,6 +52,7 @@ const ImageWrapper = styled.div`
   &:hover {
     cursor: pointer;
   }
+  margin-bottom: 1.5%;
 `;
 
 const Image = styled.img`

@@ -112,6 +112,7 @@ flex-direction: column;
 const WishList = styled.div`
 width: 90%;
 height: 33%;
+overflow: hidden;
 `
 
 const BookMark = styled.div`
@@ -151,9 +152,10 @@ display: flex;
 
 const Contents = styled.div`
 display: flex;
-flex-direction: center;
+// flex-direction: center;
 padding-left: 5%;
 padding-right: 5%;
+max-height: 50%;
 `
 
 const IconStyled = styled.img`

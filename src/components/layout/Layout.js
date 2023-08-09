@@ -14,9 +14,8 @@ export const Section = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 150vh;
+  height: 100%;
   width: 100%;
-  margin-bottom: 15%;
 `;
 
 export const FooterContainer = styled.div`
@@ -28,6 +27,7 @@ export const FooterContainer = styled.div`
   width: 100%;
   background-color: #154a39;
   color: white;
+  margin-top: 7%;
 `;
 
 export const FooterStyle = styled.div`
