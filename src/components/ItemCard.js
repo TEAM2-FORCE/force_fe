@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import itemExample from "../img/itemExample.png";
-import emptyHeart from "../img/emptyHeart.png";
+import emptyHeart from "../img/emptyHeart2.png";
 import fullHeart from "../img/fullHeart.png";
 
 const ItemCard = () => {
@@ -26,7 +26,7 @@ const ItemCard = () => {
         <IngredientInfo>
           <ProductName>ProductName</ProductName>
           <WishButton onClick={wishClick}>
-            <img src={whichHeart()} alt="wish"></img>
+            <img src={whichHeart()} alt="wish" style={{width: "1rem", objectFit: "contain", margin: "0.2rem"}}></img>
           </WishButton>
         </IngredientInfo>
         <div>The Ordinary</div>

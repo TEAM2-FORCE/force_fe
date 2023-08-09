@@ -120,7 +120,7 @@ const SortButton = styled.button`
 
   background-color: ${(props) => (props["data-isselected"] ? "grey" : "white")};
   border-bottom: 1px solid black;
-
+  border-top: 1px solid black;
   font-family: Pretendard;
   font-size: 1rem;
   font-style: normal;
