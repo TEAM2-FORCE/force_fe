@@ -84,15 +84,11 @@ const ItemDetail = () => {
               <P>Oliveyoung Web</P>
               <P>100,000 KRW</P>
             </Container>
-            {/* <P>Oliveyoung Web</P>
-            <P>Brand Mall</P>
-            <P>Oliveyoung Web</P>
-            <P>Oliveyoung Web</P> */}
           </div>
         </ItemDescription>
       </Body>
       <Footer></Footer>
-      {modal && <Modal />}
+      {modal && <Modal setModal={setModal} />}
     </Wrapper>
   );
 };

@@ -1,6 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
+import NoAnimalMaterial from "../img/NoMark/NoAnimalMaterial.png";
+import NoAnimalExperiment from "../img/NoMark/NoAnimalExperiment.png";
+import NoContamination from "../img/NoMark/NoContamination.png";
+import CancelIcon from "../img/VeganMark/CancelIcon.png";
+
 const Modal = ({ setModal }) => {
   const cancelModal = () => {
     setModal(false);
@@ -10,21 +15,36 @@ const Modal = ({ setModal }) => {
     <Container>
       <ModalBackground>
         <ModalBlock>
-          <Header />
+          <Header>
+            <CancelButton src={CancelIcon} onClick={cancelModal} />
+          </Header>
           <Body>
-            <div>Korea Agency of Vegan Certification and Services</div>
+            <h2>
+              Korea Agency of
+              <br />
+              Vegan Certification and Services
+            </h2>
             <Wrapper>
               <Description>
-                <img />
-                blah blah
+                <img
+                  src={NoAnimalMaterial}
+                  style={{ width: "5rem", height: "5rem" }}
+                />
+                <div>No use of animal-derived raw materials.</div>
               </Description>
               <Description>
-                <img />
-                blah blah
+                <img
+                  src={NoAnimalExperiment}
+                  style={{ width: "5rem", height: "4.5rem" }}
+                />
+                <div>No Animal Testing</div>
               </Description>
               <Description>
-                <img />
-                blah blah
+                <img
+                  src={NoContamination}
+                  style={{ width: "5rem", height: "4.5rem" }}
+                />
+                <div>No cross-contamination during production process.</div>
               </Description>
             </Wrapper>
           </Body>
@@ -60,8 +80,9 @@ const ModalBackground = styled.div`
 
 const ModalBlock = styled.div`
   position: absolute;
-  padding: 0;
+  background-color: white;
   width: 51.24rem;
+  height: 30rem;
   box-shadow: 1px 1px 1px 1px gray;
   display: flex;
   flex-direction: column;
@@ -79,30 +100,13 @@ const Header = styled.div`
 const Body = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  text-align: center;
   width: 100%;
   background-color: white;
   color: black;
 `;
-
-// const ButtonSection = styled.button`
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: white;
-//   border: none;
-// `;
-
-// const ModalButton = styled.button`
-//   all: unset;
-//   background-color: ${(props) => props.mode};
-//   color: white;
-//   padding: 10px;
-//   border-radius: 24px;
-//   cursor: pointer;
-// `;
 
 const Wrapper = styled.div`
   display: flex;
@@ -113,5 +117,16 @@ const Wrapper = styled.div`
 const Description = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+  width: 33.33%;
+`;
+
+const CancelButton = styled.img`
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  top: 3rem;
+  right: 5rem;
+  cursor: pointer;
 `;
