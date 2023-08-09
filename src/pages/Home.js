@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Wrapper } from "../components/layout/common";
 import { Section } from "../components/layout/Layout";
