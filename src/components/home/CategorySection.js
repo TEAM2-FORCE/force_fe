@@ -1,13 +1,13 @@
-import React from 'react'
-import { styled } from 'styled-components';
-import { useNavigate } from 'react-router-dom';
-import makeup from "../../img/Makeup.png";
-import suncare from "../../img/SunCare.png";
-import mask from "../../img/Masks.png";
-import skincare from "../../img/Skincare.png";
+import React from "react";
+import { styled } from "styled-components";
+import { useNavigate } from "react-router-dom";
+import makeup from "../../img/Mainpage/Makeup.png";
+import suncare from "../../img/Mainpage/SunCare.png";
+import mask from "../../img/Mainpage/Masks.png";
+import skincare from "../../img/Mainpage/Skincare.png";
 // import all from "../../img/AllProducts.png";
 
-const CategorySection = ({whereTo, name}) => {
+const CategorySection = ({ whereTo, name }) => {
   const navigate = useNavigate();
   const goto = (where) => {
     navigate(`/${where}`);
@@ -21,15 +21,15 @@ const CategorySection = ({whereTo, name}) => {
   };
   return (
     <>
-    <ImageWrapper onClick={() => goto(whereTo)}>
-    <Image src={imageMapping[whereTo]} alt="Image" />
-      <TextContainer>
-        <h3>{name}</h3>
-      </TextContainer>
-    </ImageWrapper>
+      <ImageWrapper onClick={() => goto(whereTo)}>
+        <Image src={imageMapping[whereTo]} alt="Image" />
+        <TextContainer>
+          <h3>{name}</h3>
+        </TextContainer>
+      </ImageWrapper>
     </>
-  )
-}
+  );
+};
 
 export default CategorySection;
 

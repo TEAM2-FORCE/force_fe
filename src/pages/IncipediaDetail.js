@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Wrapper } from "../components/layout/common";
+import { Wrapper } from "../components/layout/Layout";
 import Nav from "../components/layout/Nav";
 import Footer from "../components/layout/Footer";
 
 import ItemCard from "../components/ItemCard";
 
-import emptyStar from "../img/emptyStar2.png";
-import fullStar from "../img/fullStar.png";
+import emptyStar from "../img/Ingredients/emptyStar2.png";
+import fullStar from "../img/Ingredients/fullStar.png";
 
 const IncipediaDetail = () => {
   const [favorite, setFavorite] = useState(false);

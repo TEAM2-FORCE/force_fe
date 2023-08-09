@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import itemExample from "../img/itemExample.png";
-import emptyHeart from "../img/emptyHeart2.png";
-import fullHeart from "../img/fullHeart.png";
-import testingX from "../img/testingX.png";
-import ingredientX from "../img/ingredientX.png";
+import itemExample from "../img/Items/itemExample.png";
+import emptyHeart from "../img/Items/emptyHeart2.png";
+import fullHeart from "../img/Items/fullHeart.png";
+import testingX from "../img/Ingredients/testingX.png";
+import ingredientX from "../img/Ingredients/ingredientX.png";
 
 const ItemCard = () => {
   const [wish, setWish] = useState(false);
@@ -28,7 +28,11 @@ const ItemCard = () => {
         <IngredientInfo>
           <ProductName>ProductName</ProductName>
           <WishButton onClick={wishClick}>
-            <img src={whichHeart()} alt="wish" style={{width: "1rem", objectFit: "contain", margin: "0.2rem"}}></img>
+            <img
+              src={whichHeart()}
+              alt="wish"
+              style={{ width: "1rem", objectFit: "contain", margin: "0.2rem" }}
+            ></img>
           </WishButton>
         </IngredientInfo>
         <div>The Ordinary</div>
@@ -68,8 +72,6 @@ const Picture = styled.div`
   height: 75%
   margin-bottom: 1%;
 `;
-
-
 
 const Contents = styled.div`
   display: flex;
@@ -120,6 +122,6 @@ const Bottom = styled.div`
   padding-right: 10px;
 `;
 const MarkImage = styled.img`
-width: 40%;
-margin: 0.1%;
-`
+  width: 40%;
+  margin: 0.1%;
+`;

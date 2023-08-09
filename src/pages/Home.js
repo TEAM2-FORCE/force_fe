@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { Wrapper } from "../components/layout/common";
+import { Wrapper } from "../components/layout/Layout";
 import { Section } from "../components/layout/Layout";
 import Nav from "../components/layout/Nav";
 import Footer from "../components/layout/Footer";
 import CategorySection from "../components/home/CategorySection";
-import {Banner} from "../components/Banner";
+import { Banner } from "../components/Banner";
 
 const Home = () => {
   return (
@@ -22,10 +22,10 @@ const Home = () => {
           </h2>
         </Category>
         <ImageSection>
-          <CategorySection whereTo="makeup" name="Make Up"/>
-          <CategorySection whereTo="skincare" name="Skin Care"/>
-          <CategorySection whereTo="suncare" name="Sun Care"/>
-          <CategorySection whereTo="masks" name="Masks"/>
+          <CategorySection whereTo="makeup" name="Make Up" />
+          <CategorySection whereTo="skincare" name="Skin Care" />
+          <CategorySection whereTo="suncare" name="Sun Care" />
+          <CategorySection whereTo="masks" name="Masks" />
         </ImageSection>
       </Section>
       <Footer></Footer>
@@ -38,8 +38,6 @@ export default Home;
 const About = styled.div`
   width: 100%;
 `;
-
-
 
 const ImageSection = styled.div`
   display: flex;

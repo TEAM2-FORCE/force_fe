@@ -1,5 +1,18 @@
 import styled from "styled-components";
 
+export const Wrapper = styled.div`
+  box-sizing: border-box;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+`;
+
 export const NavContainer = styled.div`
   display: flex;
   align-items: center;

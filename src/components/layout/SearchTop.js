@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import arrowLeft from "../../img/arrowLeft.png";
-import arrowDown from "../../img/arrowDown.png";
+import arrowLeft from "../../img/Items/arrowLeft.png";
+import arrowDown from "../../img/Items/arrowDown.png";
 import { styled } from "styled-components";
 
 const SearchTop = ({ which }) => {

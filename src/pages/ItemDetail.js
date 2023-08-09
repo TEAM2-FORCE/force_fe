@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Wrapper } from "../components/layout/common";
-import itemImage from "../img/itemExample.png";
+import { Wrapper } from "../components/layout/Layout";
+import itemImage from "../img/Items/itemExample.png";
 import Nav from "../components/layout/Nav";
 import Footer from "../components/layout/Footer";
+import Modal from "./Modal";
 
-import veganmark1 from "../img/veganMark1.png";
-import veganmark2 from "../img/veganMark2.png";
-import emptyHeart from "../img/emptyHeart2.png";
-import fullHeart from "../img/fullHeart.png";
+import veganmark1 from "../img/VeganMark/veganMark1.png";
+import veganmark2 from "../img/VeganMark/veganMark2.png";
+import emptyHeart from "../img/Items/emptyHeart2.png";
+import fullHeart from "../img/Items/fullHeart.png";
 
 const ItemDetail = () => {
   const [wish, setWish] = useState(false);
@@ -21,6 +22,12 @@ const ItemDetail = () => {
   };
   const wishClick = () => {
     setWish(!wish);
+  };
+
+  const [modal, setModal] = useState(false);
+
+  const handleClick = () => {
+    setModal(true);
   };
 
   return (
@@ -44,8 +51,8 @@ const ItemDetail = () => {
               The Ordinary
             </h3>
             <VeganMarkContainer>
-              <VeganMark src={veganmark1} alt="Mark" />
-              <VeganMark src={veganmark2} alt="Mark" />
+              <VeganMark src={veganmark1} alt="Mark" onClick={handleClick} />
+              <VeganMark src={veganmark2} alt="Mark" onClick={handleClick} />
             </VeganMarkContainer>
             <br />
             <br />
@@ -85,6 +92,7 @@ const ItemDetail = () => {
         </ItemDescription>
       </Body>
       <Footer></Footer>
+      {modal && <Modal />}
     </Wrapper>
   );
 };

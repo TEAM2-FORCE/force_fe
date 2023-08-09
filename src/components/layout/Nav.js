@@ -7,12 +7,12 @@ import {
   SearchBar,
   SearchButton,
 } from "./Layout";
-import searchIcon from "../../img/searchIcon.png";
-import myPageIcon from "../../img/myPageIcon.png";
+import searchIcon from "../../img/Nav/searchIcon.png";
+import myPageIcon from "../../img/Nav/myPageIcon.png";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 
-import logo from "../../img/logo.png";
+import logo from "../../img/Logo/MainLogo.png";
 
 const Nav = () => {
   const [isLogin, setIsLogin] = useState(true);
