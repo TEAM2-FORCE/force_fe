@@ -1,6 +1,6 @@
 # 기세 프론트엔드 배포 링크
 
-[기세](https://vegan-cosmetic.netlify.app/).
+[기세](https://vebe.netlify.app/)
 
 ## Who?
 
