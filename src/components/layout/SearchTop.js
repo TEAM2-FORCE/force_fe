@@ -52,7 +52,9 @@ const SearchTop = ({ cg_id, which, setProductData }) => {
               onClick={mostWishlistedSort}
               data-isselected={whichSortBy === "Most Wishlisted"}
             >
+              <WhichHoverText>
               Most Wishlisted
+              </WhichHoverText>
             </SortButton>
             <SortButton
               onClick={priceLowToHigh}
@@ -129,7 +131,9 @@ const SortButton = styled.button`
   width: 100%;
   border: none;
 
-  background-color: ${(props) => (props["data-isselected"] ? "grey" : "white")};
+  // background-color: ${(props) => (props["data-isselected"] ? "rgba(46, 190, 143)" : "white")};
+  // opacity:${(props) => (props["data-isselected"] ? "1" : "1")};
+  background-color: white;
   border-bottom: 1px solid black;
   border-top: 1px solid black;
   font-family: Pretendard;
@@ -137,6 +141,10 @@ const SortButton = styled.button`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  &:hover {
+    background-color: rgba(46, 190, 143);
+    opacity: 0.4;
+  }
 `;
 const Text = styled.div`
   display: flex;
@@ -157,3 +165,8 @@ const IconStyled = styled.img`
   margin-left: 8px;
   padding: 0;
 `;
+
+const WhichHoverText = styled.div`
+z-index: 1;
+opacity: 1;
+`
