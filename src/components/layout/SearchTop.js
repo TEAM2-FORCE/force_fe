@@ -20,6 +20,12 @@ const SearchTop = ({ which }) => {
   const mostWishlistedSort = () => {
     setWhichSortBy("Most Wishlisted");
   };
+  const priceLowToHigh = () => {
+    setWhichSortBy("Price Low To High");
+  }
+  const priceHighToLow = () => {
+    setWhichSortBy("Price High To Low");
+  }
   const abcSort = () => {
     setWhichSortBy("ABC");
   };
@@ -37,6 +43,18 @@ const SearchTop = ({ which }) => {
               data-isselected={whichSortBy === "Most Wishlisted"}
             >
               Most Wishlisted
+            </SortButton>
+            <SortButton
+              onClick={priceLowToHigh}
+              data-isselected={whichSortBy === "Price Low To High"}
+            >
+              Price Low To High
+            </SortButton>
+            <SortButton
+              onClick={priceHighToLow}
+              data-isselected={whichSortBy === "Price High To Low"}
+            >
+              Price High To Low
             </SortButton>
             <SortButton
               onClick={abcSort}
