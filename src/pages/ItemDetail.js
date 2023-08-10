@@ -12,7 +12,7 @@ import fullHeart from "../img/Items/fullHeart.png";
 import { useLocation } from "react-router-dom";
 
 const ItemDetail = () => {
-  const {state} = useLocation();
+  const { state } = useLocation();
   const product = state;
   console.log(product);
   const [wish, setWish] = useState(false);
@@ -32,6 +32,31 @@ const ItemDetail = () => {
   const handleClick = () => {
     setModal(true);
   };
+
+  const whichVeganMark = () => {};
+
+  // 구매처 이미지 띄우는 로직
+  // const sellingSiteImage = (site) => {
+  // 	if (site === "Oliveyoung") {
+  // 		return 올리브영 이미지
+  // 	}
+  // 	else if (site === "Sephora") {
+  // 		return 세포라 이미지
+  // 	}
+  // 	else if (site) === "Etude" {
+  // 		return 에뛰드 이미지
+  // 	}
+  // }
+
+  // 비건 마크 띄우는 로직
+  // const veganMarkImage = (mark) => {
+  // 	if (mark === "KoreaCertificate...") {
+  // 		return 한국 비건 인증서 이미지
+  // 	}
+  // 	else if (mark === "StandardCertificate") {
+  // 		return 표준 비건 인증서 이미지
+  // 	}
+  // }
 
   return (
     <Wrapper>
@@ -54,8 +79,19 @@ const ItemDetail = () => {
               {product.pd_brand}
             </h3>
             <VeganMarkContainer>
-              <VeganMark src={veganmark1} alt="Mark" onClick={handleClick} />
-              <VeganMark src={veganmark2} alt="Mark" onClick={handleClick} />
+              {/* {product.veganmark.map((mark) => {
+								<VeganMark key={veganmarkID} src={veganMarkImage} onClick={handleClick}/>
+							})} */}
+              <VeganMark
+                src={veganmark1}
+                alt="KoreaCertification"
+                onClick={handleClick}
+              />
+              <VeganMark
+                src={veganmark2}
+                alt="StandardCertification"
+                onClick={handleClick}
+              />
             </VeganMarkContainer>
             <br />
             <br />
@@ -64,6 +100,7 @@ const ItemDetail = () => {
             <h3>Ingredients</h3>
             <P style={{ marginTop: "0.8rem" }}>
               Aqua (Water), Propanediol, Betaine, ....
+              {/* {product.ingredient} 표시 */}
             </P>
             <br />
             <br />
@@ -72,26 +109,28 @@ const ItemDetail = () => {
           <div style={{ width: "95%" }}>
             <h3>Where To Buy</h3>
             <Container>
+              {/* {product.sellingSite.map((site, i)=>{
+								<Image src={sellingSiteImage} key={i} 클릭하면 그 페이지로 링크/>
+								사이트마다 키가 있는건 아니라서 인덱스로 키를 대신함
+							})} */}
               <P>Oliveyoung Web</P>
-              <P>100,000 KRW</P>
             </Container>
             <Container>
               <P>Oliveyoung Web</P>
-              <P>100,000 KRW</P>
             </Container>
             <Container>
               <P>Oliveyoung Web</P>
-              <P>100,000 KRW</P>
             </Container>
             <Container>
               <P>Oliveyoung Web</P>
-              <P>100,000 KRW</P>
             </Container>
           </div>
         </ItemDescription>
       </Body>
       <Footer></Footer>
       {modal && <Modal setModal={setModal} />}
+      {/* 모달에 비건마크 아이디 번호에 따라 다르게 세팅, 비건마크 이미지 프롭스 넘겨줘야함
+			e.target.id에 따른 다른 비건마크와 설명이 나오게! */}
     </Wrapper>
   );
 };

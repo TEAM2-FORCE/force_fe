@@ -11,25 +11,25 @@ import { getMostWishListed } from "../apis/Item";
 import { useLocation } from "react-router-dom";
 
 const ListUpPage = () => {
-  const {state} = useLocation();
+  const { state } = useLocation();
   const cg_id = state;
   const [productData, setProductData] = useState([]);
   const whichPage = () => {
-    if(cg_id === 0)return "all";
-    else if(cg_id === "1")return "Make Up";
-    else if(cg_id === "2")return "Skin Care";
-    else if(cg_id === "3")return "Sun Care";
-    else if(cg_id === "4")return "Masks";
-    console.log("나는 "+cg_id);
-  }
+    if (cg_id === 0) return "all";
+    else if (cg_id === "1") return "Make Up";
+    else if (cg_id === "2") return "Skin Care";
+    else if (cg_id === "3") return "Sun Care";
+    else if (cg_id === "4") return "Masks";
+    console.log("나는 " + cg_id);
+  };
 
   //초기 데이터 - MostWishListed
-  useEffect(()=>{
+  useEffect(() => {
     const fetchData = async () => {
-      try{
+      try {
         const response = await getMostWishListed(cg_id);
         setProductData(response.data);
-      }catch(error){
+      } catch (error) {
         console.error("데이터 불러오기 실패", error);
       }
     };
@@ -41,16 +41,18 @@ const ListUpPage = () => {
       <Nav />
 
       <Top>
-        <SearchTop 
-        cg_id={cg_id} 
-        which={whichPage(cg_id)} setProductData={setProductData}/>
+        <SearchTop
+          cg_id={cg_id}
+          which={whichPage(cg_id)}
+          setProductData={setProductData}
+        />
       </Top>
 
       <Section>
         <Center>
           <FilterLists />
           <Contents>
-            <ItemDataSection cg_id={cg_id} productData={productData}/>
+            <ItemDataSection productData={productData} cg_id={cg_id} />
           </Contents>
         </Center>
       </Section>
