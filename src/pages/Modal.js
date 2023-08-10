@@ -28,6 +28,7 @@ const Modal = ({ setModal }) => {
               <Description>
                 <img
                   src={NoAnimalMaterial}
+                  alt="NOAnimalMaterial"
                   style={{ width: "5rem", height: "5rem" }}
                 />
                 <div>No use of animal-derived raw materials.</div>
@@ -35,6 +36,7 @@ const Modal = ({ setModal }) => {
               <Description>
                 <img
                   src={NoAnimalExperiment}
+                  alt="NoAnimalExperiment"
                   style={{ width: "5rem", height: "4.5rem" }}
                 />
                 <div>No Animal Testing</div>
@@ -42,6 +44,7 @@ const Modal = ({ setModal }) => {
               <Description>
                 <img
                   src={NoContamination}
+                  alt="NoContamination"
                   style={{ width: "5rem", height: "4.5rem" }}
                 />
                 <div>No cross-contamination during production process.</div>
