@@ -6,6 +6,7 @@ import {
   NavCategory,
   SearchBar,
   SearchButton,
+  Container,
 } from "./Layout";
 import searchIcon from "../../img/Nav/searchIcon.png";
 import myPageIcon from "../../img/Nav/myPageIcon.png";
@@ -13,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 
 import logo from "../../img/Logo/MainLogo.png";
+import DropDown from "./DropDown";
 
 const Nav = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -31,32 +33,50 @@ const Nav = () => {
     navigate(`/${where}`);
   };
 
+  const [dropDown, setDropDown] = useState(false);
+
+  const allCategoryHover = () => {
+    setDropDown(true);
+  };
+
+  const removeHover = () => {
+    setDropDown(false);
+  };
+
   return (
-    <NavContainer>
-      <Left>
-        <Logo onClick={logoClicked} src={logo} />
-      </Left>
-      <Center>
-        <NavCategory>All Category</NavCategory>
-        <NavCategory onClick={() => goto("incipedia")}>INCIPedia</NavCategory>
-      </Center>
-      <Right>
-        <SearchBar>
-          <input
-            type="text"
-            placeholder="Search Product"
-            style={{
-              border: "none",
-              height: "1.2rem",
-              outline: "none",
-              width: "100%",
-            }}
-          ></input>
-          <SearchButton src={searchIcon} />
-        </SearchBar>
-        <MyPageButton src={myPageIcon} onClick={myPageClicked} />
-      </Right>
-    </NavContainer>
+    <Container>
+      <NavContainer>
+        <Left>
+          <Logo onClick={logoClicked} src={logo} />
+        </Left>
+        <Center>
+          <NavCategory
+            onMouseOver={allCategoryHover}
+            onMouseLeave={removeHover}
+          >
+            All Category
+          </NavCategory>
+          <NavCategory onClick={() => goto("incipedia")}>INCIPedia</NavCategory>
+        </Center>
+        <Right>
+          <SearchBar>
+            <input
+              type="text"
+              placeholder="Search Product"
+              style={{
+                border: "none",
+                height: "1.2rem",
+                outline: "none",
+                width: "100%",
+              }}
+            ></input>
+            <SearchButton src={searchIcon} />
+          </SearchBar>
+          <MyPageButton src={myPageIcon} onClick={myPageClicked} />
+        </Right>
+      </NavContainer>
+      {dropDown && <DropDown setDropDown={setDropDown} />}
+    </Container>
   );
 };
 

@@ -13,8 +13,16 @@ export const Wrapper = styled.div`
   width: 100%;
 `;
 
+export const Container = styled.div`
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+`;
+
 export const NavContainer = styled.div`
   display: flex;
+  flex-direction: row;
   align-items: center;
   width: 100%;
   height: 5rem;
@@ -56,12 +64,14 @@ export const Logo = styled.img`
 `;
 
 export const NavCategory = styled.div`
+  display: flex;
+  align-items: center;
+  text-align: center;
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
-  line-height: 24px;
-  height: 24px;
+  height: 100%;
   display: flex;
   color: #010d09;
   &:active {
