@@ -7,27 +7,27 @@ export const getAllItems = () => {
   return axios.get(url); //json 파일 가져오는 것
 };
 
-export const getAllItemsInCategory = () => {
-  const url = `${baseURL}/products/category/:cg_id/`;
+export const getAllItemsInCategory = ({ cg_id }) => {
+  const url = `${baseURL}/products/category/:${cg_id}/`;
   return axios.get(url);
 };
 
-export const getPriceLowToHigh = () => {
-  const url = `${baseURL}/products/category/:cg_id/?sort=price/`;
+export const getPriceLowToHigh = ({ cg_id }) => {
+  const url = `${baseURL}/products/category/:${cg_id}/?sort=price/`;
   return axios.get(url);
 };
 
-export const getPriceHighToLow = () => {
-  const url = `${baseURL}/products/category/:cg_id/?sort=-price/`;
+export const getPriceHighToLow = ({ cg_id }) => {
+  const url = `${baseURL}/products/category/:${cg_id}/?sort=-price/`;
   return axios.get(url);
 };
 
-export const getMostWishListed = () => {
-  const url = `${baseURL}/products/category/:cg_id/`;
+export const getMostWishListed = ({ cg_id }) => {
+  const url = `${baseURL}/products/category/:${cg_id}/`;
   return axios.get(url);
 };
 
-export const getItemDetail = () => {
-  const url = `${baseURL}/products/:pd_id/`;
+export const getItemDetail = ({ pd_id }) => {
+  const url = `${baseURL}/products/:${pd_id}/`;
   return axios.get(url);
 };
