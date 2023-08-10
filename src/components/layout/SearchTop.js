@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import arrowLeft from "../../img/Items/arrowLeft.png";
 import arrowDown from "../../img/Items/arrowDown.png";
 import { styled } from "styled-components";
+import { getABC, getMostWishListed, getPriceHighToLow, getPriceLowToHigh } from "../../apis/Item";
 
-const SearchTop = ({ which }) => {
+const SearchTop = ({ cg_id, which, setProductData }) => {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
   const [whichSortBy, setWhichSortBy] = useState("Most Wishlisted");
@@ -17,17 +18,26 @@ const SearchTop = ({ which }) => {
   };
 
   //sort버튼별
-  const mostWishlistedSort = () => {
+  const mostWishlistedSort = async () => {
     setWhichSortBy("Most Wishlisted");
+    const response = await getMostWishListed(cg_id);
+    setProductData(response.data);
   };
-  const priceLowToHigh = () => {
+  const priceLowToHigh = async () => {
     setWhichSortBy("Price Low To High");
+    const response = await getPriceLowToHigh(cg_id);
+    setProductData(response.data);
   }
-  const priceHighToLow = () => {
+  const priceHighToLow = async () => {
     setWhichSortBy("Price High To Low");
+    const response = await getPriceHighToLow(cg_id);
+    console.log(response);
+    setProductData(response.data);
   }
-  const abcSort = () => {
+  const abcSort = async () => {
     setWhichSortBy("ABC");
+    const response = await getABC(cg_id);
+    setProductData(response.data);
   };
   return (
     <>

@@ -10,8 +10,12 @@ import veganmark1 from "../img/VeganMark/veganMark1.png";
 import veganmark2 from "../img/VeganMark/veganMark2.png";
 import emptyHeart from "../img/Items/emptyHeart2.png";
 import fullHeart from "../img/Items/fullHeart.png";
+import { useLocation } from "react-router-dom";
 
 const ItemDetail = () => {
+  const {state} = useLocation();
+  const product = state;
+  console.log(product);
   const [wish, setWish] = useState(false);
   const whichHeart = () => {
     if (!wish) {

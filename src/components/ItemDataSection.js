@@ -2,29 +2,32 @@ import React from 'react'
 import ItemCard from './ItemCard'
 import { styled } from 'styled-components';
 
-const ItemDataSection = () => {
+const ItemDataSection = ({cg_id, productData}) => {
   return (
     <Cards>
-        <ItemCard></ItemCard>
-        <ItemCard></ItemCard>
-        <ItemCard></ItemCard>
-        <ItemCard></ItemCard>
-        <ItemCard></ItemCard>
-        <ItemCard></ItemCard>
-        <ItemCard></ItemCard>
-        <ItemCard></ItemCard>
-        <ItemCard></ItemCard>
-        <ItemCard></ItemCard>
-        <ItemCard></ItemCard>
-        <ItemCard></ItemCard>
-        <ItemCard></ItemCard>
-        <ItemCard></ItemCard>
-        <ItemCard></ItemCard>
-        <ItemCard></ItemCard>
-        <ItemCard></ItemCard>
-        <ItemCard></ItemCard>
-        <ItemCard></ItemCard>
+      {productData && productData.map((product, i)=><ItemCard key={i} product={product}/>)}    
     </Cards>
+
+// {/* <ItemCard></ItemCard>
+//         <ItemCard></ItemCard>
+//         <ItemCard></ItemCard>
+//         <ItemCard></ItemCard>
+//         <ItemCard></ItemCard>
+//         <ItemCard></ItemCard>
+//         <ItemCard></ItemCard>
+//         <ItemCard></ItemCard>
+//         <ItemCard></ItemCard>
+//         <ItemCard></ItemCard>
+//         <ItemCard></ItemCard>
+//         <ItemCard></ItemCard>
+//         <ItemCard></ItemCard>
+//         <ItemCard></ItemCard>
+//         <ItemCard></ItemCard>
+//         <ItemCard></ItemCard>
+//         <ItemCard></ItemCard>
+//         <ItemCard></ItemCard>
+//         <ItemCard></ItemCard> */}
+
   )
 }
 

@@ -5,8 +5,10 @@ import emptyHeart from "../img/Items/emptyHeart2.png";
 import fullHeart from "../img/Items/fullHeart.png";
 import testingX from "../img/Ingredients/testingX.png";
 import ingredientX from "../img/Ingredients/ingredientX.png";
+import { useNavigate } from "react-router-dom";
 
-const ItemCard = () => {
+const ItemCard = ({cg_id, product}) => {
+  const navigate = useNavigate();
   const [wish, setWish] = useState(false);
   const whichHeart = () => {
     if (!wish) {
@@ -19,20 +21,24 @@ const ItemCard = () => {
     setWish(!wish);
   };
 
+  const cardclicked = () => {
+    navigate('/itemdetail', {state : product});
+  }
+
   return (
-    <Card>
+    <Card onClick={cardclicked}>
       <Picture>
         <img src={itemExample} alt="item" height="70%"></img>
       </Picture>
       <Contents>
         <IngredientInfo>
-          <ProductName>ProductName</ProductName>
+          <ProductName>{product.pd_name}</ProductName>
           <WishButton onClick={wishClick}>
             <img src={whichHeart()} alt="wish" style={{width: "1rem", objectFit: "contain", margin: "0.2rem"}}></img>
           </WishButton>
         </IngredientInfo>
-        <div>The Ordinary</div>
-        <div>{10000}원</div>
+        <div>{product.pd_brand}</div>
+        <div>KRW {product.pd_price}</div>
       </Contents>
       <Bottom>
         <MarkImage src={testingX} alt="testingX"></MarkImage>
@@ -49,8 +55,10 @@ const Card = styled.div`
   background-color: white;
   gap: 10px;
   max-height: 25rem;
+  max-width: 20%;
   margin: 2%;
   position: relative;
+
 `;
 
 const Picture = styled.div`
@@ -88,6 +96,9 @@ const ProductName = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  max-width: 90%;
+  height: 110px;
+  overflow: hidden;
 `;
 
 const WishButton = styled.button`

@@ -1,8 +1,13 @@
 import React from 'react'
 import { styled } from 'styled-components';
 import IngredientCard from './IngredientCard';
+// import { getMostWishListed } from '../apis/Item';
 
-const IngredientDataSection = () => {
+const IngredientDataSection = ({cg_id}) => {
+  // const data = getMostWishListed(cg_id);
+  // const print = () => {
+  //   console.log(data);
+  // }
   return (
     <Cards>
         <IngredientCard isMypage={false}/>
