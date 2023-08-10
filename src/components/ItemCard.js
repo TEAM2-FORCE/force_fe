@@ -6,7 +6,7 @@ import testingX from "../img/Ingredients/testingX.png";
 import ingredientX from "../img/Ingredients/ingredientX.png";
 import { useNavigate } from "react-router-dom";
 
-const ItemCard = ({cg_id, product}) => {
+const ItemCard = ({ cg_id, product }) => {
   const navigate = useNavigate();
   const [wish, setWish] = useState(false);
   const whichHeart = () => {
@@ -20,21 +20,24 @@ const ItemCard = ({cg_id, product}) => {
     setWish(!wish);
   };
 
-  const cardclicked = () => {
-    navigate('/itemdetail', {state : product});
-  }
+  const cardClicked = () => {
+    navigate("/itemdetail", { state: product });
+  };
 
   return (
-    <Card onClick={cardclicked}>
+    <Card onClick={cardClicked}>
       <Center>
-        <Picture src={product.pd_image} alt="item"/>  
-        
+        <Picture src={product.pd_image} alt="item" />
       </Center>
       <Contents>
         <IngredientInfo>
           <ProductName>{product.pd_name}</ProductName>
           <WishButton onClick={wishClick}>
-            <img src={whichHeart()} alt="wish" style={{width: "1rem", objectFit: "contain", margin: "0.2rem"}}></img>
+            <img
+              src={whichHeart()}
+              alt="wish"
+              style={{ width: "1rem", objectFit: "contain", margin: "0.2rem" }}
+            ></img>
           </WishButton>
         </IngredientInfo>
         <div>{product.pd_brand}</div>
@@ -58,7 +61,6 @@ const Card = styled.div`
   max-width: 20%;
   margin: 2%;
   position: relative;
-
 `;
 const Center = styled.div`
   display: flex;
@@ -68,7 +70,7 @@ const Center = styled.div`
   width: 80%;
   height: 50%;
   margin-bottom: 1%;
-`
+`;
 
 const Picture = styled.img`
   align-items: center;
@@ -129,6 +131,6 @@ const Bottom = styled.div`
   padding-right: 10px;
 `;
 const MarkImage = styled.img`
-width: 40%;
-margin: 0.1%;
-`
+  width: 40%;
+  margin: 0.1%;
+`;

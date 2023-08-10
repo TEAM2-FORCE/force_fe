@@ -11,7 +11,6 @@ import BookmarkPage from "./pages/BookmarkPage";
 import WishlistPage from "./pages/WishlistPage";
 import ListUpPage from "./pages/ListUpPage";
 
-
 const App = () => {
   return (
     <BrowserRouter>
@@ -19,7 +18,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/myPage" element={<MyPage />} />
+        <Route path="/mypage" element={<MyPage />} />
         <Route path="/itemdetail" element={<ItemDetail />} />
         <Route path="/incipediadetail" element={<IncipediaDetail />} />
         <Route path="/incipedia" element={<INCIpedia />} />

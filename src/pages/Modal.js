@@ -93,6 +93,7 @@ const ModalBlock = styled.div`
 `;
 
 const Header = styled.div`
+  position: relative;
   margin: 0;
   height: 10rem;
   width: 100%;
@@ -126,10 +127,12 @@ const Description = styled.div`
 `;
 
 const CancelButton = styled.img`
+  position: absolute;
   display: inline-block;
   width: 1.25rem;
   height: 1.25rem;
+  z-index: 100;
   top: 3rem;
-  right: 5rem;
+  left: 90%;
   cursor: pointer;
 `;

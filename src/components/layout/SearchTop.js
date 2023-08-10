@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import arrowLeft from "../../img/Items/arrowLeft.png";
 import arrowDown from "../../img/Items/arrowDown.png";
 import { styled } from "styled-components";
-import { getABC, getMostWishListed, getPriceHighToLow, getPriceLowToHigh } from "../../apis/Item";
+import {
+  getABC,
+  getMostWishListed,
+  getPriceHighToLow,
+  getPriceLowToHigh,
+} from "../../apis/Item";
 
 const SearchTop = ({ cg_id, which, setProductData }) => {
   const [open, setOpen] = useState(false);
@@ -27,13 +32,13 @@ const SearchTop = ({ cg_id, which, setProductData }) => {
     setWhichSortBy("Price Low To High");
     const response = await getPriceLowToHigh(cg_id);
     setProductData(response.data);
-  }
+  };
   const priceHighToLow = async () => {
     setWhichSortBy("Price High To Low");
     const response = await getPriceHighToLow(cg_id);
     console.log(response);
     setProductData(response.data);
-  }
+  };
   const abcSort = async () => {
     setWhichSortBy("ABC");
     const response = await getABC(cg_id);
@@ -52,9 +57,7 @@ const SearchTop = ({ cg_id, which, setProductData }) => {
               onClick={mostWishlistedSort}
               data-isselected={whichSortBy === "Most Wishlisted"}
             >
-              <WhichHoverText>
               Most Wishlisted
-              </WhichHoverText>
             </SortButton>
             <SortButton
               onClick={priceLowToHigh}
@@ -122,6 +125,7 @@ const SortBar = styled.div`
   width: 13rem;
   height: 13rem;
   z-index: 1;
+  background-color: white;
 `;
 const SortButton = styled.button`
   display: flex;
@@ -131,19 +135,19 @@ const SortButton = styled.button`
   width: 100%;
   border: none;
 
-  // background-color: ${(props) => (props["data-isselected"] ? "rgba(46, 190, 143)" : "white")};
+  // background-color: ${(props) =>
+    props["data-isselected"] ? "rgba(46, 190, 143)" : "white"};
   // opacity:${(props) => (props["data-isselected"] ? "1" : "1")};
   background-color: white;
   border-bottom: 1px solid black;
   border-top: 1px solid black;
   font-family: Pretendard;
-  font-size: 1rem;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   &:hover {
-    background-color: rgba(46, 190, 143);
-    opacity: 0.4;
+    background-color: rgba(46, 190, 143, 0.4);
   }
 `;
 const Text = styled.div`
@@ -152,7 +156,7 @@ const Text = styled.div`
   align-items: center;
   color: var(--dark-gray, var(--dark-gray, #414241));
   font-family: Pretendard;
-  font-size: 1rem;
+  font-size: 14px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -165,8 +169,3 @@ const IconStyled = styled.img`
   margin-left: 8px;
   padding: 0;
 `;
-
-const WhichHoverText = styled.div`
-z-index: 1;
-opacity: 1;
-`
