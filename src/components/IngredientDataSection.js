@@ -5,24 +5,39 @@ import IngredientCard from './IngredientCard';
 const IngredientDataSection = () => {
   return (
     <Cards>
-        <IngredientCard></IngredientCard>
-        <IngredientCard></IngredientCard>
-        <IngredientCard></IngredientCard>
-        <IngredientCard></IngredientCard>
-        <IngredientCard></IngredientCard>
-        <IngredientCard></IngredientCard>
-        <IngredientCard></IngredientCard>
-        <IngredientCard></IngredientCard>
-        <IngredientCard></IngredientCard>
-        <IngredientCard></IngredientCard>
-        <IngredientCard></IngredientCard>
-        <IngredientCard></IngredientCard>
-        <IngredientCard></IngredientCard>
-        <IngredientCard></IngredientCard>
-        <IngredientCard></IngredientCard>
-        <IngredientCard></IngredientCard>
-        <IngredientCard></IngredientCard>
-        <IngredientCard></IngredientCard>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>
+        <IngredientCard isMypage={false}/>      
+        
     </Cards>
   )
 }
@@ -32,7 +47,8 @@ export default IngredientDataSection;
 const Cards = styled.div`
 display: flex;
 width: 100%;
-max-height: 1200px;
+min-height: 800px;
+max-height: 800px;
 flex-wrap: wrap;
 overflow-y: scroll;
 `

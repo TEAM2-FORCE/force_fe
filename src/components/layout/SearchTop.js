@@ -20,12 +20,6 @@ const SearchTop = ({ which }) => {
   const mostWishlistedSort = () => {
     setWhichSortBy("Most Wishlisted");
   };
-  // const priceAscendingSort = () => {
-  //   setWhichSortBy("Price Ascending");
-  // };
-  // const priceDescendingSort = () => {
-  //   setWhichSortBy("Price Descending");
-  // };
   const abcSort = () => {
     setWhichSortBy("ABC");
   };
@@ -50,18 +44,6 @@ const SearchTop = ({ which }) => {
             >
               ABC
             </SortButton>
-            {/* <SortButton
-              onClick={priceAscendingSort}
-              data-isselected={whichSortBy === "Price Ascending"}
-            >
-              Price Ascending
-            </SortButton>
-            <SortButton
-              onClick={priceDescendingSort}
-              data-isselected={whichSortBy === "Price Descending"}
-            >
-              Price Descending
-            </SortButton> */}
           </SortBar>
         )}
       </Right>
@@ -109,6 +91,7 @@ const SortBar = styled.div`
   right: 0%;
   width: 13rem;
   height: 13rem;
+  z-index: 1;
 `;
 const SortButton = styled.button`
   display: flex;

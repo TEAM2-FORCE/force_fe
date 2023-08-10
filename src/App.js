@@ -12,6 +12,9 @@ import ScrollToTop from "./components/ScrollToTop";
 import IncipediaDetail from "./pages/IncipediaDetail";
 import MakeUp from "./pages/search/MakeUp";
 import SkinCare from "./pages/search/SkinCare";
+import BookmarkPage from "./pages/BookmarkPage";
+import WishlistPage from "./pages/WishlistPage";
+
 
 const App = () => {
   return (
@@ -29,6 +32,8 @@ const App = () => {
         <Route path="/makeUp" element={<MakeUp />} />
         <Route path="/masks" element={<Masks />} />
         <Route path="/sunCare" element={<SunCare />} />
+        <Route path="/bookmark" element={<BookmarkPage />} />
+        <Route path="/wishlist" element={<WishlistPage />} />
       </Routes>
     </BrowserRouter>
   );

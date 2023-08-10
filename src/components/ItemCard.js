@@ -28,11 +28,7 @@ const ItemCard = () => {
         <IngredientInfo>
           <ProductName>ProductName</ProductName>
           <WishButton onClick={wishClick}>
-            <img
-              src={whichHeart()}
-              alt="wish"
-              style={{ width: "1rem", objectFit: "contain", margin: "0.2rem" }}
-            ></img>
+            <img src={whichHeart()} alt="wish" style={{width: "1rem", objectFit: "contain", margin: "0.2rem"}}></img>
           </WishButton>
         </IngredientInfo>
         <div>The Ordinary</div>
@@ -52,12 +48,8 @@ const Card = styled.div`
   flex-direction: column;
   background-color: white;
   gap: 10px;
-  // min-width: 20%;
-  // min-width: 10rem;
-  // min-height: 10rem;
   max-height: 25rem;
-  // max-height: 100%;
-  margin: 3%;
+  margin: 2%;
   position: relative;
 `;
 
@@ -67,8 +59,6 @@ const Picture = styled.div`
   justify-content: center;
   align-items: center;
   display: flex;
-  // gap: 20px;
-  // height: 10rem;
   height: 75%
   margin-bottom: 1%;
 `;
@@ -122,6 +112,6 @@ const Bottom = styled.div`
   padding-right: 10px;
 `;
 const MarkImage = styled.img`
-  width: 40%;
-  margin: 0.1%;
-`;
+width: 40%;
+margin: 0.1%;
+`

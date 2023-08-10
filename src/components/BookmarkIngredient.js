@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import ingredientExample from "../img/Ingredients/ingredientExample.png";
-import emptyStar from "../img/Ingredients/emptyStar.png";
-import fullStar from "../img/Ingredients/fullStar.png";
-import blue from "../img/Ingredients/blue.png"
-import pink from "../img/Ingredients/pink.png"
+import emptyStar from "../img/Ingredients/emptyStar2.png"
+import fullStar from "../img/Ingredients/fullStar.png"
+import blue from "../img/Ingredients/blue.png";
+import pink from "../img/Ingredients/pink.png";
 
-const IngredientCard = ({isMypage}) => {
+const BookmarkIngredient = () => {
   const [bookmark, setBookmark] = useState(false);
   const whichHeart = ()=>{
     if(!bookmark)return emptyStar;
@@ -17,54 +16,38 @@ const IngredientCard = ({isMypage}) => {
   }
 
   return (
-    <Card>
-      { isMypage &&
-        <Picture>
-        <img src={ingredientExample} alt="ingredient"></img>
-      </Picture>
-
-      }
-       
+    <Card>       
       <Contents>
         <IngredientInfo>
           <IngredientName>1,2-Hexanediol</IngredientName>
           <WishButton onClick={wishClick}>
           <img src={whichHeart()} alt="wish" width="20px"></img>
           </WishButton>
-        </IngredientInfo>
-        <div>Antibacterial, moisturizing, preservative</div>    
+        </IngredientInfo>  
       </Contents>
-      <Bottom>
+      <Marks>
       <MarkImage src={blue} alt="testingX"></MarkImage>
         <MarkImage src={pink} alt="ingredientX"></MarkImage>
-      </Bottom>
+      </Marks>
+      
+      <Text>
+      Antibacterial, moisturizing, preservative성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징주요특징성분주요특징성분주요특징성분
+      </Text>
     </Card>
   );
 };
 
-export default IngredientCard;
+export default BookmarkIngredient;
 
 const Card = styled.div`
 flex-direction: column;
 background-color: white;
 gap: 10px;
-width: 20%;
+width: 90%;
 max-height: 25rem;
 margin: 25px;
 position: relative;
 `;
-const Picture = styled.div`
-display: flex;
-flex-direction: center;
-justify-content: center;
-align-items: center;
-display: flex;
-gap: 20px;
-height: 10rem;
-margin-bottom: 3px;
-`;
-
-
 const Contents = styled.div`
 display: flex;
 flex-direction: center;
@@ -107,11 +90,12 @@ display: flex;
 justify-content: space-center;
 align-items: center;
 `
-const Bottom = styled.div`
+const Marks = styled.div`
 display: flex;
 justify-content: flex-start;
 margin-top: 8px;
 text-align: center;
+width: 17%;
 
 font-family: Pretendard;
 font-size: 0.75rem;
@@ -119,10 +103,19 @@ font-style: normal;
 font-weight: 600;
 line-height: normal;
 
-padding-left: 10px;
-padding-right: 10px;
+padding: 10px;
 `
 const MarkImage = styled.img`
 width: 40%;
 margin-right: 2%;
+`
+const Text = styled.div`
+color: var(--mid-gray, #696B69);
+/* Mid text */E
+font-family: Pretendard;
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-left: 1%;
 `
