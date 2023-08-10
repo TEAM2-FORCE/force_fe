@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import itemExample from "../img/Items/itemExample.png";
 import emptyHeart from "../img/Items/emptyHeart2.png";
 import fullHeart from "../img/Items/fullHeart.png";
 import testingX from "../img/Ingredients/testingX.png";
@@ -27,9 +26,10 @@ const ItemCard = ({cg_id, product}) => {
 
   return (
     <Card onClick={cardclicked}>
-      <Picture>
-        <img src={itemExample} alt="item" height="70%"></img>
-      </Picture>
+      <Center>
+        <Picture src={product.pd_image} alt="item"/>  
+        
+      </Center>
       <Contents>
         <IngredientInfo>
           <ProductName>{product.pd_name}</ProductName>
@@ -60,15 +60,21 @@ const Card = styled.div`
   position: relative;
 
 `;
-
-const Picture = styled.div`
+const Center = styled.div`
   display: flex;
   flex-direction: center;
   justify-content: center;
   align-items: center;
-  display: flex;
-  height: 75%
+  width: 80%;
+  height: 50%;
   margin-bottom: 1%;
+`
+
+const Picture = styled.img`
+  align-items: center;
+  display: flex;
+  width: 90%;
+  height: 90%;
 `;
 
 const Contents = styled.div`

@@ -5,24 +5,23 @@ import makeup from "../../img/Mainpage/Makeup.png";
 import suncare from "../../img/Mainpage/SunCare.png";
 import mask from "../../img/Mainpage/Masks.png";
 import skincare from "../../img/Mainpage/Skincare.png";
-// import all from "../../img/AllProducts.png";
 
-const CategorySection = ({ whereTo, name }) => {
+const CategorySection = ({ whereTo, name, cg_id }) => {
   const navigate = useNavigate();
   const goto = (where) => {
-    navigate(`/${where}`);
+    navigate(`/${where}`, {state : cg_id});
   };
   const imageMapping = {
-    makeup: makeup,
-    suncare: suncare,
-    skincare: skincare,
-    masks: mask,
+    "Make Up": makeup,
+    "Sun Care": suncare,
+    "Skin Care": skincare,
+    "Masks": mask,
     // all: all,
   };
   return (
     <>
       <ImageWrapper onClick={() => goto(whereTo)}>
-        <Image src={imageMapping[whereTo]} alt="Image" />
+        <Image src={imageMapping[name]} alt="Image" />
         <TextContainer>
           <h3>{name}</h3>
         </TextContainer>

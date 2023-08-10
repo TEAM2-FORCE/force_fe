@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Wrapper } from "../components/layout/Layout";
-import itemImage from "../img/Items/itemExample.png";
 import Nav from "../components/layout/Nav";
 import Footer from "../components/layout/Footer";
 import Modal from "./Modal";
@@ -39,12 +38,12 @@ const ItemDetail = () => {
       <Nav></Nav>
       <Body>
         <ImageContainer>
-          <ItemImage src={itemImage} />
+          <ItemImage src={product.pd_image} />
         </ImageContainer>
         <ItemDescription>
           <div style={{ width: "95%" }}>
             <Container>
-              <h1 style={{ margin: 0 }}>Amino Acids + B5</h1>
+              <h1 style={{ margin: 0 }}>{product.pd_name}</h1>
               <IconImage
                 src={whichHeart()}
                 alt="wish"
@@ -52,7 +51,7 @@ const ItemDetail = () => {
               ></IconImage>
             </Container>
             <h3 style={{ fontWeight: 500, marginTop: "0.5rem" }}>
-              The Ordinary
+              {product.pd_brand}
             </h3>
             <VeganMarkContainer>
               <VeganMark src={veganmark1} alt="Mark" onClick={handleClick} />
