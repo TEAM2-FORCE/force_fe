@@ -7,8 +7,6 @@ import Suncare from "../../img/Nav/Suncare.png";
 import Masks from "../../img/Nav/Masks.png";
 
 const DropDown = ({ setDropDown }) => {
-  const categories = [Makeup, Skincare, Suncare, Masks];
-
   return (
     <MenuContainer
       onMouseOver={() => setDropDown(true)}
