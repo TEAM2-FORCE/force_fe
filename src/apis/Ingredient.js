@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseURL = "http://vebeserver.kro.kr:8000/";
+export const baseURL = "http://vebeserver.kro.kr:8000";
 
 export const getAllIngredients = () => {
   //모든 성분 조회
@@ -8,7 +8,7 @@ export const getAllIngredients = () => {
   return axios.get(url);
 };
 
-export const getIngredientDetail = ({ igd_id }) => {
+export const getIngredientDetail = (igd_id) => {
   //상세 성분 조회
   const url = `${baseURL}/ingredients/${igd_id}`;
   return axios.get(url);

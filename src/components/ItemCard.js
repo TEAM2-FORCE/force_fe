@@ -6,7 +6,7 @@ import testingX from "../img/Ingredients/testingX.png";
 import ingredientX from "../img/Ingredients/ingredientX.png";
 import { useNavigate } from "react-router-dom";
 
-const ItemCard = ({ cg_id, product }) => {
+const ItemCard = ({ product }) => {
   const navigate = useNavigate();
   const [wish, setWish] = useState(false);
   const whichHeart = () => {

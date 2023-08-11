@@ -8,8 +8,12 @@ import ItemCard from "../components/ItemCard";
 
 import emptyStar from "../img/Ingredients/emptyStar2.png";
 import fullStar from "../img/Ingredients/fullStar.png";
+import { useLocation } from "react-router-dom";
 
 const IncipediaDetail = () => {
+  const {state} = useLocation();
+  const ingredient = state;
+  console.log(ingredient);
   const [favorite, setFavorite] = useState(false);
   const whichStar = () => {
     if (!favorite) {
@@ -28,7 +32,7 @@ const IncipediaDetail = () => {
       <Body>
         <BodySection>
           <Container>
-            <h1>1,2-Hexanediol</h1>
+            <h1>{ingredient.igd_name}</h1>
             <IconImage
               src={whichStar()}
               alt="favorite"
@@ -36,7 +40,7 @@ const IncipediaDetail = () => {
             ></IconImage>
           </Container>
           <div style={{ fontSize: "1.5rem" }}>
-            Antibacterial, moisturizing, preservative
+            {ingredient.igd_main_ftn}
           </div>
           <br />
           <br />

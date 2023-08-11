@@ -3,46 +3,21 @@ import { styled } from 'styled-components';
 import IngredientCard from './IngredientCard';
 // import { getMostWishListed } from '../apis/Item';
 
-const IngredientDataSection = ({cg_id}) => {
+const IngredientDataSection = ({ingredientData}) => {
   // const data = getMostWishListed(cg_id);
   // const print = () => {
   //   console.log(data);
   // }
   return (
     <Cards>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>
-        <IngredientCard isMypage={false}/>      
-        
+      {ingredientData &&
+      ingredientData.map((ingredient) => (
+      <IngredientCard
+        isMypage={false}
+        ingredient={ingredient}
+      />
+      ))
+      }
     </Cards>
   )
 }

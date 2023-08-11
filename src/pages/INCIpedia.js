@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Wrapper } from "../components/layout/Layout";
 import Nav from "../components/layout/Nav";
@@ -7,14 +7,29 @@ import { SearchBar, SearchButton, Section } from "../components/layout/Layout";
 import CheckItemList from "../components/CheckItemList";
 import searchIcon from "../img/Nav/searchIcon.png";
 import IngredientDataSection from "../components/IngredientDataSection";
+import { getAllIngredients } from "../apis/Ingredient";
 
 const INCIpedia = () => {
+  const [ingredientData, setIngredientData] = useState([]);
   const OKButtonClicked = () => {
 
   }
   const CleanButtonClicked = () => {
 
   }
+
+  useEffect(()=>{
+    const fetchData = async () => {
+      try{
+        const response = await getAllIngredients();
+        console.log(response);
+        setIngredientData(response.data);
+      }catch(error){
+        console.error("데이터 불러오기 실패", error);
+      }
+    }
+    fetchData();
+  });
 
   return (
     <Wrapper>
@@ -80,7 +95,7 @@ const INCIpedia = () => {
           </FilterLists>
 
           <Contents>
-            <IngredientDataSection></IngredientDataSection>
+            <IngredientDataSection ingredientData = {ingredientData}></IngredientDataSection>
           </Contents>
         
         </Center>

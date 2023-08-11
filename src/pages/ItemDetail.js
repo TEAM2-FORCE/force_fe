@@ -33,7 +33,7 @@ const ItemDetail = () => {
     setModal(true);
   };
 
-  const whichVeganMark = () => {};
+  // const whichVeganMark = () => {};
 
   // 구매처 이미지 띄우는 로직
   // const sellingSiteImage = (site) => {

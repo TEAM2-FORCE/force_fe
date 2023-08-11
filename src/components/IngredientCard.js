@@ -5,8 +5,10 @@ import emptyStar from "../img/Ingredients/emptyStar.png";
 import fullStar from "../img/Ingredients/fullStar.png";
 import blue from "../img/Ingredients/blue.png"
 import pink from "../img/Ingredients/pink.png"
+import { useNavigate } from "react-router-dom";
 
-const IngredientCard = ({isMypage}) => {
+const IngredientCard = ({isMypage, ingredient}) => {
+  const navigate = useNavigate();
   const [bookmark, setBookmark] = useState(false);
   const whichHeart = ()=>{
     if(!bookmark)return emptyStar;
@@ -15,9 +17,12 @@ const IngredientCard = ({isMypage}) => {
   const wishClick = ()=>{
     setBookmark(!bookmark);
   }
+  const cardClicked = () => {
+    navigate("/ingredientdetail", {state: ingredient})
+  }
 
   return (
-    <Card>
+    <Card onClick={cardClicked}>
       { isMypage &&
         <Picture>
         <img src={ingredientExample} alt="ingredient"></img>
@@ -27,12 +32,12 @@ const IngredientCard = ({isMypage}) => {
        
       <Contents>
         <IngredientInfo>
-          <IngredientName>1,2-Hexanediol</IngredientName>
+          <IngredientName>{ingredient.igd_name}</IngredientName>
           <WishButton onClick={wishClick}>
           <img src={whichHeart()} alt="wish" width="20px"></img>
           </WishButton>
         </IngredientInfo>
-        <div>Antibacterial, moisturizing, preservative</div>    
+        <div>{ingredient.igd_main_ftn}</div>    
       </Contents>
       <Bottom>
       <MarkImage src={blue} alt="testingX"></MarkImage>
