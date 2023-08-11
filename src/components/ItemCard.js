@@ -1,24 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import emptyHeart from "../img/Items/emptyHeart2.png";
-import fullHeart from "../img/Items/fullHeart.png";
 import testingX from "../img/Ingredients/testingX.png";
 import ingredientX from "../img/Ingredients/ingredientX.png";
 import { useNavigate } from "react-router-dom";
+import WishlistClick from "./WishlistClick";
 
 const ItemCard = ({ product }) => {
-  const navigate = useNavigate();
-  const [wish, setWish] = useState(false);
-  const whichHeart = () => {
-    if (!wish) {
-      return emptyHeart;
-    } else {
-      return fullHeart;
-    }
-  };
-  const wishClick = () => {
-    setWish(!wish);
-  };
+  const navigate = useNavigate();  
 
   const cardClicked = () => {
     navigate("/itemdetail", { state: product });
@@ -32,13 +20,7 @@ const ItemCard = ({ product }) => {
       <Contents>
         <IngredientInfo>
           <ProductName>{product.pd_name}</ProductName>
-          <WishButton onClick={wishClick}>
-            <img
-              src={whichHeart()}
-              alt="wish"
-              style={{ width: "1rem", objectFit: "contain", margin: "0.2rem" }}
-            ></img>
-          </WishButton>
+          <WishlistClick pd_id={product.pd_id} detail={false}/>
         </IngredientInfo>
         <div>{product.pd_brand}</div>
         <div>KRW {product.pd_price}</div>
@@ -107,13 +89,6 @@ const ProductName = styled.div`
   max-width: 90%;
   height: 110px;
   overflow: hidden;
-`;
-
-const WishButton = styled.button`
-  border: none;
-  background-color: white;
-  cursor: pointer;
-  display: flex;
 `;
 const Bottom = styled.div`
   display: flex;

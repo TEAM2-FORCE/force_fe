@@ -1,13 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Wrapper } from "../components/layout/Layout";
 import Nav from "../components/layout/Nav";
 import Footer from "../components/layout/Footer";
-
 import ItemCard from "../components/ItemCard";
-
-import emptyStar from "../img/Ingredients/emptyStar2.png";
-import fullStar from "../img/Ingredients/fullStar.png";
 import { useLocation } from "react-router-dom";
 import BookmarkClick from "../components/BookmarkClick";
 

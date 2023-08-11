@@ -14,7 +14,7 @@ const BookmarkClick = ({igd_id, detail}) => {
     if(!bookmark)return emptyStar;
     else return fullStar;
   }
-  const bookmarkClick = async ()=>{
+  const bookmarkClicked = async ()=>{
     //여기에 로그인되어있는지 확인하는 거 해야 함
     if(islogin){
       if(!bookmark)
@@ -32,14 +32,14 @@ const BookmarkClick = ({igd_id, detail}) => {
   return (
     <>
     {detail?
-    <BookmarkButton onClick={bookmarkClick}>
+    <BookmarkButton onClick={bookmarkClicked}>
     <img src={whichStar()} alt="wish" width="20px"></img>
     </BookmarkButton>
     :
     <IconImage
       src={whichStar()}
       alt="favorite"
-      onClick={bookmarkClick}
+      onClick={bookmarkClicked}
     />
   }
     

@@ -4,28 +4,15 @@ import { Wrapper } from "../components/layout/Layout";
 import Nav from "../components/layout/Nav";
 import Footer from "../components/layout/Footer";
 import Modal from "./Modal";
-
 import veganmark1 from "../img/VeganMark/veganMark1.png";
 import veganmark2 from "../img/VeganMark/veganMark2.png";
-import emptyHeart from "../img/Items/emptyHeart2.png";
-import fullHeart from "../img/Items/fullHeart.png";
 import { useLocation } from "react-router-dom";
+import WishlistClick from "../components/WishlistClick";
 
 const ItemDetail = () => {
   const { state } = useLocation();
   const product = state;
   console.log(product);
-  const [wish, setWish] = useState(false);
-  const whichHeart = () => {
-    if (!wish) {
-      return emptyHeart;
-    } else {
-      return fullHeart;
-    }
-  };
-  const wishClick = () => {
-    setWish(!wish);
-  };
 
   const [modal, setModal] = useState(false);
 
@@ -69,11 +56,7 @@ const ItemDetail = () => {
           <div style={{ width: "95%" }}>
             <Container>
               <h1 style={{ margin: 0 }}>{product.pd_name}</h1>
-              <IconImage
-                src={whichHeart()}
-                alt="wish"
-                onClick={wishClick}
-              ></IconImage>
+              <WishlistClick pd_id={product.pd_id} detail={true}/>
             </Container>
             <h3 style={{ fontWeight: 500, marginTop: "0.5rem" }}>
               {product.pd_brand}
@@ -192,9 +175,4 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`;
-
-const IconImage = styled.img`
-  height: 24px;
-  object-fit: contain;
 `;

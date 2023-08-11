@@ -81,7 +81,20 @@ export const getItemDetail = ( pd_id ) => {
   return axios.get(url);
 };
 
+export const postItemWishlist = (pd_id) => {
+  //성분 북마크
+  const url = `${baseURL}/products/${pd_id}/bm`;
+  return axios.post(url);
+}; //권한 필요, 로그인할 때 발급된 액세스 토큰
+
+export const deleteItemWishlist = ( pd_id ) => {
+  //성분 북마크 삭제
+  const url = `${baseURL}/products/${pd_id}/bm`;
+  return axios.delete(url);
+}; //권한 필요, 로그인할 때 발급된 액세스 토큰
+
 export const getWishlistItems = ()=>{
+  //이 url 아님 !!! 이거 고쳐야 함
   const url = `${baseURL}/products/bm/`;
   return axios.get(url);
 }

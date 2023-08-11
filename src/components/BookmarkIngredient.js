@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import blue from "../img/Ingredients/blue.png";
 import pink from "../img/Ingredients/pink.png";

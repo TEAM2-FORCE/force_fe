@@ -26,13 +26,14 @@ export const postIngredientBookmark = (igd_id) => {
   return axios.post(url);
 }; //권한 필요, 로그인할 때 발급된 액세스 토큰
 
-export const deleteIngredientBookmark = ({ igd_id }) => {
+export const deleteIngredientBookmark = ( igd_id ) => {
   //성분 북마크 삭제
   const url = `${baseURL}/ingredients/${igd_id}/bm`;
   return axios.delete(url);
 }; //권한 필요, 로그인할 때 발급된 액세스 토큰
 
 export const getBookmarkIngredients = ()=>{
+  //이 url 아님 !!! 이거 고쳐야 함
   const url = `${baseURL}/ingredients/bm/`;
   return axios.get(url);
 }
