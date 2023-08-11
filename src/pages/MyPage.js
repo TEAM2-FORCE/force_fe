@@ -1,26 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Wrapper } from "../components/layout/Layout";
 import { Section } from "../components/layout/Layout";
 import { styled } from "styled-components";
 import logout from "../img/MyPage/log-out.png";
 import profile from "../img/MyPage/profile.png";
-// import ItemCard from "../components/ItemCard";
-// import IngredientCard from "../components/IngredientCard";
+import ItemCard from "../components/ItemCard";
+import IngredientCard from "../components/IngredientCard";
 import Nav from "../components/layout/Nav";
 import Footer from "../components/layout/Footer";
 import { useNavigate } from "react-router-dom";
+import { getBookmarkIngredients } from "../apis/Ingredient";
+import { getWishlistItems } from "../apis/Item";
 
 const MyPage = () => {
+  const [wishlistData, setWishlistData] = useState([]);
+  const [bookmarkData, setBookmarkData] = useState([]);
   const navigate = useNavigate();
   const setLogOut = () => {};
 
   const moreWishList = () => {
-    navigate("/wishlist");
+    navigate("/wishlist", {state: wishlistData});
+  };
+  const moreBookMark = () => {
+    navigate("/bookmark", {state: bookmarkData});
   };
 
-  const moreBookMark = () => {
-    navigate("/bookmark");
-  };
+  useEffect(()=>{
+    const fetchData = async () => {
+      const responseWishlist = await getWishlistItems();
+      setWishlistData(responseWishlist.data);
+      const responseBookmark = await getBookmarkIngredients();
+      setBookmarkData(responseBookmark.data);
+    };
+    fetchData();
+  })
 
   return (
     <Wrapper>
@@ -46,10 +59,12 @@ const MyPage = () => {
             <Right onClick={moreWishList}>view more</Right>
           </Up>
           <Contents>
-            {/* <ItemCard></ItemCard>
-            <ItemCard></ItemCard>
-            <ItemCard></ItemCard>
-            <ItemCard></ItemCard> */}
+            {
+              wishlistData &&
+              wishlistData.slice(0, 4).map((wishlist) => (
+                <ItemCard key={wishlist.pd_id} product={wishlist}/>
+              ))
+            }
           </Contents>
         </WishList>
 
@@ -59,9 +74,12 @@ const MyPage = () => {
             <Right onClick={moreBookMark}>view more</Right>
           </Up>
           <Contents>
-            {/* <IngredientCard isMypage={true}/>
-            <IngredientCard isMypage={true}/>
-            <IngredientCard isMypage={true}/> */}
+            {
+              bookmarkData &&
+              bookmarkData.slice(0, 4).map((bookmark) => (
+                <IngredientCard key={bookmark.pd_id} ingredient={bookmark}/>
+              ))
+            }
           </Contents>
         </BookMark>
       </Section>

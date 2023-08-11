@@ -4,16 +4,11 @@ import IngredientCard from './IngredientCard';
 // import { getMostWishListed } from '../apis/Item';
 
 const IngredientDataSection = ({ingredientData}) => {
-  // const data = getMostWishListed(cg_id);
-  // const print = () => {
-  //   console.log(data);
-  // }
   return (
     <Cards>
       {ingredientData &&
       ingredientData.map((ingredient) => (
       <IngredientCard
-        isMypage={false}
         ingredient={ingredient}
       />
       ))

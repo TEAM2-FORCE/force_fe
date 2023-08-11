@@ -5,7 +5,7 @@ import fullStar from "../img/Ingredients/fullStar.png"
 import blue from "../img/Ingredients/blue.png";
 import pink from "../img/Ingredients/pink.png";
 
-const BookmarkIngredient = () => {
+const BookmarkIngredient = ({bookmarkIngredient}) => {
   const [bookmark, setBookmark] = useState(false);
   const whichHeart = ()=>{
     if(!bookmark)return emptyStar;
@@ -19,7 +19,7 @@ const BookmarkIngredient = () => {
     <Card>       
       <Contents>
         <IngredientInfo>
-          <IngredientName>1,2-Hexanediol</IngredientName>
+          <IngredientName>{bookmarkIngredient.igd_name}</IngredientName>
           <WishButton onClick={wishClick}>
           <img src={whichHeart()} alt="wish" width="20px"></img>
           </WishButton>
@@ -31,7 +31,7 @@ const BookmarkIngredient = () => {
       </Marks>
       
       <Text>
-      Antibacterial, moisturizing, preservative성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징성분주요특징주요특징성분주요특징성분주요특징성분
+      {bookmarkIngredient.igd_main_ftn}
       </Text>
     </Card>
   );

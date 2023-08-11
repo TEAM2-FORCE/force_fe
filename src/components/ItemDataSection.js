@@ -2,12 +2,12 @@ import React from "react";
 import ItemCard from "./ItemCard";
 import { styled } from "styled-components";
 
-const ItemDataSection = ({ cg_id, productData }) => {
+const ItemDataSection = ({ productData }) => {
   return (
     <Cards>
       {productData &&
         productData.map((product) => (
-          <ItemCard key={product.pd_id} product={product} cg_id={cg_id} />
+          <ItemCard key={product.pd_id} product={product}/>
         ))}
     </Cards>
   );

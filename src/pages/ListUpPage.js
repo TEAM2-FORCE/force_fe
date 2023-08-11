@@ -20,7 +20,6 @@ const ListUpPage = () => {
     else if (cg_id === "2") return "Skin Care";
     else if (cg_id === "3") return "Sun Care";
     else if (cg_id === "4") return "Masks";
-    console.log("나는 " + cg_id);
   };
 
   //초기 데이터 - MostWishListed
@@ -52,7 +51,7 @@ const ListUpPage = () => {
         <Center>
           <FilterLists />
           <Contents>
-            <ItemDataSection productData={productData} cg_id={cg_id} />
+            <ItemDataSection productData={productData}/>
           </Contents>
         </Center>
       </Section>

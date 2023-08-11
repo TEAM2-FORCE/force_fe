@@ -2,27 +2,14 @@ import React from 'react'
 import { styled } from 'styled-components';
 import BookmarkIngredient from './BookmarkIngredient';
 
-const BookmarkDataSection = () => {
+const BookmarkDataSection = ({bookmarkData}) => {
   return (
     <Cards>
-        <BookmarkIngredient/>
-        <BookmarkIngredient/>
-        <BookmarkIngredient/>
-        <BookmarkIngredient/>
-        <BookmarkIngredient/>
-        <BookmarkIngredient/>
-        <BookmarkIngredient/>
-        <BookmarkIngredient/>
-        <BookmarkIngredient/>
-        <BookmarkIngredient/>
-        <BookmarkIngredient/>
-        <BookmarkIngredient/>
-        <BookmarkIngredient/>
-        <BookmarkIngredient/>
-        <BookmarkIngredient/>
-        <BookmarkIngredient/>
-        <BookmarkIngredient/>
-        <BookmarkIngredient/>      
+      {bookmarkData &&
+      bookmarkData.map((bookmarkIngredient)=>(
+        <BookmarkIngredient bookmarkIngredient = {bookmarkIngredient}/>
+      ))
+      }
     </Cards>
   )
 }

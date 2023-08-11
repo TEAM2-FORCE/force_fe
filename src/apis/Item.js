@@ -80,3 +80,8 @@ export const getItemDetail = ( pd_id ) => {
   const url = `${baseURL}/products/${pd_id}/`;
   return axios.get(url);
 };
+
+export const getWishlistItems = ()=>{
+  const url = `${baseURL}/products/bm/`;
+  return axios.get(url);
+}

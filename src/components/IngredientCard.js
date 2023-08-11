@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import ingredientExample from "../img/Ingredients/ingredientExample.png";
+// import ingredientExample from "../img/Ingredients/ingredientExample.png";
 import emptyStar from "../img/Ingredients/emptyStar.png";
 import fullStar from "../img/Ingredients/fullStar.png";
 import blue from "../img/Ingredients/blue.png"
 import pink from "../img/Ingredients/pink.png"
 import { useNavigate } from "react-router-dom";
 
-const IngredientCard = ({isMypage, ingredient}) => {
+const IngredientCard = ({ingredient}) => {
   const navigate = useNavigate();
   const [bookmark, setBookmark] = useState(false);
   const whichHeart = ()=>{
@@ -23,12 +23,12 @@ const IngredientCard = ({isMypage, ingredient}) => {
 
   return (
     <Card onClick={cardClicked}>
-      { isMypage &&
+      {/* { isMypage &&
         <Picture>
         <img src={ingredientExample} alt="ingredient"></img>
       </Picture>
 
-      }
+      } */}
        
       <Contents>
         <IngredientInfo>
@@ -58,16 +58,16 @@ max-height: 25rem;
 margin: 25px;
 position: relative;
 `;
-const Picture = styled.div`
-display: flex;
-flex-direction: center;
-justify-content: center;
-align-items: center;
-display: flex;
-gap: 20px;
-height: 10rem;
-margin-bottom: 3px;
-`;
+// const Picture = styled.div`
+// display: flex;
+// flex-direction: center;
+// justify-content: center;
+// align-items: center;
+// display: flex;
+// gap: 20px;
+// height: 10rem;
+// margin-bottom: 3px;
+// `;
 
 
 const Contents = styled.div`

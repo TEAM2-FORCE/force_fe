@@ -5,10 +5,12 @@ import { Section, Wrapper } from "../components/layout/Layout";
 import ItemDataSection from "../components/ItemDataSection";
 import Nav from "../components/layout/Nav";
 import Footer from "../components/layout/Footer";
+import { useLocation } from "react-router-dom";
 
 const WishlistPage = () => {
-  
-
+  const {state} = useLocation();
+  const wishlistData = state;
+  console.log(wishlistData);
   return (
     <Wrapper>
       <Nav/>
@@ -20,7 +22,7 @@ const WishlistPage = () => {
       <Section>
         <Center>
           <Contents>
-            <ItemDataSection></ItemDataSection>
+            <ItemDataSection productData={wishlistData}></ItemDataSection>
           </Contents>
         </Center>
       </Section>

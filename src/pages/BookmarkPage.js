@@ -4,10 +4,12 @@ import { Section, Wrapper } from "../components/layout/Layout";
 import Nav from "../components/layout/Nav";
 import Footer from "../components/layout/Footer";
 import BookmarkDataSection from "../components/BookmarkDataSection";
+import { useLocation } from "react-router-dom";
 
 const BookmarkPage = () => {
-  
-
+  const {state} = useLocation();
+  const bookmarkData = state;
+  console.log(bookmarkData);
   return (
     <Wrapper>
       <Nav/>
@@ -19,7 +21,7 @@ const BookmarkPage = () => {
       <Section>
         <Center>
           <Contents>
-            <BookmarkDataSection/>
+            <BookmarkDataSection bookmarkData = {bookmarkData}/>
           </Contents>
         </Center>
       </Section>
