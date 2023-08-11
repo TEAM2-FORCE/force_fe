@@ -9,23 +9,13 @@ import ItemCard from "../components/ItemCard";
 import emptyStar from "../img/Ingredients/emptyStar2.png";
 import fullStar from "../img/Ingredients/fullStar.png";
 import { useLocation } from "react-router-dom";
+import BookmarkClick from "../components/BookmarkClick";
 
 const IncipediaDetail = () => {
   const {state} = useLocation();
   const ingredient = state;
   console.log(ingredient);
-  const [favorite, setFavorite] = useState(false);
-  const whichStar = () => {
-    if (!favorite) {
-      return emptyStar;
-    } else {
-      return fullStar;
-    }
-  };
-  const favoriteClick = () => {
-    setFavorite(!favorite);
-  };
-
+  
   return (
     <Wrapper>
       <Nav />
@@ -33,11 +23,12 @@ const IncipediaDetail = () => {
         <BodySection>
           <Container>
             <h1>{ingredient.igd_name}</h1>
-            <IconImage
+            {/* <IconImage
               src={whichStar()}
               alt="favorite"
               onClick={favoriteClick}
-            ></IconImage>
+            ></IconImage> */}
+            <BookmarkClick igd_id={ingredient.igd_id} detail={true}></BookmarkClick>
           </Container>
           <div style={{ fontSize: "1.5rem" }}>
             {ingredient.igd_main_ftn}
@@ -87,11 +78,11 @@ const Container2 = styled.div`
   width: 100%;
 `;
 
-const IconImage = styled.img`
-  height: 32px;
-  object-fit: contain;
-  margin-left: 10px;
-`;
+// const IconImage = styled.img`
+//   height: 32px;
+//   object-fit: contain;
+//   margin-left: 10px;
+// `;
 
 const BodySection = styled.div`
   width: 88%;

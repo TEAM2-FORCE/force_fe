@@ -9,6 +9,7 @@ const IngredientDataSection = ({ingredientData}) => {
       {ingredientData &&
       ingredientData.map((ingredient) => (
       <IngredientCard
+        igd_id={ingredient.igd_id}
         ingredient={ingredient}
       />
       ))

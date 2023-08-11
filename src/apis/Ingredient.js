@@ -20,7 +20,7 @@ export const getIngredientSearch = ({ text }) => {
   return axios.get(url);
 };
 
-export const postIngredientBookmark = ({ igd_id }) => {
+export const postIngredientBookmark = (igd_id) => {
   //성분 북마크
   const url = `${baseURL}/ingredients/${igd_id}/bm`;
   return axios.post(url);

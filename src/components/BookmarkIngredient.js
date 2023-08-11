@@ -1,28 +1,17 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import emptyStar from "../img/Ingredients/emptyStar2.png"
-import fullStar from "../img/Ingredients/fullStar.png"
 import blue from "../img/Ingredients/blue.png";
 import pink from "../img/Ingredients/pink.png";
+import BookmarkClick from "./BookmarkClick";
 
 const BookmarkIngredient = ({bookmarkIngredient}) => {
-  const [bookmark, setBookmark] = useState(false);
-  const whichHeart = ()=>{
-    if(!bookmark)return emptyStar;
-    else return fullStar;
-  }
-  const wishClick = ()=>{
-    setBookmark(!bookmark);
-  }
 
   return (
     <Card>       
       <Contents>
         <IngredientInfo>
           <IngredientName>{bookmarkIngredient.igd_name}</IngredientName>
-          <WishButton onClick={wishClick}>
-          <img src={whichHeart()} alt="wish" width="20px"></img>
-          </WishButton>
+          <BookmarkClick></BookmarkClick>
         </IngredientInfo>  
       </Contents>
       <Marks>
@@ -79,17 +68,8 @@ font-size: 1.25rem;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
-
 `
 
-const WishButton = styled.button`
-border: none;
-background-color: white;
-cursor: pointer;
-display: flex;
-justify-content: space-center;
-align-items: center;
-`
 const Marks = styled.div`
 display: flex;
 justify-content: flex-start;

@@ -1,41 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-// import ingredientExample from "../img/Ingredients/ingredientExample.png";
-import emptyStar from "../img/Ingredients/emptyStar.png";
-import fullStar from "../img/Ingredients/fullStar.png";
 import blue from "../img/Ingredients/blue.png"
 import pink from "../img/Ingredients/pink.png"
 import { useNavigate } from "react-router-dom";
+import BookmarkClick from "./BookmarkClick";
 
-const IngredientCard = ({ingredient}) => {
+const IngredientCard = ({igd_id, ingredient}) => {
   const navigate = useNavigate();
-  const [bookmark, setBookmark] = useState(false);
-  const whichHeart = ()=>{
-    if(!bookmark)return emptyStar;
-    else return fullStar;
-  }
-  const wishClick = ()=>{
-    setBookmark(!bookmark);
-  }
   const cardClicked = () => {
     navigate("/ingredientdetail", {state: ingredient})
   }
 
   return (
-    <Card onClick={cardClicked}>
-      {/* { isMypage &&
-        <Picture>
-        <img src={ingredientExample} alt="ingredient"></img>
-      </Picture>
-
-      } */}
-       
+    <Card onClick={cardClicked}>       
       <Contents>
         <IngredientInfo>
           <IngredientName>{ingredient.igd_name}</IngredientName>
-          <WishButton onClick={wishClick}>
-          <img src={whichHeart()} alt="wish" width="20px"></img>
-          </WishButton>
+          <SmallBookmark>
+            <BookmarkClick igd_id={igd_id} detail={false}></BookmarkClick>
+          </SmallBookmark>
         </IngredientInfo>
         <div>{ingredient.igd_main_ftn}</div>    
       </Contents>
@@ -104,14 +87,14 @@ line-height: normal;
 
 `
 
-const WishButton = styled.button`
-border: none;
-background-color: white;
-cursor: pointer;
-display: flex;
-justify-content: space-center;
-align-items: center;
-`
+// const WishButton = styled.button`
+// border: none;
+// background-color: white;
+// cursor: pointer;
+// display: flex;
+// justify-content: space-center;
+// align-items: center;
+// `
 const Bottom = styled.div`
 display: flex;
 justify-content: flex-start;
@@ -130,4 +113,7 @@ padding-right: 10px;
 const MarkImage = styled.img`
 width: 40%;
 margin-right: 2%;
+`
+const SmallBookmark = styled.div`
+
 `
