@@ -7,6 +7,25 @@ import Suncare from "../../img/Nav/Suncare.png";
 import Masks from "../../img/Nav/Masks.png";
 
 const DropDown = ({ setDropDown }) => {
+  const categories = [
+    {
+      image: Makeup,
+      text: "Makeup",
+    },
+    {
+      image: Skincare,
+      text: "Skincare",
+    },
+    {
+      image: Suncare,
+      text: "Suncare",
+    },
+    {
+      image: Masks,
+      text: "Masks",
+    },
+  ];
+
   return (
     <MenuContainer
       onMouseOver={() => setDropDown(true)}
@@ -16,28 +35,12 @@ const DropDown = ({ setDropDown }) => {
     >
       <Text>All Products</Text>
       <Container>
-        {/* {categories.map((category) => {
+        {categories.map((category) => (
           <Category>
-            <CategoryImage src={category} />
-            <CategoryText innerText={category}></CategoryText>
-          </Category>;
-        })} */}
-        <Category>
-          <CategoryImage src={Makeup} />
-          <CategoryText>Makeup</CategoryText>
-        </Category>
-        <Category>
-          <CategoryImage src={Skincare} />
-          <CategoryText>Skincare</CategoryText>
-        </Category>
-        <Category>
-          <CategoryImage src={Suncare} />
-          <CategoryText>Suncare</CategoryText>
-        </Category>
-        <Category>
-          <CategoryImage src={Masks} />
-          <CategoryText>Masks</CategoryText>
-        </Category>
+            <CategoryImage src={category.image} />
+            <CategoryText>{category.text}</CategoryText>
+          </Category>
+        ))}
       </Container>
     </MenuContainer>
   );
