@@ -22,10 +22,12 @@ export const baseURL = "http://vebeserver.kro.kr:8000/";
 
 export const getAllItemsInCategory = (cg_id) => {
   if(cg_id === "0") {
+    console.log("이거");
     const url = `${baseURL}/products/`;
     return axios.get(url);
   }
   else {
+    console.log("설마");
     const url = `${baseURL}/products/category/${cg_id}/`;
     return axios.get(url);
   }

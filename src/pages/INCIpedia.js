@@ -25,7 +25,7 @@ const INCIpedia = () => {
       }
     };
     fetchData();
-  });
+  }, []);
 
   return (
     <Wrapper>

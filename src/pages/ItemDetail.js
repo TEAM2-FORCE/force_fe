@@ -82,8 +82,9 @@ const ItemDetail = () => {
           <div>
             <h3>Ingredients</h3>
             <P style={{ marginTop: "0.8rem" }}>
-              Aqua (Water), Propanediol, Betaine, ....
-              {/* {product.ingredient} 표시 */}
+              {product.ingredients &&
+              product.ingredients.map((ingredient)=>ingredient.igd_name).join(', ')
+              }
             </P>
             <br />
             <br />

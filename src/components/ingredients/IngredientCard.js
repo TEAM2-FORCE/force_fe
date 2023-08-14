@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import blue from "../../img/Ingredients/blue.png";
 import pink from "../../img/Ingredients/pink.png";
 import { useNavigate } from "react-router-dom";
 import BookmarkClick from "./BookmarkClick";
@@ -8,7 +7,7 @@ import BookmarkClick from "./BookmarkClick";
 const IngredientCard = ({ igd_id, ingredient }) => {
   const navigate = useNavigate();
   const cardClicked = () => {
-    navigate("/ingredientdetail", { state: ingredient });
+    navigate("/incipediadetail", { state: ingredient });
   };
 
   return (
@@ -20,10 +19,10 @@ const IngredientCard = ({ igd_id, ingredient }) => {
             <BookmarkClick igd_id={igd_id} detail={false}></BookmarkClick>
           </SmallBookmark>
         </IngredientInfo>
-        <div>{ingredient.igd_main_ftn}</div>
+        <div>asdfasdfasdfasdfasdssssssssssssssssssssssssssssssss</div>
+        {/* {ingredient.igd_main_ftn} */}
       </Contents>
       <Bottom>
-        <MarkImage src={blue} alt="testingX"></MarkImage>
         <MarkImage src={pink} alt="ingredientX"></MarkImage>
       </Bottom>
     </Card>
@@ -35,23 +34,10 @@ export default IngredientCard;
 const Card = styled.div`
   flex-direction: column;
   background-color: white;
-  gap: 10px;
   width: 20%;
-  max-height: 25rem;
-  margin: 25px;
-  position: relative;
+  height: 100px;
+  margin: 30px 20px;
 `;
-// const Picture = styled.div`
-// display: flex;
-// flex-direction: center;
-// justify-content: center;
-// align-items: center;
-// display: flex;
-// gap: 20px;
-// height: 10rem;
-// margin-bottom: 3px;
-// `;
-
 const Contents = styled.div`
   display: flex;
   flex-direction: center;
@@ -65,6 +51,7 @@ const Contents = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  overflow: hidden;
 `;
 const IngredientInfo = styled.div`
   display: flex;

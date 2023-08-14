@@ -18,6 +18,8 @@ export default IngredientDataSection;
 
 const Cards = styled.div`
   display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
   width: 100%;
   min-height: 800px;
   max-height: 800px;

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import queryString from "query-string";
 import { useNavigate } from "react-router";
-// import { postLogin } from "../apis/Googlelogin";
+import { postLogin } from "../apis/Googlelogin";
 
 const GoogleOAuth2RedirectHandler = () => {
   const navigate = useNavigate();
@@ -13,11 +13,12 @@ const GoogleOAuth2RedirectHandler = () => {
       
       if(code){
         console.log(code);
-        // const response = await postLogin(code);
-    
-        // //서버에서 받은 토콘을 저장하고 로그인 처리
-        // const token = response.data.token;
-        // localStorage.setItem("token", token);
+        const response = await postLogin(code);
+        console.log(response.access_token);
+        //서버에서 받은 토콘을 저장하고 로그인 처리
+        const token = response.access_token;
+        localStorage.setItem("token", token);
+        // localStorage.setItem("token", 123);
         navigate('/');
       }
       else{

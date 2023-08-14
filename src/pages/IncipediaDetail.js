@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Wrapper } from "../components/layout/Layout";
 import Nav from "../components/layout/Nav";
@@ -6,11 +6,27 @@ import Footer from "../components/layout/Footer";
 import ItemCard from "../components/items/ItemCard";
 import { useLocation } from "react-router-dom";
 import BookmarkClick from "../components/ingredients/BookmarkClick";
+import { getAllItemsInCategory } from "../apis/Item";
 
 const IncipediaDetail = () => {
   const { state } = useLocation();
   const ingredient = state;
   console.log(ingredient);
+  const [productData, setProductData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getAllItemsInCategory("0");
+        console.log("상품");
+        console.log(response);
+        setProductData(response.data);
+      } catch (error) {
+        console.error("데이터 불러오기 실패", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <Wrapper>
@@ -39,10 +55,11 @@ const IncipediaDetail = () => {
             <More>View More</More>
           </Container2>
           <ProductContainer>
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
+          {
+            productData
+            .filter((product)=> ingredient.products.includes(product.pd_id))
+            .map((filteredProduct)=><ItemCard product={filteredProduct}/>)
+          }
           </ProductContainer>
         </BodySection>
       </Body>
