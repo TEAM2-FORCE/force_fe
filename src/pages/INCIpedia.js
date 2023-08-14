@@ -8,6 +8,7 @@ import CheckItemList from "../components/filtering/CheckItemList";
 import searchIcon from "../img/Nav/searchIcon.png";
 import IngredientDataSection from "../components/ingredients/IngredientDataSection";
 import { getAllIngredients } from "../apis/Ingredient";
+import { getIngredientSearch } from "../apis/Ingredient";
 
 const INCIpedia = () => {
   const [ingredientData, setIngredientData] = useState([]);
@@ -26,6 +27,28 @@ const INCIpedia = () => {
     };
     fetchData();
   }, []);
+
+  const [userInput, setUserInput] = useState("");
+
+  const getInputValue = (e) => {
+    setUserInput(e.target.value);
+    console.log(e.target.value);
+  };
+
+  const searchClick = async () => {
+    // navigate(`/ingredients?search=${userInput}`);
+    const response = await getIngredientSearch(userInput);
+    console.log(response);
+    setIngredientData(response.data);
+    const input = document.querySelector("input");
+    input.value = "";
+  };
+
+  const activeEnter = (e) => {
+    if (e.key === "Enter") {
+      searchClick();
+    }
+  };
 
   return (
     <Wrapper>
@@ -49,8 +72,10 @@ const INCIpedia = () => {
                     outline: "none",
                     width: "100%",
                   }}
+                  onChange={getInputValue}
+                  onKeyDown={activeEnter}
                 ></input>
-                <SearchButton src={searchIcon} />
+                <SearchButton src={searchIcon} onClick={searchClick} />
               </SearchBar>
             </Search>
             <Filter>

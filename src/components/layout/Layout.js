@@ -100,6 +100,7 @@ export const SearchButton = styled.img`
   &:active {
     opacity: 0.5;
   }
+  cursor: pointer;
 `;
 
 export const MyPageButton = styled.img`
