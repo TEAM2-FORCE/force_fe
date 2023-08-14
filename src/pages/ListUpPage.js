@@ -7,7 +7,7 @@ import Nav from "../components/layout/Nav";
 import Footer from "../components/layout/Footer";
 import SearchTop from "../components/filtering/SearchTop";
 import FilterLists from "../components/filtering/FilterLists";
-import { getItemSearch, getMostWishListed } from "../apis/Item";
+import { getItemSearch, getAllItemsInCategory } from "../apis/Item";
 import { useLocation } from "react-router-dom";
 
 const ListUpPage = () => {
@@ -15,18 +15,24 @@ const ListUpPage = () => {
   const cg_id = state.cg_id;
   const [productData, setProductData] = useState([]);
   const whichPage = () => {
-    if (cg_id === 0) return "all";
-    else if (cg_id === "1") return "Make Up";
-    else if (cg_id === "2") return "Skin Care";
-    else if (cg_id === "3") return "Sun Care";
-    else if (cg_id === "4") return "Masks";
+    if (cg_id === 1) {
+      return "Makeup";
+    } else if (cg_id === 2) {
+      return "Skin Care";
+    } else if (cg_id === 3) {
+      return "Sun Care";
+    } else if (cg_id === 4) {
+      return "Masks";
+    } else if (cg_id === 0) {
+      return "All products";
+    }
   };
 
   //초기 데이터 - MostWishListed
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getMostWishListed(cg_id);
+        const response = await getAllItemsInCategory(cg_id);
         setProductData(response.data);
       } catch (error) {
         console.error("데이터 불러오기 실패", error);

@@ -9,13 +9,17 @@ import skincare from "../../img/Mainpage/Skincare.png";
 const CategorySection = ({ whereTo, name, cg_id }) => {
   const navigate = useNavigate();
   const goto = (where) => {
-    navigate(`/${where}`, {state : cg_id});
+    navigate(`/${where}`, {
+      state: {
+        cg_id: cg_id,
+      },
+    });
   };
   const imageMapping = {
     "Make Up": makeup,
     "Sun Care": suncare,
     "Skin Care": skincare,
-    "Masks": mask,
+    Masks: mask,
     // all: all,
   };
   return (

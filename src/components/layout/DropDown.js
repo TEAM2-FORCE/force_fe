@@ -5,26 +5,40 @@ import Makeup from "../../img/Nav/Makeup.png";
 import Skincare from "../../img/Nav/Skincare.png";
 import Suncare from "../../img/Nav/Suncare.png";
 import Masks from "../../img/Nav/Masks.png";
+import { useNavigate } from "react-router";
 
 const DropDown = ({ setDropDown }) => {
   const categories = [
     {
       image: Makeup,
       text: "Makeup",
+      cg_id: 1,
     },
     {
       image: Skincare,
       text: "Skincare",
+      cg_id: 2,
     },
     {
       image: Suncare,
       text: "Suncare",
+      cg_id: 3,
     },
     {
       image: Masks,
       text: "Masks",
+      cg_id: 4,
     },
   ];
+
+  const navigate = useNavigate();
+  const onClickAllProducts = () => {
+    navigate("/listuppage", { state: { cg_id: 0 } });
+  };
+  // const onClickCategory = (num) => {
+  //   console.log("음" + num);
+  //   navigate("/listuppage", { state: { cg_id: num } });
+  // };
 
   return (
     <MenuContainer
@@ -33,7 +47,7 @@ const DropDown = ({ setDropDown }) => {
         setDropDown(false);
       }}
     >
-      <Text>All Products</Text>
+      <Text onClick={onClickAllProducts}>All Products</Text>
       <Container>
         {categories.map((category) => (
           <Category>

@@ -2,38 +2,18 @@ import axios from "axios";
 
 export const baseURL = "http://vebeserver.kro.kr:8000/";
 
-// export const getAllItems = () => {
-//   const url = `${baseURL}/products/`;
-//   return axios.get(url); //json 파일 가져오는 것
-// };
-
-// export const getAllItemsPriceLowToHigh = () => {
-//   const url = `${baseURL}/products/?sort=price/`;
-//   return axios.get(url); //json 파일 가져오는 것
-// };
-// export const getAllItemsPriceHighToLow = () => {
-//   const url = `${baseURL}/products/?sort=-price/`;
-//   return axios.get(url); //json 파일 가져오는 것
-// };
-// export const getAllItemsABC = (cg_id) =>{
-//   const url = `${baseURL}/products/?sort=name/`;
-//   return axios.get(url);
-// }
-
 export const getAllItemsInCategory = (cg_id) => {
-  if (cg_id === "0") {
-    console.log("이거");
+  if (cg_id === 0) {
     const url = `${baseURL}/products/`;
     return axios.get(url);
   } else {
-    console.log("설마");
     const url = `${baseURL}/products/category/${cg_id}/`;
     return axios.get(url);
   }
 };
 
 export const getPriceLowToHigh = (cg_id) => {
-  if (cg_id === "0") {
+  if (cg_id === 0) {
     const url = `${baseURL}/products/?sort=price/`;
     return axios.get(url);
   } else {
@@ -43,7 +23,7 @@ export const getPriceLowToHigh = (cg_id) => {
 };
 
 export const getPriceHighToLow = (cg_id) => {
-  if (cg_id === "0") {
+  if (cg_id === 0) {
     const url = `${baseURL}/products/?sort=-price/`;
     return axios.get(url);
   } else {
@@ -53,7 +33,7 @@ export const getPriceHighToLow = (cg_id) => {
 };
 
 export const getMostWishListed = (cg_id) => {
-  if (cg_id === "0") {
+  if (cg_id === 0) {
     const url = `${baseURL}/products/`;
     return axios.get(url);
   } else {
@@ -63,7 +43,7 @@ export const getMostWishListed = (cg_id) => {
 };
 
 export const getABC = (cg_id) => {
-  if (cg_id === "0") {
+  if (cg_id === 0) {
     const url = `${baseURL}/products/?sort=name/`;
     return axios.get(url);
   } else {

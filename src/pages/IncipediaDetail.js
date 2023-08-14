@@ -13,12 +13,11 @@ const IncipediaDetail = () => {
   const ingredient = state;
   console.log(ingredient);
   const [productData, setProductData] = useState([]);
-  
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getAllItemsInCategory("0");
+        const response = await getAllItemsInCategory(0);
         console.log("상품");
         console.log(response);
         setProductData(response.data);
@@ -56,11 +55,11 @@ const IncipediaDetail = () => {
             <More>View More</More>
           </Container2>
           <ProductContainer>
-          {
-            productData
-            .filter((product)=> ingredient.products.includes(product.pd_id))
-            .map((filteredProduct)=><ItemCard product={filteredProduct}/>)
-          }
+            {productData
+              .filter((product) => ingredient.products.includes(product.pd_id))
+              .map((filteredProduct) => (
+                <ItemCard product={filteredProduct} />
+              ))}
           </ProductContainer>
         </BodySection>
       </Body>
