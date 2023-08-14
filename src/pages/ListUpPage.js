@@ -13,9 +13,13 @@ import { useLocation } from "react-router-dom";
 const ListUpPage = () => {
   const { state } = useLocation();
   const cg_id = state.cg_id;
+  const category_id = state.category_id;
+  const userInput = state.userInput;
   const [productData, setProductData] = useState([]);
   const whichPage = () => {
-    if (cg_id === 1) {
+    if (cg_id === 0) {
+      return "All products";
+    } else if (cg_id === 1) {
       return "Makeup";
     } else if (cg_id === 2) {
       return "Skin Care";
@@ -23,8 +27,6 @@ const ListUpPage = () => {
       return "Sun Care";
     } else if (cg_id === 4) {
       return "Masks";
-    } else if (cg_id === 0) {
-      return "All products";
     }
   };
 
@@ -40,8 +42,6 @@ const ListUpPage = () => {
     };
     fetchData();
   }, []);
-
-  const userInput = state.userInput;
 
   const searchProduct = async () => {
     const response = await getItemSearch(userInput);

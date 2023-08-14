@@ -12,22 +12,22 @@ const DropDown = ({ setDropDown }) => {
     {
       image: Makeup,
       text: "Makeup",
-      cg_id: 1,
+      category_id: 1,
     },
     {
       image: Skincare,
       text: "Skincare",
-      cg_id: 2,
+      category_id: 2,
     },
     {
       image: Suncare,
       text: "Suncare",
-      cg_id: 3,
+      category_id: 3,
     },
     {
       image: Masks,
       text: "Masks",
-      cg_id: 4,
+      category_id: 4,
     },
   ];
 
@@ -35,10 +35,9 @@ const DropDown = ({ setDropDown }) => {
   const onClickAllProducts = () => {
     navigate("/listuppage", { state: { cg_id: 0 } });
   };
-  // const onClickCategory = (num) => {
-  //   console.log("음" + num);
-  //   navigate("/listuppage", { state: { cg_id: num } });
-  // };
+  const onClickCategory = (num) => {
+    navigate("/listuppage", { state: { category_id: num } });
+  };
 
   return (
     <MenuContainer
@@ -52,7 +51,9 @@ const DropDown = ({ setDropDown }) => {
         {categories.map((category) => (
           <Category>
             <CategoryImage src={category.image} />
-            <CategoryText>{category.text}</CategoryText>
+            <CategoryText onClick={onClickCategory(category.category_id)}>
+              {category.text}
+            </CategoryText>
           </Category>
         ))}
       </Container>
