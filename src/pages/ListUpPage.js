@@ -13,7 +13,7 @@ import { useLocation } from "react-router-dom";
 const ListUpPage = () => {
   const { state } = useLocation();
   const cg_id = state.cg_id;
-  const category_id = state.category_id;
+  // const category_id = state.category_id;
   const userInput = state.userInput;
   const [productData, setProductData] = useState([]);
   const whichPage = () => {

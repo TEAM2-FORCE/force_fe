@@ -10,6 +10,11 @@ import { useNavigate } from "react-router";
 const DropDown = ({ setDropDown }) => {
   const categories = [
     {
+      image: "",
+      text: "All Product",
+      category_id: 0,
+    },
+    {
       image: Makeup,
       text: "Makeup",
       category_id: 1,
@@ -36,7 +41,7 @@ const DropDown = ({ setDropDown }) => {
     navigate("/listuppage", { state: { cg_id: 0 } });
   };
   const onClickCategory = (num) => {
-    navigate("/listuppage", { state: { category_id: num } });
+    navigate("/listuppage", { state: { cg_id: num } });
   };
 
   return (
@@ -49,9 +54,12 @@ const DropDown = ({ setDropDown }) => {
       <Text onClick={onClickAllProducts}>All Products</Text>
       <Container>
         {categories.map((category) => (
-          <Category>
-            <CategoryImage src={category.image} />
-            <CategoryText onClick={onClickCategory(category.category_id)}>
+          <Category onClick={()=>onClickCategory(category.category_id)}>
+            {
+              category.image !== "" ? <CategoryImage src={category.image} /> : null
+            }
+            
+            <CategoryText>
               {category.text}
             </CategoryText>
           </Category>
