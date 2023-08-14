@@ -15,15 +15,14 @@ import { styled } from "styled-components";
 
 import logo from "../../img/Logo/MainLogo.png";
 import DropDown from "./DropDown";
+import { isAuthenticated } from "../../apis/Googlelogin";
 
 const Nav = () => {
-  const [isLogin, setIsLogin] = useState(true);
   const navigate = useNavigate();
   const myPageClicked = () => {
-    if (isLogin) navigate("/mypage");
+    if (isAuthenticated()) navigate("/mypage");
     else {
       navigate("/login");
-      setIsLogin(!isLogin);
     }
   };
   const logoClicked = () => {

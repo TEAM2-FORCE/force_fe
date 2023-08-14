@@ -1,13 +1,18 @@
 import React from "react";
 import { styled } from "styled-components";
-import google from "../img/LogIn/google.png";
 import mainLogo from "../img/Logo/MainLogo.png";
 import subLogo from "../img/Logo/SubLogo.png";
 import loginText from "../img/LogIn/loginText.png";
+import google from "../img/LogIn/google.png";
 const Login = () => {
-  const onClick = () => {
-    console.log(1);
-  };
+
+    const googleLogin = () => {
+      window.location.href ="https://accounts.google.com/o/oauth2/auth?" +
+      `client_id=${process.env.REACT_APP_GOOGLE_CLIENT_ID}&`+
+      `redirect_uri=${process.env.REACT_APP_GOOGLE_REDIRECT_URI}&`+
+      "response_type=code&"+
+      "scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile";
+    }
 
   return (
     <LoginWindow>
@@ -30,9 +35,10 @@ const Login = () => {
             <Logo src={subLogo} alt="logo2" width={"50%"}></Logo>
           </Middle>
           <Bottom>
-            <Button onClick={onClick}>
-              <IconStyled src={google} alt="Icon"></IconStyled>
-              <ButtonText>Log in with Google</ButtonText>
+            {/* <GoogleLogin></GoogleLogin> */}
+            <Button onClick={googleLogin}>
+            <IconStyled src={google} alt="Icon"></IconStyled>
+            <ButtonText>Log in with Google</ButtonText>
             </Button>
             <Text color="rgba(145, 147, 146, 1)" weight="700">
               Use without Log in
@@ -135,6 +141,15 @@ const Bottom = styled.div`
   line-height: normal;
 `;
 
+const DesignText = styled.img`
+  position: absolute;
+  display: inline-block;
+  bottom: 0%;
+  z-index: -1;
+  width: 100%;
+  height: 60%;
+`;
+
 const Button = styled.button`
   display: flex;
   justify-content: left;
@@ -169,13 +184,4 @@ const IconStyled = styled.img`
   height: 1.5rem;
   margin-left: 8px;
   padding: 0;
-`;
-
-const DesignText = styled.img`
-  position: absolute;
-  display: inline-block;
-  bottom: 0%;
-  z-index: -1;
-  width: 100%;
-  height: 60%;
 `;

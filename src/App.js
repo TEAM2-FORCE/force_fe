@@ -10,6 +10,7 @@ import IncipediaDetail from "./pages/IncipediaDetail";
 import BookmarkPage from "./pages/BookmarkPage";
 import WishlistPage from "./pages/WishlistPage";
 import ListUpPage from "./pages/ListUpPage";
+import GoogleOAuth2RedirectHandler from "./pages/GoogleOAuth2RedirectHandler";
 
 const App = () => {
   return (
@@ -17,7 +18,6 @@ const App = () => {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/itemdetail" element={<ItemDetail />} />
         <Route path="/incipediadetail" element={<IncipediaDetail />} />
@@ -25,13 +25,11 @@ const App = () => {
         <Route path="/bookmark" element={<BookmarkPage />} />
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/listuppage" element={<ListUpPage />} />
-        {/* <Route path="/all" element={<All />} />
-        <Route path="/skinCare" element={<SkinCare />} />
-        <Route path="/makeUp" element={<MakeUp />} />
-        <Route path="/masks" element={<Masks />} />
-        <Route path="/sunCare" element={<SunCare />} /> */}
+        
+          <Route path="/login" element={<Login />} />
+          <Route path="/oauth2redirect" element={ <GoogleOAuth2RedirectHandler />}/>
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter>    
   );
 };
 

@@ -33,7 +33,8 @@ export const deleteIngredientBookmark = ( igd_id ) => {
 }; //권한 필요, 로그인할 때 발급된 액세스 토큰
 
 export const getBookmarkIngredients = ()=>{
-  //이 url 아님 !!! 이거 고쳐야 함
+  
   const url = `${baseURL}/ingredients/bm/`;
   return axios.get(url);
 }
+//이 url 아님 !!! 이거 고쳐야 함
