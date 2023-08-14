@@ -42,6 +42,32 @@ const Nav = () => {
     setDropDown(false);
   };
 
+  const [userInput, setUserInput] = useState("");
+
+  const getInputValue = (e) => {
+    setUserInput(e.target.value);
+    console.log(e.target.value);
+  };
+
+  const searchClick = () => {
+    // const response = await getItemSearch(userInput);
+    // console.log(response);
+    // setProductDatas(response.data);
+    navigate("/listuppage", {
+      state: {
+        userInput: userInput,
+      },
+    });
+    const input = document.querySelectorAll("input");
+    input.value = "";
+  };
+
+  const activeEnter = (e) => {
+    if (e.key === "Enter") {
+      searchClick();
+    }
+  };
+
   return (
     <Container>
       <NavContainer>
@@ -68,8 +94,10 @@ const Nav = () => {
                 outline: "none",
                 width: "100%",
               }}
+              onChange={getInputValue}
+              onKeyDown={activeEnter}
             ></input>
-            <SearchButton src={searchIcon} />
+            <SearchButton src={searchIcon} onClick={searchClick} />
           </SearchBar>
           <MyPageButton src={myPageIcon} onClick={myPageClicked} />
         </Right>
