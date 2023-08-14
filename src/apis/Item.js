@@ -57,22 +57,47 @@ export const getItemDetail = (pd_id) => {
   return axios.get(url);
 };
 
-export const postItemWishlist = (pd_id) => {
-  //상품 위시
-  const url = `${baseURL}/products/${pd_id}/bm`;
-  return axios.post(url);
+export const postItemWishlist = (cg_id, pd_id) => {
+  //상품 위시 추가
+  const url = `${baseURL}/products/${cg_id}/${pd_id}/scrap/`;
+  axios.post(url, {}, { // 데이터 부분을 빈 객체로 설정
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  })
+  .then(response => {
+    console.log('응답:', response.data);
+  })
+  .catch(error => {
+    console.error('오류 발생:', error);
+  });
 }; //권한 필요, 로그인할 때 발급된 액세스 토큰
 
-export const deleteItemWishlist = (pd_id) => {
+export const deleteItemWishlist = (cg_id, pd_id) => {
   //상품 위시 삭제
-  const url = `${baseURL}/products/${pd_id}/bm`;
-  return axios.delete(url);
+  const url = `${baseURL}/products/${cg_id}/${pd_id}/scrap/`;
+  axios.delete(url, { // 데이터 부분을 빈 객체로 설정
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    }
+  })
+  .then(response => {
+    console.log('응답:', response.data);
+  })
+  .catch(error => {
+    console.error('오류 발생:', error);
+  });
 }; //권한 필요, 로그인할 때 발급된 액세스 토큰
 
 export const getWishlistItems = () => {
-  //이 url 아님 !!! 이거 고쳐야 함
-  const url = `${baseURL}/products/bm/`;
-  return axios.get(url);
+  //상품 위시리스트 목록 불러오기
+  const url = `${baseURL}/products/?sort=name/`;
+  const response = axios.get(url, {
+    headers: {
+      Authorization : `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+  return response;
 };
 
 export const getItemSearch = (text) => {

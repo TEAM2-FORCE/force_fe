@@ -21,19 +21,39 @@ export const getIngredientSearch = (text) => {
 };
 
 export const postIngredientBookmark = (igd_id) => {
-  //성분 북마크
+  //성분 북마크 표시
   const url = `${baseURL}/ingredients/${igd_id}/bm/`;
-  return axios.post(url);
+  console.log("토큰은 : " + localStorage.getItem("token"));
+  axios.post(url, {}, { // 데이터 부분을 빈 객체로 설정
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  })
+  .then(response => {
+    console.log('응답:', response.data);
+  })
+  .catch(error => {
+    console.error('오류 발생:', error);
+  });
 }; //권한 필요, 로그인할 때 발급된 액세스 토큰
 
 export const deleteIngredientBookmark = (igd_id) => {
   //성분 북마크 삭제
   const url = `${baseURL}/ingredients/${igd_id}/bm/`;
-  return axios.delete(url);
+  axios.delete(url, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    }
+  });
 }; //권한 필요, 로그인할 때 발급된 액세스 토큰
 
 export const getBookmarkIngredients = () => {
+  //북마크 성분 불러오기
   const url = `${baseURL}/ingredients/bm/`;
-  return axios.get(url);
+  const response = axios.get(url, {
+    headers: {
+      Authorization : `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+  return response;
 };
-//이 url 아님 !!! 이거 고쳐야 함
