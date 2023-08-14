@@ -11,7 +11,7 @@ const DropDown = ({ setDropDown }) => {
   const categories = [
     {
       image: "",
-      text: "All Product",
+      text: "All Products",
       category_id: 0,
     },
     {
@@ -37,9 +37,6 @@ const DropDown = ({ setDropDown }) => {
   ];
 
   const navigate = useNavigate();
-  const onClickAllProducts = () => {
-    navigate("/listuppage", { state: { cg_id: 0 } });
-  };
   const onClickCategory = (num) => {
     navigate("/listuppage", { state: { cg_id: num } });
   };
@@ -51,17 +48,18 @@ const DropDown = ({ setDropDown }) => {
         setDropDown(false);
       }}
     >
-      <Text onClick={onClickAllProducts}>All Products</Text>
+      <Text>All Category</Text>
       <Container>
-        {categories.map((category) => (
-          <Category onClick={()=>onClickCategory(category.category_id)}>
-            {
-              category.image !== "" ? <CategoryImage src={category.image} /> : null
-            }
-            
-            <CategoryText>
-              {category.text}
-            </CategoryText>
+        {categories.map((category, i) => (
+          <Category
+            key={category.category_id}
+            onClick={() => onClickCategory(category.category_id)}
+          >
+            {category.image !== "" ? (
+              <CategoryImage src={category.image} />
+            ) : null}
+
+            <CategoryText>{category.text}</CategoryText>
           </Category>
         ))}
       </Container>
@@ -80,8 +78,8 @@ const MenuContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-self: center;
-  width: 70%;
-  height: 7rem;
+  width: 63.75rem;
+  height: 9rem;
   border-top: 1px solid #d0d0d0;
   background: var(--white, #fdfffd);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -101,17 +99,20 @@ const Text = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: space-between;
+  height: 55%;
 `;
+
 const Category = styled.div`
   display: flex;
   flex-direction: row;
   height: 1.5rem;
   display: flex;
-  width: 7.5rem;
-  padding-left: 0px;
-  justify-content: center;
+  width: 32%;
+  padding-left: 0.5rem;
+  justify-content: flex-start;
   align-items: center;
   gap: 0.625rem;
   border-left: 2px solid #2ebe8f;
