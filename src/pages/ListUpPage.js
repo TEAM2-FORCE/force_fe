@@ -12,7 +12,6 @@ import { useLocation } from "react-router-dom";
 
 const ListUpPage = () => {
   const { state } = useLocation();
-  console.log(location.state);
   const cg_id = state;
   const [productData, setProductData] = useState([]);
   const whichPage = () => {
