@@ -7,7 +7,7 @@ import Modal from "./Modal";
 import veganmark1 from "../img/VeganMark/veganMark1.png";
 import veganmark2 from "../img/VeganMark/veganMark2.png";
 import { useLocation } from "react-router-dom";
-import WishlistClick from "../components/WishlistClick";
+import WishlistClick from "../components/items/WishlistClick";
 
 const ItemDetail = () => {
   const { state } = useLocation();
@@ -56,7 +56,7 @@ const ItemDetail = () => {
           <div style={{ width: "95%" }}>
             <Container>
               <h1 style={{ margin: 0 }}>{product.pd_name}</h1>
-              <WishlistClick pd_id={product.pd_id} detail={true}/>
+              <WishlistClick pd_id={product.pd_id} detail={true} />
             </Container>
             <h3 style={{ fontWeight: 500, marginTop: "0.5rem" }}>
               {product.pd_brand}

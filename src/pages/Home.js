@@ -5,7 +5,7 @@ import { Section } from "../components/layout/Layout";
 import Nav from "../components/layout/Nav";
 import Footer from "../components/layout/Footer";
 import CategorySection from "../components/home/CategorySection";
-import { Banner } from "../components/Banner";
+import { Banner } from "../components/home/Banner";
 
 const Home = () => {
   return (
@@ -22,10 +22,10 @@ const Home = () => {
           </h2>
         </Category>
         <ImageSection>
-          <CategorySection whereTo="listuppage" name="Make Up" cg_id="1"/>
-          <CategorySection whereTo="listuppage" name="Skin Care" cg_id="2"/>
-          <CategorySection whereTo="listuppage" name="Sun Care" cg_id="3"/>
-          <CategorySection whereTo="listuppage" name="Masks" cg_id="4"/>
+          <CategorySection whereTo="listuppage" name="Make Up" cg_id="1" />
+          <CategorySection whereTo="listuppage" name="Skin Care" cg_id="2" />
+          <CategorySection whereTo="listuppage" name="Sun Care" cg_id="3" />
+          <CategorySection whereTo="listuppage" name="Masks" cg_id="4" />
         </ImageSection>
       </Section>
       <Footer></Footer>

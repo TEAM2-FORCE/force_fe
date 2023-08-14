@@ -25,11 +25,14 @@ const App = () => {
         <Route path="/bookmark" element={<BookmarkPage />} />
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/listuppage" element={<ListUpPage />} />
-        
-          <Route path="/login" element={<Login />} />
-          <Route path="/oauth2redirect" element={ <GoogleOAuth2RedirectHandler />}/>
+
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/oauth2redirect"
+          element={<GoogleOAuth2RedirectHandler />}
+        />
       </Routes>
-    </BrowserRouter>    
+    </BrowserRouter>
   );
 };
 

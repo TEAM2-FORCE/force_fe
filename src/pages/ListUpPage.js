@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Wrapper } from "../components/layout/Layout";
 import { Section } from "../components/layout/Layout";
-import ItemDataSection from "../components/ItemDataSection";
+import ItemDataSection from "../components/items/ItemDataSection";
 import Nav from "../components/layout/Nav";
 import Footer from "../components/layout/Footer";
-import SearchTop from "../components/layout/SearchTop";
-import FilterLists from "../components/search/FilterLists";
+import SearchTop from "../components/filtering/SearchTop";
+import FilterLists from "../components/filtering/FilterLists";
 import { getMostWishListed } from "../apis/Item";
 import { useLocation } from "react-router-dom";
 
@@ -51,7 +51,7 @@ const ListUpPage = () => {
         <Center>
           <FilterLists />
           <Contents>
-            <ItemDataSection productData={productData}/>
+            <ItemDataSection productData={productData} />
           </Contents>
         </Center>
       </Section>

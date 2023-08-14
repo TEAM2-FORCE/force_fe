@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
-import fullStar from "../img/Ingredients/fullStar.png";
-import checked from "../img/Common/checked.png";
-import unchecked from "../img/Common/unchecked.png";
+import fullStar from "../../img/Ingredients/fullStar.png";
+import checked from "../../img/Common/checked.png";
+import unchecked from "../../img/Common/unchecked.png";
 
 const CheckItem = () => {
   const [check, setCheck] = useState(false);

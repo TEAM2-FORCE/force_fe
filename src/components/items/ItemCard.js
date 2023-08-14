@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import testingX from "../img/Ingredients/testingX.png";
-import ingredientX from "../img/Ingredients/ingredientX.png";
+import testingX from "../../img/Ingredients/testingX.png";
+import ingredientX from "../../img/Ingredients/ingredientX.png";
 import { useNavigate } from "react-router-dom";
 import WishlistClick from "./WishlistClick";
 
 const ItemCard = ({ product }) => {
-  const navigate = useNavigate();  
+  const navigate = useNavigate();
 
   const cardClicked = () => {
     navigate("/itemdetail", { state: product });
@@ -20,7 +20,7 @@ const ItemCard = ({ product }) => {
       <Contents>
         <IngredientInfo>
           <ProductName>{product.pd_name}</ProductName>
-          <WishlistClick pd_id={product.pd_id} detail={false}/>
+          <WishlistClick pd_id={product.pd_id} detail={false} />
         </IngredientInfo>
         <div>{product.pd_brand}</div>
         <div>KRW {product.pd_price}</div>

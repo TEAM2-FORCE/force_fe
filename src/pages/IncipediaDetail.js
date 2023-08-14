@@ -3,15 +3,15 @@ import styled from "styled-components";
 import { Wrapper } from "../components/layout/Layout";
 import Nav from "../components/layout/Nav";
 import Footer from "../components/layout/Footer";
-import ItemCard from "../components/ItemCard";
+import ItemCard from "../components/items/ItemCard";
 import { useLocation } from "react-router-dom";
-import BookmarkClick from "../components/BookmarkClick";
+import BookmarkClick from "../components/ingredients/BookmarkClick";
 
 const IncipediaDetail = () => {
-  const {state} = useLocation();
+  const { state } = useLocation();
   const ingredient = state;
   console.log(ingredient);
-  
+
   return (
     <Wrapper>
       <Nav />
@@ -24,11 +24,12 @@ const IncipediaDetail = () => {
               alt="favorite"
               onClick={favoriteClick}
             ></IconImage> */}
-            <BookmarkClick igd_id={ingredient.igd_id} detail={true}></BookmarkClick>
+            <BookmarkClick
+              igd_id={ingredient.igd_id}
+              detail={true}
+            ></BookmarkClick>
           </Container>
-          <div style={{ fontSize: "1.5rem" }}>
-            {ingredient.igd_main_ftn}
-          </div>
+          <div style={{ fontSize: "1.5rem" }}>{ingredient.igd_main_ftn}</div>
           <br />
           <br />
           <br />

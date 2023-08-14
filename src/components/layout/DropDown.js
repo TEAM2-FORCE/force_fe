@@ -57,7 +57,7 @@ const MenuContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-self: center;
-  width: 63.75rem;
+  width: 70%;
   height: 7rem;
   border-top: 1px solid #d0d0d0;
   background: var(--white, #fdfffd);
@@ -72,6 +72,7 @@ const Text = styled.div`
   font-weight: 700;
   line-height: normal;
   height: 1.5rem;
+  cursor: pointer;
 `;
 
 const Container = styled.div`

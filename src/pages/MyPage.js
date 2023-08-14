@@ -4,8 +4,8 @@ import { Section } from "../components/layout/Layout";
 import { styled } from "styled-components";
 import logout from "../img/MyPage/log-out.png";
 import profile from "../img/MyPage/profile.png";
-import ItemCard from "../components/ItemCard";
-import IngredientCard from "../components/IngredientCard";
+import ItemCard from "../components/items/ItemCard";
+import IngredientCard from "../components/ingredients/IngredientCard";
 import Nav from "../components/layout/Nav";
 import Footer from "../components/layout/Footer";
 import { useNavigate } from "react-router-dom";
@@ -19,13 +19,13 @@ const MyPage = () => {
   const setLogOut = () => {};
 
   const moreWishList = () => {
-    navigate("/wishlist", {state: wishlistData});
+    navigate("/wishlist", { state: wishlistData });
   };
   const moreBookMark = () => {
-    navigate("/bookmark", {state: bookmarkData});
+    navigate("/bookmark", { state: bookmarkData });
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     const fetchData = async () => {
       const responseWishlist = await getWishlistItems();
       setWishlistData(responseWishlist.data);
@@ -33,7 +33,7 @@ const MyPage = () => {
       setBookmarkData(responseBookmark.data);
     };
     fetchData();
-  })
+  });
 
   return (
     <Wrapper>
@@ -59,12 +59,12 @@ const MyPage = () => {
             <Right onClick={moreWishList}>view more</Right>
           </Up>
           <Contents>
-            {
-              wishlistData &&
-              wishlistData.slice(0, 4).map((wishlist) => (
-                <ItemCard key={wishlist.pd_id} product={wishlist}/>
-              ))
-            }
+            {wishlistData &&
+              wishlistData
+                .slice(0, 4)
+                .map((wishlist) => (
+                  <ItemCard key={wishlist.pd_id} product={wishlist} />
+                ))}
           </Contents>
         </WishList>
 
@@ -74,12 +74,12 @@ const MyPage = () => {
             <Right onClick={moreBookMark}>view more</Right>
           </Up>
           <Contents>
-            {
-              bookmarkData &&
-              bookmarkData.slice(0, 4).map((bookmark) => (
-                <IngredientCard key={bookmark.pd_id} ingredient={bookmark}/>
-              ))
-            }
+            {bookmarkData &&
+              bookmarkData
+                .slice(0, 4)
+                .map((bookmark) => (
+                  <IngredientCard key={bookmark.pd_id} ingredient={bookmark} />
+                ))}
           </Contents>
         </BookMark>
       </Section>

@@ -4,7 +4,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import about from "../img/Banner/about.png";
+import about from "../../img/Banner/about.png";
 import { styled } from "styled-components";
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
