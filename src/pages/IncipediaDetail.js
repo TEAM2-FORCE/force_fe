@@ -13,6 +13,7 @@ const IncipediaDetail = () => {
   const ingredient = state;
   console.log(ingredient);
   const [productData, setProductData] = useState([]);
+  
 
   useEffect(() => {
     const fetchData = async () => {

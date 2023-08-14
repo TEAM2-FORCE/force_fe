@@ -6,10 +6,11 @@ import Footer from "../components/layout/Footer";
 import Modal from "./Modal";
 import veganmark1 from "../img/VeganMark/veganMark1.png";
 import veganmark2 from "../img/VeganMark/veganMark2.png";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import WishlistClick from "../components/items/WishlistClick";
 
 const ItemDetail = () => {
+  const navigate = useNavigate();
   const { state } = useLocation();
   const product = state;
   console.log(product);
@@ -18,6 +19,9 @@ const ItemDetail = () => {
 
   const handleClick = () => {
     setModal(true);
+  };
+  const cardClicked = (ingredient) => {
+    navigate("/incipediadetail", { state: ingredient });
   };
 
   // const whichVeganMark = () => {};
@@ -81,11 +85,18 @@ const ItemDetail = () => {
           </div>
           <div>
             <h3>Ingredients</h3>
-            <P style={{ marginTop: "0.8rem" }}>
+            <IngredientContainer style={{ marginTop: "0.8rem" }}>
               {product.ingredients &&
-              product.ingredients.map((ingredient)=>ingredient.igd_name).join(', ')
+              product.ingredients.map((ingredient, index)=>
+              <IngredientText
+              key={index}
+              onClick={() => cardClicked(ingredient)}
+              >
+              {ingredient.igd_name}
+              {index < product.ingredients.length - 1 && ", "}
+              </IngredientText>)
               }
-            </P>
+            </IngredientContainer>
             <br />
             <br />
             <br />
@@ -97,16 +108,16 @@ const ItemDetail = () => {
 								<Image src={sellingSiteImage} key={i} 클릭하면 그 페이지로 링크/>
 								사이트마다 키가 있는건 아니라서 인덱스로 키를 대신함
 							})} */}
-              <P>Oliveyoung Web</P>
+              <p>Oliveyoung Web</p>
             </Container>
             <Container>
-              <P>Oliveyoung Web</P>
+              <p>Oliveyoung Web</p>
             </Container>
             <Container>
-              <P>Oliveyoung Web</P>
+              <p>Oliveyoung Web</p>
             </Container>
             <Container>
-              <P>Oliveyoung Web</P>
+              <p>Oliveyoung Web</p>
             </Container>
           </div>
         </ItemDescription>
@@ -168,12 +179,20 @@ const VeganMark = styled.img`
   cursor: pointer;
 `;
 
-const P = styled.p`
-  font-size: 0.8rem;
+const IngredientContainer = styled.div`
+display: flex;
+flex-direction: row;
+font-size: 0.8rem;
 `;
 
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`;
+  `;
+  
+  const IngredientText = styled.div`
+  
+  font-size: 16px;
+  cursor: pointer; 
+  `
