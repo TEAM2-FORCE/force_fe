@@ -1,8 +1,13 @@
 import React from "react";
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import CheckItemList from "./CheckItemList";
+// import { excludeIngredientsData, includeIngredientsData, veganLabelData } from "./FilteringIngredients";
+// import { getBookmarkIngredients } from "../../apis/Ingredient";
 // import { getAllIngredients } from "../../apis/Ingredient";
+import includeIngredients from "../../Json/includeIngredients.json"
+import excludeIngredientsData from "../../Json/excludeIngredients.json"
+import veganLabelData from "../../Json/veganLabelIngredients.json"
 
 const Filter = ({ text, check, setCheck }) => {
   ////백엔드에서 api 불러올 수 있으면 ingredients 이걸로 바꾸기!
@@ -29,12 +34,33 @@ const Filter = ({ text, check, setCheck }) => {
   //   };
   //   fetchData();
   // })
+  const [ingredients, setIngredients] = useState([]);
+  
 
-  const ingredients = ["ingredient1", "ingredient2", "ingredient3"];
+  // const [bookmark, setBookmark] = useState([]);
+  useEffect(()=>{
+    const fetchData = () => {
+      try{
+        if(text === "Include")setIngredients(includeIngredients);
+        else if(text === "Exclude")setIngredients(excludeIngredientsData);
+        else if(text === "Vegan Label")setIngredients(veganLabelData);
+
+        //// 북마크인거 true로 바꾸기
+        // const bookmarkIngredients =  getBookmarkIngredients();
+
+
+
+      }catch(error){
+        console.error("북마크 성분 불러오기 실패", error);
+      }
+    };
+    fetchData();
+  })
+  
   return (
     <Container>
       <Text>{text}</Text>
-      <CheckItemList ingredients = {ingredients} check = {check}setCheck={setCheck}/>
+      <CheckItemList ingredients = {ingredients} check = {check} setCheck={setCheck}/>
     </Container>
   );
 };

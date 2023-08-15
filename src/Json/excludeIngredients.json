@@ -1,0 +1,12 @@
+[
+    {"igd_key": 1, "igd_name": "BHT", "igd_isBookmarked": false},
+    {"igd_key": 2, "igd_name": "Brilliant Blue FCF", "igd_isBookmarked": false},
+    {"igd_key": 3, "igd_name": "Fast Acid Magenta", "igd_isBookmarked": false},
+    {"igd_key": 4, "igd_name": "Fragrance", "igd_isBookmarked": false},
+    {"igd_key": 5, "igd_name": "Limonene", "igd_isBookmarked": false},
+    {"igd_key": 6, "igd_name": "Linalool", "igd_isBookmarked": false},
+    {"igd_key": 7, "igd_name": "Phenoxyethanol", "igd_isBookmarked": false},
+    {"igd_key": 8, "igd_name": "Phloxine B", "igd_isBookmarked": false},
+    {"igd_key": 9, "igd_name": "Sunset Yellow FCF", "igd_isBookmarked": false},
+    {"igd_key": 10, "igd_name": "Tartrazine", "igd_isBookmarked": false}
+  ]

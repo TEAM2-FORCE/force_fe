@@ -9,16 +9,17 @@ import fullStar from "../../img/Ingredients/fullStar.png";
 import { useNavigate } from "react-router-dom";
 import { isAuthenticated } from "../../apis/Googlelogin";
 
-const BookmarkClick = ({ igd_id, detail }) => {
+const BookmarkClick = ({ igd_id, detail, isBookmarked }) => {
   const navigate = useNavigate();
   //이건 수정해야 함
   const islogin = isAuthenticated();
-  const [bookmark, setBookmark] = useState(false);
+  const [bookmark, setBookmark] = useState(isBookmarked);
   const whichStar = () => {
     if (!bookmark) return emptyStar;
     else return fullStar;
   };
   const bookmarkClicked = async (event) => {
+    console.log(bookmark);
     event.stopPropagation();
     //여기에 로그인되어있는지 확인하는 거 해야 함
     if (islogin) {

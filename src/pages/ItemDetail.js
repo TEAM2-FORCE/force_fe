@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Wrapper } from "../components/layout/Layout";
 import Nav from "../components/layout/Nav";
@@ -244,6 +244,9 @@ const ItemDetail = () => {
     }
   };
 
+  //이건 필요없는데 비건마크 안 써서 배포하려고! 나중에 비건마크 쓰면 지우기
+  console.log(veganMarkImage);
+
   return (
     <Wrapper>
       <Nav></Nav>
@@ -261,15 +264,15 @@ const ItemDetail = () => {
               {product.pd_brand}
             </h3>
             <VeganMarkContainer>
-              {product.veganmark.map((mark) => {
+              {product.veganmark.map((mark) => (
                 <VeganMark
                   key={mark.id}
                   src={mark.image}
                   onClick={
                     <Modal title={mark.title} description={mark.description} />
                   }
-                />;
-              })}
+                />
+              ))}
             </VeganMarkContainer>
             <br />
             <br />
@@ -294,9 +297,9 @@ const ItemDetail = () => {
           </div>
           <div style={{ width: "95%" }}>
             <h3>Where To Buy</h3>
-            {product.sellingSite.map((site, i) => {
-              <image src={() => sellingSiteImage(site)} key={i} />;
-            })}
+            {product.sellingSite.map((site, i) => (
+              <image src={() => sellingSiteImage(site)} key={i} />
+            ))}
           </div>
         </ItemDescription>
       </Body>

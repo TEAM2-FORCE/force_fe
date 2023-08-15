@@ -41,7 +41,7 @@ const ListUpPage = () => {
       }
     };
     fetchData();
-  }, []);
+  },);
 
   const searchProduct = async () => {
     const response = await getItemSearch(userInput);

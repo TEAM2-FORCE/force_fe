@@ -5,9 +5,9 @@ import { styled } from "styled-components";
 const CheckItemList = ({ingredients, check, setCheck}) => {
   return (
     <CheckItems>
-      {ingredients.map((ingredient, index)=>(
+      {ingredients.map((ingredient)=>(
         <CheckItem 
-        key={index} 
+        key={ingredient.igd_key} 
         ingredient={ingredient} 
         check={check} 
         setCheck={setCheck}/>

@@ -11,11 +11,11 @@ const CheckItem = ({ingredient, check, setCheck}) => {
   const changeCheck = () => {
     if(!boxCheck){
       // console.log("체크");
-      setCheck([...check, ingredient]);
+      setCheck([...check, ingredient.igd_name]);
     }
     if(boxCheck){
       // console.log("체크 해제");
-      setCheck(check.filter((item) => item !== ingredient));
+      setCheck(check.filter((item) => item !== ingredient.igd_name));
 
     }
     setBoxCheck(!boxCheck);
@@ -30,7 +30,7 @@ const CheckItem = ({ingredient, check, setCheck}) => {
       <Button onClick={changeCheck}>
         <img src={whichCheckbox()} alt="checkbox"></img>
       </Button>
-      <Text>{ingredient}</Text>
+      <Text>{ingredient.igd_name}</Text>
       <Right>
         {wish && <Image src={fullStar} alt="wishList"></Image>}
         {/* HI */}

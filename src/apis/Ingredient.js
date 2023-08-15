@@ -47,16 +47,27 @@ export const deleteIngredientBookmark = (igd_id) => {
   });
 }; //권한 필요, 로그인할 때 발급된 액세스 토큰
 
-export const getBookmarkIngredients = () => {
-  //북마크 성분 불러오기
-  const url = `${baseURL}/ingredients/bm/`;
-  const response = axios.get(url, {
-    headers: {
-      Authorization : `Bearer ${localStorage.getItem("token")}`,
-    },
+export const getBookmarkIngredients = async () => {
+  // //북마크 성분 불러오기
+  // const url = `${baseURL}/ingredients/bm/`;
+  // const response = axios.get(url, {
+  //   headers: {
+  //     Authorization : `Bearer ${localStorage.getItem("token")}`,
+  //   },
+  // });
+  // console.log("이거");
+  // console.log(response);
+  // return response;
+
+  //북마크 성분 못 불러올 때를 대비하여 코드 작성
+  const url = `${baseURL}/ingredients/list/`;
+  const response = await axios.get(url);
+  const ingredients = response.data;
+  const bookmarkIngredients = ingredients.filter(ingredient => {
+    return ingredient.bookmarked_igd;
   });
-  return response;
-};
+  return bookmarkIngredients;
+}
 
 export const getFilteredIngredients = () => {
   const url = `${baseURL}/ingredients/filter/?igd_caution=false/`;

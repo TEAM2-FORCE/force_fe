@@ -3,6 +3,7 @@ import styled from "styled-components";
 import pink from "../../img/Ingredients/pink.png";
 import { useNavigate } from "react-router-dom";
 import BookmarkClick from "./BookmarkClick";
+import { isAuthenticated } from "../../apis/Googlelogin";
 
 const IngredientCard = ({ igd_id, ingredient }) => {
   const navigate = useNavigate();
@@ -16,10 +17,15 @@ const IngredientCard = ({ igd_id, ingredient }) => {
         <IngredientInfo>
           <IngredientName>{ingredient.igd_name}</IngredientName>
           <SmallBookmark>
-            <BookmarkClick igd_id={igd_id} detail={false}></BookmarkClick>
+            {
+              isAuthenticated() ? 
+            <BookmarkClick igd_id={igd_id} detail={false} isBookmarked={ingredient.bookmarked_igd}></BookmarkClick>
+            :
+            <BookmarkClick igd_id={igd_id} detail={false} isBookmarked={false}></BookmarkClick>
+            }
           </SmallBookmark>
         </IngredientInfo>
-        <div>asdfasdfasdfasdfasdssssssssssssssssssssssssssssssss</div>
+        {/* <div>asdfasdfasdfasdfasdssssssssssssssssssssssssssssssss</div> */}
         {/* {ingredient.igd_main_ftn} */}
       </Contents>
       <Bottom>

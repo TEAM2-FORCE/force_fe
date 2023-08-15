@@ -27,13 +27,15 @@ const MyPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      console.log("북마크");
       const responseWishlist = await getWishlistItems();
       setWishlistData(responseWishlist.data);
       const responseBookmark = await getBookmarkIngredients();
+      console.log(responseBookmark);
       setBookmarkData(responseBookmark.data);
     };
     fetchData();
-  });
+  },[]);
 
   return (
     <Wrapper>
