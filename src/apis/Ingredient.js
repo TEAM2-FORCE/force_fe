@@ -57,3 +57,8 @@ export const getBookmarkIngredients = () => {
   });
   return response;
 };
+
+export const getFilteredIngredients = () => {
+  const url = `${baseURL}/ingredients/filter/?igd_caution=false/`;
+  return axios.get(url);
+}

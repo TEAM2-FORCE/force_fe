@@ -6,8 +6,10 @@ import Footer from "../components/layout/Footer";
 import { SearchBar, SearchButton, Section } from "../components/layout/Layout";
 import searchIcon from "../img/Nav/searchIcon.png";
 import IngredientDataSection from "../components/ingredients/IngredientDataSection";
-import { getAllIngredients } from "../apis/Ingredient";
+import { getAllIngredients, getFilteredIngredients } from "../apis/Ingredient";
 import { getIngredientSearch } from "../apis/Ingredient";
+import checked from "../img/Common/checked.png"
+import unchecked from "../img/Common/unchecked.png"
 
 const INCIpedia = () => {
   const [ingredientData, setIngredientData] = useState([]);
@@ -15,22 +17,31 @@ const INCIpedia = () => {
   const OKButtonClicked = () => {};
   const CleanButtonClicked = () => {};
 
-  const changeCheck = () => {
+  const changeCheck = async () => {
     if(!boxCheck){
-      // console.log("체크");
-      // setCheck([...check, ingredient]);
+      try {
+        const response = await getFilteredIngredients();
+        console.log(response);
+        setIngredientData(response.data);
+      } catch (error) {
+        console.error("데이터 불러오기 실패", error);
+      }
     }
     if(boxCheck){
-      // console.log("체크 해제");
-      // setCheck(check.filter((item) => item !== ingredient));
+      try {
+        const response = await getAllIngredients();
+        console.log(response);
+        setIngredientData(response.data);
+      } catch (error) {
+        console.error("데이터 불러오기 실패", error);
+      }
 
     }
     setBoxCheck(!boxCheck);
   };
   const whichCheckbox = () => {
-    // if (boxCheck) return checked;
-    // else return unchecked;
-    return null;
+    if (boxCheck) return checked;
+    else return unchecked;
   };
 
   useEffect(() => {
@@ -102,7 +113,7 @@ const INCIpedia = () => {
               <Button onClick={changeCheck}>
                 <img src={whichCheckbox()} alt="checkbox"></img>
               </Button>
-              <Text>Caution</Text>
+              <Text>Exclude</Text>
               </Item>
             </Filter>
             <Filter>
