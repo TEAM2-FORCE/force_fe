@@ -67,7 +67,7 @@ const ListUpPage = () => {
 
       <Section>
         <Center>
-          <FilterLists cg_id={cg_id} />
+          <FilterLists cg_id={cg_id} setProductData={setProductData} />
           <Contents>
             <ItemDataSection productData={productData} />
           </Contents>

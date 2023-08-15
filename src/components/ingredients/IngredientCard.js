@@ -25,8 +25,7 @@ const IngredientCard = ({ igd_id, ingredient }) => {
             }
           </SmallBookmark>
         </IngredientInfo>
-        {/* <div>asdfasdfasdfasdfasdssssssssssssssssssssssssssssssss</div> */}
-        {/* {ingredient.igd_main_ftn} */}
+        {ingredient.igd_info}
       </Contents>
       <Bottom>
         <MarkImage src={pink} alt="ingredientX"></MarkImage>

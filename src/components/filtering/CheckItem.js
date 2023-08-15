@@ -6,7 +6,7 @@ import unchecked from "../../img/Common/unchecked.png";
 
 const CheckItem = ({ingredient, check, setCheck}) => {
   const [boxCheck, setBoxCheck] = useState(false); // 박스체크
-    const wish = true;
+    const wish = ingredient.igd_isBookmarked;
 
   const changeCheck = () => {
     if(!boxCheck){
@@ -33,7 +33,6 @@ const CheckItem = ({ingredient, check, setCheck}) => {
       <Text>{ingredient.igd_name}</Text>
       <Right>
         {wish && <Image src={fullStar} alt="wishList"></Image>}
-        {/* HI */}
       </Right>
     </Item>
   );

@@ -105,3 +105,12 @@ export const getItemSearch = (text) => {
   const url = `${baseURL}/products/search/?search=${text}`;
   return axios.get(url);
 };
+
+export const getFilteredData = (include, exclude, veganLabel) => {
+  const includeStr = include.join(',');
+  const excludeStr = exclude.join(',');
+  const veganLabelStr = veganLabel.join(',');
+  const url = `${baseURL}/products/filter/?include_ingredients=${includeStr}&exclude_ingredients=${excludeStr}&vg_company=${veganLabelStr}`
+  console.log(url);
+  return axios.get(url);
+}

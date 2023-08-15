@@ -2,9 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import CheckItemList from "./CheckItemList";
-// import { excludeIngredientsData, includeIngredientsData, veganLabelData } from "./FilteringIngredients";
-// import { getBookmarkIngredients } from "../../apis/Ingredient";
-// import { getAllIngredients } from "../../apis/Ingredient";
+import { getBookmarkIngredients } from "../../apis/Ingredient";
 import includeIngredients from "../../Json/includeIngredients.json"
 import excludeIngredientsData from "../../Json/excludeIngredients.json"
 import veganLabelData from "../../Json/veganLabelIngredients.json"
@@ -39,23 +37,35 @@ const Filter = ({ text, check, setCheck }) => {
 
   // const [bookmark, setBookmark] = useState([]);
   useEffect(()=>{
-    const fetchData = () => {
+    const fetchData = async () => {
       try{
-        if(text === "Include")setIngredients(includeIngredients);
-        else if(text === "Exclude")setIngredients(excludeIngredientsData);
-        else if(text === "Vegan Label")setIngredients(veganLabelData);
+        if(text === "Include")await setIngredients(includeIngredients);
+        else if(text === "Exclude")await setIngredients(excludeIngredientsData);
+        else if(text === "Vegan Label")await setIngredients(veganLabelData);
 
         //// 북마크인거 true로 바꾸기
-        // const bookmarkIngredients =  getBookmarkIngredients();
+        const bookmarkIngredients = await getBookmarkIngredients();
+        // console.log(bookmarkIngredients);
 
+        // const updatedIngredients = includeIngredients.map((ingredient)=>{
+        // const isBookmarked = bookmarkIngredients.some((bookmark)=>bookmark.igd_name === ingredient.igd_name);
+          
+        // return {
+        //   ...ingredient,
+        //   igd_isBookmarked: isBookmarked,
+        // }
+        // });
 
-
+        ingredients.forEach(ingredient => {
+          const ingredientNames = bookmarkIngredients.map(bookmark => bookmark.igd_name);
+          ingredient.isBookmarked = !ingredientNames.includes(ingredient.igd_name);
+        });
       }catch(error){
         console.error("북마크 성분 불러오기 실패", error);
       }
     };
     fetchData();
-  })
+  },);
   
   return (
     <Container>

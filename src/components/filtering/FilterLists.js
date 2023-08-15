@@ -1,16 +1,22 @@
 import React, { useState } from 'react'
 import { styled } from 'styled-components';
 import Filter from './Filter';
+import { getFilteredData } from '../../apis/Item';
 
-const FilterLists = ({cg_id}) => {
+const FilterLists = ({cg_id, setProductData}) => {
   const [include, setInclude] = useState([]);
   const [exclude, setExclude] = useState([]);
   const [veganLabel, setVeganLabel] = useState([]);
-  const OKButtonClicked = () => {
-    //확인용
-    console.log("include: "+include);
-    console.log("exclude: "+exclude);
-    console.log("veganlabel: "+veganLabel);
+  const OKButtonClicked = async () => {
+    // //확인용
+    // console.log("include: "+include);
+    // console.log("exclude: "+exclude);
+    // console.log("veganlabel: "+veganLabel);
+
+    const response = await getFilteredData(include, exclude, veganLabel);
+    setProductData(response.data);
+
+
   }
   const CleanButtonClicked = () => {
     //새로고침 하는 코드
