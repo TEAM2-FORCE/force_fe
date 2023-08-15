@@ -1,21 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { styled } from 'styled-components';
 import Filter from './Filter';
 
-const FilterLists = () => {
+const FilterLists = ({cg_id}) => {
+  const [include, setInclude] = useState([]);
+  const [exclude, setExclude] = useState([]);
+  const [veganLabel, setVeganLabel] = useState([]);
   const OKButtonClicked = () => {
-
+    //확인용
+    console.log("include: "+include);
+    console.log("exclude: "+exclude);
+    console.log("veganlabel: "+veganLabel);
   }
   const CleanButtonClicked = () => {
-
+    //새로고침 하는 코드
+    window.location.reload();
   }
   return (
     <Container>
-    <Filter text="Type"/>
-    <Filter text="Main Functions"/>
-    <Filter text="Include"/>
-    <Filter text="Exclude"/>
-    <Filter text="Vegan Label"/>
+    <Filter text="Include" check={include} setCheck={setInclude}/>
+    <Filter text="Exclude" check={exclude} setCheck ={setExclude}/>
+    <Filter text="Vegan Label" check={veganLabel} setCheck={setVeganLabel}/>
     <Decision>
       <ClearButton onClick={CleanButtonClicked}>Clear All</ClearButton>
       <OKButton onClick={OKButtonClicked}>OK</OKButton>

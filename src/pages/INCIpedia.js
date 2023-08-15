@@ -4,7 +4,6 @@ import { Wrapper } from "../components/layout/Layout";
 import Nav from "../components/layout/Nav";
 import Footer from "../components/layout/Footer";
 import { SearchBar, SearchButton, Section } from "../components/layout/Layout";
-import CheckItemList from "../components/filtering/CheckItemList";
 import searchIcon from "../img/Nav/searchIcon.png";
 import IngredientDataSection from "../components/ingredients/IngredientDataSection";
 import { getAllIngredients } from "../apis/Ingredient";
@@ -12,8 +11,27 @@ import { getIngredientSearch } from "../apis/Ingredient";
 
 const INCIpedia = () => {
   const [ingredientData, setIngredientData] = useState([]);
+  const [boxCheck, setBoxCheck] = useState(false);
   const OKButtonClicked = () => {};
   const CleanButtonClicked = () => {};
+
+  const changeCheck = () => {
+    if(!boxCheck){
+      // console.log("체크");
+      // setCheck([...check, ingredient]);
+    }
+    if(boxCheck){
+      // console.log("체크 해제");
+      // setCheck(check.filter((item) => item !== ingredient));
+
+    }
+    setBoxCheck(!boxCheck);
+  };
+  const whichCheckbox = () => {
+    // if (boxCheck) return checked;
+    // else return unchecked;
+    return null;
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -79,8 +97,13 @@ const INCIpedia = () => {
               </SearchBar>
             </Search>
             <Filter>
-              <Text>Search By Name</Text>
-              <CheckItemList></CheckItemList>
+              <Text>Caution Ingredients</Text>
+              <Item>
+              <Button onClick={changeCheck}>
+                <img src={whichCheckbox()} alt="checkbox"></img>
+              </Button>
+              <Text>Caution</Text>
+              </Item>
             </Filter>
             <Filter>
               <Text>Go To...</Text>
@@ -231,4 +254,18 @@ const Alphabets = styled.div`
 `;
 const Alp = styled.div`
   width: 10%;
+`;
+const Item = styled.div`
+  display: flex;
+  margin: 7px 5px 5px 15px;
+  align-items: center;
+`;
+
+const Button = styled.button`
+  border: none;
+  background-color: white;
+  width: 13px;
+  height: 13px;
+  margin-right: 10px;
+  cursor: pointer;
 `;

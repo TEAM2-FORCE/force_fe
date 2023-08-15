@@ -1,12 +1,40 @@
 import React from "react";
+// import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import CheckItemList from "./CheckItemList";
+// import { getAllIngredients } from "../../apis/Ingredient";
 
-const Filter = ({ text }) => {
+const Filter = ({ text, check, setCheck }) => {
+  ////백엔드에서 api 불러올 수 있으면 ingredients 이걸로 바꾸기!
+  // const [ingredients, setIngredients] = useState([]);
+  // useEffect(()=>{
+  //   const fetchData = async () => {
+  //     try{
+  //       //이 함수 아님 !!! 추후 수정
+  //       if(text ==="Include"){
+  //         const response = await getAllIngredients();
+  //         setIngredients(response.data);
+  //       }
+  //       else if(text === "Exclude"){
+  //         const response = await getAllIngredients();
+  //         setIngredients(response.data);
+  //       }
+  //       else if(text === "Vegan Label"){
+  //         const response = await getAllIngredients();
+  //         setIngredients(response.data);
+  //       }
+  //     }catch(error){
+  //       console.error("필터링 성분 불러오기 실패", error);
+  //     }
+  //   };
+  //   fetchData();
+  // })
+
+  const ingredients = ["ingredient1", "ingredient2", "ingredient3"];
   return (
     <Container>
       <Text>{text}</Text>
-      <CheckItemList></CheckItemList>
+      <CheckItemList ingredients = {ingredients} check = {check}setCheck={setCheck}/>
     </Container>
   );
 };

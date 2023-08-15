@@ -4,15 +4,24 @@ import fullStar from "../../img/Ingredients/fullStar.png";
 import checked from "../../img/Common/checked.png";
 import unchecked from "../../img/Common/unchecked.png";
 
-const CheckItem = () => {
-  const [check, setCheck] = useState(false);
-  const wish = true;
+const CheckItem = ({ingredient, check, setCheck}) => {
+  const [boxCheck, setBoxCheck] = useState(false); // 박스체크
+    const wish = true;
 
   const changeCheck = () => {
-    setCheck(!check);
+    if(!boxCheck){
+      // console.log("체크");
+      setCheck([...check, ingredient]);
+    }
+    if(boxCheck){
+      // console.log("체크 해제");
+      setCheck(check.filter((item) => item !== ingredient));
+
+    }
+    setBoxCheck(!boxCheck);
   };
   const whichCheckbox = () => {
-    if (check) return checked;
+    if (boxCheck) return checked;
     else return unchecked;
   };
 
@@ -21,7 +30,7 @@ const CheckItem = () => {
       <Button onClick={changeCheck}>
         <img src={whichCheckbox()} alt="checkbox"></img>
       </Button>
-      <Text>checkContent</Text>
+      <Text>{ingredient}</Text>
       <Right>
         {wish && <Image src={fullStar} alt="wishList"></Image>}
         {/* HI */}

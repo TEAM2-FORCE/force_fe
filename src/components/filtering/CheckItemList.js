@@ -2,19 +2,16 @@ import React from "react";
 import CheckItem from "./CheckItem";
 import { styled } from "styled-components";
 
-const CheckItemList = () => {
+const CheckItemList = ({ingredients, check, setCheck}) => {
   return (
     <CheckItems>
-      <CheckItem></CheckItem>
-      <CheckItem></CheckItem>
-      <CheckItem></CheckItem>
-      <CheckItem></CheckItem>
-      <CheckItem></CheckItem>
-      <CheckItem></CheckItem>
-      <CheckItem></CheckItem>
-      <CheckItem></CheckItem>
-      <CheckItem></CheckItem>
-      <CheckItem></CheckItem>
+      {ingredients.map((ingredient, index)=>(
+        <CheckItem 
+        key={index} 
+        ingredient={ingredient} 
+        check={check} 
+        setCheck={setCheck}/>
+      ))}
     </CheckItems>
   );
 };

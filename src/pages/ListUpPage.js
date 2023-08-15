@@ -67,7 +67,7 @@ const ListUpPage = () => {
 
       <Section>
         <Center>
-          <FilterLists />
+          <FilterLists cg_id={cg_id} />
           <Contents>
             <ItemDataSection productData={productData} />
           </Contents>
@@ -95,6 +95,7 @@ const Center = styled.div`
   display: flex;
   width: 90%;
   height: 100%;
+  margin-bottom: 10%;
 `;
 const Contents = styled.div`
   width: 83%;
