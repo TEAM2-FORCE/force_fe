@@ -9,7 +9,11 @@ const ItemCard = ({ product }) => {
   const navigate = useNavigate();
 
   const cardClicked = () => {
-    navigate("/itemdetail", { state: product });
+    navigate("/itemdetail", {
+      state: {
+        product: product,
+      },
+    });
   };
 
   return (

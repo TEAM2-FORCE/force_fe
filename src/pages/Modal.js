@@ -1,34 +1,38 @@
 import React from "react";
 import styled from "styled-components";
 
-import NoAnimalMaterial from "../img/NoMark/NoAnimalMaterial.png";
-import NoAnimalExperiment from "../img/NoMark/NoAnimalExperiment.png";
-import NoContamination from "../img/NoMark/NoContamination.png";
-import CancelIcon from "../img/VeganMark/CancelIcon.png";
+import CancelIcon from "../img/MarkInModal/CancelIcon.png";
 
-const Modal = ({ setModal }) => {
-  const cancelModal = () => {
-    setModal(false);
-  };
+const Modal = ({ title, description }) => {
+  // const cancelModal = () => {
+  //   setModal(false);
+  // };
 
   return (
     <Container>
       <ModalBackground>
         <ModalBlock>
           <Header>
-            <CancelButton src={CancelIcon} onClick={cancelModal} />
+            <CancelButton
+              src={CancelIcon}
+              // onClick={cancelModal}
+            />
           </Header>
           <Body>
-            <h2>
-              Korea Agency of
-              <br />
-              Vegan Certification and Services
-            </h2>
+            <h2>{title}</h2>
             <Wrapper>
-              <Description>
+              {description.map((explanation) => {
+                <Description>
+                  <img
+                    src={explanation.icon}
+                    style={{ width: "5rem", height: "5rem" }}
+                  />
+                  <div>{explanation.text}</div>
+                </Description>;
+              })}
+              {/* <Description>
                 <img
-                  src={NoAnimalMaterial}
-                  alt="NOAnimalMaterial"
+                  src={description.icon}
                   style={{ width: "5rem", height: "5rem" }}
                 />
                 <div>No use of animal-derived raw materials.</div>
@@ -48,7 +52,7 @@ const Modal = ({ setModal }) => {
                   style={{ width: "5rem", height: "4.5rem" }}
                 />
                 <div>No cross-contamination during production process.</div>
-              </Description>
+              </Description> */}
             </Wrapper>
           </Body>
         </ModalBlock>
