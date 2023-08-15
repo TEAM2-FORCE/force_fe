@@ -39,33 +39,44 @@ const Filter = ({ text, check, setCheck }) => {
   useEffect(()=>{
     const fetchData = async () => {
       try{
-        if(text === "Include")await setIngredients(includeIngredients);
-        else if(text === "Exclude")await setIngredients(excludeIngredientsData);
-        else if(text === "Vegan Label")await setIngredients(veganLabelData);
+        let sourceData;
+        if(text === "Include")sourceData = (includeIngredients);
+        else if(text === "Exclude") sourceData = (excludeIngredientsData);
+        else if(text === "Vegan Label")sourceData = (veganLabelData);
 
         //// 북마크인거 true로 바꾸기
         const bookmarkIngredients = await getBookmarkIngredients();
         // console.log(bookmarkIngredients);
 
-        // const updatedIngredients = includeIngredients.map((ingredient)=>{
-        // const isBookmarked = bookmarkIngredients.some((bookmark)=>bookmark.igd_name === ingredient.igd_name);
-          
-        // return {
-        //   ...ingredient,
-        //   igd_isBookmarked: isBookmarked,
-        // }
+        // //시도 1
+        // ingredients.forEach(ingredient => {
+        //   const ingredientNames = bookmarkIngredients.map(bookmark => bookmark.igd_name);
+        //   ingredient.isBookmarked = !ingredientNames.includes(ingredient.igd_name);
         // });
+        
+        //시도 2
+        const ingredientNames = bookmarkIngredients.map((bookmark)=>bookmark.igd_name);
+        const newIngredients = sourceData.map((ingredient)=>{
+          
+          const isBookmarked = (ingredientNames.length > 0) ? ingredientNames.includes(ingredient.igd_name) : false;
 
-        ingredients.forEach(ingredient => {
-          const ingredientNames = bookmarkIngredients.map(bookmark => bookmark.igd_name);
-          ingredient.isBookmarked = !ingredientNames.includes(ingredient.igd_name);
+          return {
+            ...ingredient,
+            igd_isBookmarked: isBookmarked,
+          };
         });
+        
+        // //대비책
+        // const newIngredients = sourceData;
+
+        setIngredients(newIngredients);
+
       }catch(error){
         console.error("북마크 성분 불러오기 실패", error);
       }
     };
     fetchData();
-  },);
+  },[text, ingredients]);
   
   return (
     <Container>
