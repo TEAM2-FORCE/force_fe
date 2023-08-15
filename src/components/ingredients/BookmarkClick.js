@@ -26,9 +26,7 @@ const BookmarkClick = ({ igd_id, detail, isBookmarked }) => {
       if (!bookmark) await postIngredientBookmark(igd_id);
       else {
         await deleteIngredientBookmark(igd_id);
-      }
-      // console.log('1');
-      
+      }      
     } else {
       navigate("/login");
     }

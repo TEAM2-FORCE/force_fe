@@ -5,11 +5,11 @@ import fullHeart from "../../img/Items/fullHeart.png";
 import { useNavigate } from "react-router-dom";
 import { deleteItemWishlist, postItemWishlist } from "../../apis/Item";
 
-const WishlistClick = ({ pd_id, detail }) => {
+const WishlistClick = ({ pd_id, detail, isWishlisted }) => {
   const navigate = useNavigate();
   //이건 수정해야 함
   const islogin = true;
-  const [wish, setWish] = useState(false);
+  const [wish, setWish] = useState(isWishlisted);
   const whichHeart = () => {
     if (!wish) return emptyHeart;
     else return fullHeart;
@@ -24,7 +24,6 @@ const WishlistClick = ({ pd_id, detail }) => {
     } else {
       navigate("/login");
     }
-
     setWish(!wish);
   };
   return (

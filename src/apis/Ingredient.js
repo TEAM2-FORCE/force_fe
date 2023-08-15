@@ -23,7 +23,6 @@ export const getIngredientSearch = (text) => {
 export const postIngredientBookmark = (igd_id) => {
   //성분 북마크 표시
   const url = `${baseURL}/ingredients/${igd_id}/bm/`;
-  console.log("토큰은 : " + localStorage.getItem("token"));
   axios.post(url, {}, { // 데이터 부분을 빈 객체로 설정
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
