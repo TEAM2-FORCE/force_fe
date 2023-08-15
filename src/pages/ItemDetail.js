@@ -19,6 +19,24 @@ import NoAnimalExperiment from "../img/MarkInModal/NoAnimalExperiment.png";
 import NoContamination from "../img/MarkInModal/NoContamination.png";
 import NoGenetiChange from "../img/MarkInModal/NoGeneticChange.png";
 
+import 올리브영 from "../img/SiteImage/ShoppingSite/올리브영.png";
+import 세포라 from "../img/SiteImage/ShoppingSite/sephora.png";
+import 신세계 from "../img/SiteImage/ShoppingSite/신세계.png";
+import 쿠팡 from "../img/SiteImage/ShoppingSite/쿠팡.png";
+import 위메프 from "../img/SiteImage/ShoppingSite/위메프.png";
+import 롯데온 from "../img/SiteImage/ShoppingSite/롯데온.png";
+
+import cosnori from "../img/SiteImage/Brand/cosnori.png";
+import dasique from "../img/SiteImage/Brand/dasique.png";
+import espoir from "../img/SiteImage/Brand/espoir.png";
+import etude from "../img/SiteImage/Brand/etude.png";
+import peripera from "../img/SiteImage/Brand/peripera.png";
+import romND from "../img/SiteImage/Brand/rom&nd.png";
+import skinfood from "../img/SiteImage/Brand/skinfood.png";
+import the_saem from "../img/SiteImage/Brand/the_saem.png";
+import too_cool_for_school from "../img/SiteImage/Brand/too_cool_for_school.png";
+import wakemake from "../img/SiteImage/Brand/wakemake.png";
+
 const ItemDetail = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
@@ -30,22 +48,56 @@ const ItemDetail = () => {
   // const handleClick = () => {
   //   setModal(true);
   // };
+
   const cardClicked = (ingredient) => {
     navigate("/incipediadetail", { state: ingredient });
   };
 
+  // const siteArray = [
+  // 	{
+  // 		image: 올리브영,
+  // 		링크:
+  // 	}
+  // ]
+
   // 구매처 이미지 띄우는 로직
-  // const sellingSiteImage = (site) => {
-  // 	if (site === "Oliveyoung") {
-  // 		return 올리브영 이미지
-  // 	}
-  // 	else if (site === "Sephora") {
-  // 		return 세포라 이미지
-  // 	}
-  // 	else if (site) === "Etude" {
-  // 		return 에뛰드 이미지
-  // 	}
-  // }
+  const sellingSiteImage = (site) => {
+    if (site === "Oliveyoung") {
+      return 올리브영;
+    } else if (site === "Sephora") {
+      return 세포라;
+    } else if (site === "LotteOn") {
+      return 롯데온;
+    } else if (site === "Coupang") {
+      return 쿠팡;
+    } else if (site === "Shinsegae") {
+      return 신세계;
+    } else if (site === "위메프") {
+      return 위메프;
+    } else if (site === "Cosnori") {
+      return cosnori;
+    } else if (site === "Dasique") {
+      return dasique;
+    } else if (site === "Espoir") {
+      return espoir;
+    } else if (site === "Etude") {
+      return etude;
+    } else if (site === "Peripera") {
+      return peripera;
+    } else if (site === "Rom&nd") {
+      return romND;
+    } else if (site === "Skinfood") {
+      return skinfood;
+    } else if (site === "The_saem") {
+      return the_saem;
+    } else if (site === "too_cool_for_school") {
+      return too_cool_for_school;
+    } else if (site === "wakemake") {
+      return wakemake;
+    } else {
+      return null;
+    }
+  };
 
   const veganMarkArray = [
     {
@@ -242,10 +294,9 @@ const ItemDetail = () => {
           </div>
           <div style={{ width: "95%" }}>
             <h3>Where To Buy</h3>
-            {/* {product.sellingSite.map((site, i)=>{
-								<Image src={sellingSiteImage} key={i} 클릭하면 그 페이지로 링크/>
-								사이트마다 키가 있는건 아니라서 인덱스로 키를 대신함
-							})} */}
+            {product.sellingSite.map((site, i) => {
+              <image src={() => sellingSiteImage(site)} key={i} />;
+            })}
           </div>
         </ItemDescription>
       </Body>
