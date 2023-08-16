@@ -11,10 +11,12 @@ import Footer from "../components/layout/Footer";
 import { useNavigate } from "react-router-dom";
 import { getBookmarkIngredients } from "../apis/Ingredient";
 import { getWishlistItems } from "../apis/Item";
+import { getUserName } from "../apis/Googlelogin";
 
 const MyPage = () => {
   const [wishlistData, setWishlistData] = useState([]);
   const [bookmarkData, setBookmarkData] = useState([]);
+  const [userName, setUserName] = useState("");
   const navigate = useNavigate();
   const setLogOut = () => {};
 
@@ -32,12 +34,17 @@ const MyPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      const response = await getUserName();
+      console.log(response.data);
+      const name = response.data.first_name + " " + response.data.last_name;
+      setUserName(name);
       console.log("북마크");
       const responseWishlist = await getWishlistItems();
       setWishlistData(responseWishlist.data);
       const responseBookmark = await getBookmarkIngredients();
       console.log(responseBookmark);
       setBookmarkData(responseBookmark.data);
+
     };
     fetchData();
   },[]);
@@ -56,7 +63,7 @@ const MyPage = () => {
           </Up>
           <ProfileContent>
             <PictureStyled src={profile} alt="profile"></PictureStyled>
-            <ProfileText>Gildong Hong</ProfileText>
+            <ProfileText>{userName}</ProfileText>
           </ProfileContent>
         </Profile>
 
