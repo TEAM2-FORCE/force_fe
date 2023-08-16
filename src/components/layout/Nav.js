@@ -29,6 +29,7 @@ const Nav = () => {
     navigate("/");
   };
   const goto = (where) => {
+    if((window.location === "http://localhost:3000/incipedia" || window.location === "https://vebe.netlify.app/incipedia") && where ==="incipedia")window.location.reload();
     navigate(`/${where}`);
   };
 

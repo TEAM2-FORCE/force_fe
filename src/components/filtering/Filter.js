@@ -6,6 +6,7 @@ import { getBookmarkIngredients } from "../../apis/Ingredient";
 import includeIngredients from "../../Json/includeIngredients.json"
 import excludeIngredientsData from "../../Json/excludeIngredients.json"
 import veganLabelData from "../../Json/veganLabelIngredients.json"
+import { isAuthenticated } from "../../apis/Googlelogin";
 
 const Filter = ({ text, check, setCheck }) => {
   ////백엔드에서 api 불러올 수 있으면 ingredients 이걸로 바꾸기!
@@ -35,7 +36,6 @@ const Filter = ({ text, check, setCheck }) => {
   const [ingredients, setIngredients] = useState([]);
   
 
-  // const [bookmark, setBookmark] = useState([]);
   useEffect(()=>{
     const fetchData = async () => {
       try{
@@ -45,31 +45,23 @@ const Filter = ({ text, check, setCheck }) => {
         else if(text === "Vegan Label")sourceData = (veganLabelData);
 
         //// 북마크인거 true로 바꾸기
-        const bookmarkIngredients = await getBookmarkIngredients();
-        // console.log(bookmarkIngredients);
-
-        // //시도 1
-        // ingredients.forEach(ingredient => {
-        //   const ingredientNames = bookmarkIngredients.map(bookmark => bookmark.igd_name);
-        //   ingredient.isBookmarked = !ingredientNames.includes(ingredient.igd_name);
-        // });
-        
-        //시도 2
-        const ingredientNames = bookmarkIngredients.map((bookmark)=>bookmark.igd_name);
-        const newIngredients = sourceData.map((ingredient)=>{
-          
+        if(isAuthenticated()){
+          const bookmarkIngredients = await getBookmarkIngredients();
+          const ingredientNames = bookmarkIngredients.map((bookmark)=>bookmark.igd_name);
+          const newIngredients = sourceData.map((ingredient)=>{
           const isBookmarked = (ingredientNames.length > 0) ? ingredientNames.includes(ingredient.igd_name) : false;
 
           return {
             ...ingredient,
             igd_isBookmarked: isBookmarked,
-          };
-        });
+            };
+          });
+          setIngredients(newIngredients);
+        }
+        else{
+          setIngredients(sourceData);
+        }
         
-        // //대비책
-        // const newIngredients = sourceData;
-
-        setIngredients(newIngredients);
 
       }catch(error){
         console.error("북마크 성분 불러오기 실패", error);
