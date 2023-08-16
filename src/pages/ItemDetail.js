@@ -310,9 +310,9 @@ const ItemDetail = () => {
           </div>
           <div style={{ width: "95%" }}>
             <h3>Where To Buy</h3>
-            {product.sellingSite.map((site, i) => (
+            {/* {product.sellingSite.map((site, i) => (
               <SiteImage src={sellingSiteImage(site)} key={i} />
-            ))}
+            ))} */}
           </div>
         </ItemDescription>
       </Body>
