@@ -28,7 +28,10 @@ const IngredientCard = ({ igd_id, ingredient }) => {
         {ingredient.igd_info}
       </Contents>
       <Bottom>
-        <MarkImage src={cautious} alt="ingredientX"></MarkImage>
+        {
+          ingredient.igd_caution ?
+          <MarkImage src={cautious} alt="ingredientX"></MarkImage> : null
+        }
       </Bottom>
     </Card>
   );

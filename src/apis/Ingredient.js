@@ -64,15 +64,6 @@ export const getBookmarkIngredients = async () => {
     },
   });
   return response;
-
-  // //북마크 성분 못 불러올 때를 대비하여 코드 작성
-  // const url = `${baseURL}/ingredients/list/`;
-  // const response = await axios.get(url);
-  // const ingredients = response.data;
-  // const bookmarkIngredients = ingredients.filter(ingredient => {
-  //   return ingredient.bookmarked_igd;
-  // });
-  // return bookmarkIngredients;
 }
 
 export const getFilteredIngredients = () => {

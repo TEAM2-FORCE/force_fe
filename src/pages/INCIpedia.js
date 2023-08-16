@@ -8,42 +8,54 @@ import searchIcon from "../img/Nav/searchIcon.png";
 import IngredientDataSection from "../components/ingredients/IngredientDataSection";
 import { getAllIngredients, getFilteredIngredients } from "../apis/Ingredient";
 import { getIngredientSearch } from "../apis/Ingredient";
-import checked from "../img/Common/checked.png"
-import unchecked from "../img/Common/unchecked.png"
+import onImg from "../img/Common/on.png"
+import offImg from "../img/Common/off.png"
 
 const INCIpedia = () => {
   const [ingredientData, setIngredientData] = useState([]);
-  const [boxCheck, setBoxCheck] = useState(false);
+  const [on, setOn] = useState(false);
+  const [filteredIngredientData, setFilteredIngredientData] = useState([]);
   const alphabets = new Array(26).fill().map((_, idx) => String.fromCharCode(65 + idx));
   
   const changeCheck = async () => {
-    if(!boxCheck){
+    if(!on){
       try {
         const response = await getFilteredIngredients();
         console.log(response);
-        setIngredientData(response.data);
+        setFilteredIngredientData(response.data);
       } catch (error) {
         console.error("데이터 불러오기 실패", error);
       }
     }
-    if(boxCheck){
+    if(on){
       try {
         const response = await getAllIngredients();
         console.log(response);
-        setIngredientData(response.data);
+        setFilteredIngredientData(response.data);
       } catch (error) {
         console.error("데이터 불러오기 실패", error);
       }
 
     }
-    setBoxCheck(!boxCheck);
+    setOn(!on);
   };
-  const whichCheckbox = () => {
-    if (boxCheck) return checked;
-    else return unchecked;
+  const onOff = () => {
+    if (on) return onImg;
+    else return offImg;
   };
   const alphabetClicked = (alphabet) => {
-    console.log(alphabet);
+    const wordsData = ingredientData.filter((ingredient=>ingredient.igd_name.toUpperCase().startsWith(alphabet)));
+    setFilteredIngredientData(wordsData);
+  }
+
+  function startsWithNumber(word) {
+    const firstCharacter = word.charAt(0);
+    return !isNaN(parseInt(firstCharacter, 10));
+  }
+
+  const numberClicked = () => {
+    const wordsData = ingredientData.filter((ingredient)=>startsWithNumber(ingredient.igd_name));
+    setFilteredIngredientData(wordsData);
   }
 
   useEffect(() => {
@@ -52,6 +64,7 @@ const INCIpedia = () => {
         const response = await getAllIngredients();
         console.log(response);
         setIngredientData(response.data);
+        setFilteredIngredientData(response.data);
 
       } catch (error) {
         console.error("데이터 불러오기 실패", error);
@@ -111,29 +124,30 @@ const INCIpedia = () => {
               </SearchBar>
             </Search>
             <Filter>
-              <Text>Caution Ingredients</Text>
+              <Text>Caution Ingredients Only</Text>
               <Item>
               <Button onClick={changeCheck}>
-                <img src={whichCheckbox()} alt="checkbox"></img>
+                <img src={onOff()} alt="checkbox"></img>
               </Button>
-              <Text>Exclude</Text>
               </Item>
             </Filter>
             <Filter>
               <Text>Go To...</Text>
               <Alphabets>
+                <Alp onClick={numberClicked}>1</Alp>
                 {
                   alphabets.map((alphabet)=>(
                     <Alp onClick={()=>alphabetClicked(alphabet)}>{alphabet}</Alp>
                   ))
                 }
+                <Alp onClick={()=>{setFilteredIngredientData(ingredientData)}}>All</Alp>
               </Alphabets>
             </Filter>
           </FilterLists>
 
           <Contents>
             <IngredientDataSection
-              ingredientData={ingredientData}
+              ingredientData={filteredIngredientData}
             ></IngredientDataSection>
           </Contents>
         </Center>
@@ -185,6 +199,7 @@ const Search = styled.div`
   margin: 3%;
 `;
 const Filter = styled.div`
+  margin-top: 15px;
   border-bottom: green solid 2px;
   margin-bottom: 15px;
 `;
@@ -226,4 +241,5 @@ const Button = styled.button`
   height: 13px;
   margin-right: 10px;
   cursor: pointer;
+  margin-bottom: 1rem;
 `;
