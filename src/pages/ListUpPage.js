@@ -36,12 +36,13 @@ const ListUpPage = () => {
       try {
         const response = await getAllItemsInCategory(cg_id);
         setProductData(response.data);
+        console.log(productData);
       } catch (error) {
         console.error("데이터 불러오기 실패", error);
       }
     };
     fetchData();
-  },);
+  },[]);
 
   const searchProduct = async () => {
     const response = await getItemSearch(userInput);

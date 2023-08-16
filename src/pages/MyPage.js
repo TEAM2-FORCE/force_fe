@@ -18,6 +18,10 @@ const MyPage = () => {
   const navigate = useNavigate();
   const setLogOut = () => {};
 
+  const logoutClick = () =>{
+    window.localStorage.removeItem("token");
+    navigate('/');
+  }
   const moreWishList = () => {
     navigate("/wishlist", { state: wishlistData });
   };
@@ -46,7 +50,7 @@ const MyPage = () => {
           <Up>
             <Left>MyPage</Left>
             <Right onClick={setLogOut}>
-              <RightText>Log Out</RightText>
+              <RightText onClick={logoutClick}>Log Out</RightText>
               <IconStyled src={logout} alt="Icon"></IconStyled>
             </Right>
           </Up>

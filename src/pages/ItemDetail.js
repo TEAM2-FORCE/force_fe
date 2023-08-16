@@ -71,7 +71,7 @@ const ItemDetail = () => {
       }
     };
     fetchData();
-  });
+  },[]);
 
   const veganMarkArray = [
     {
