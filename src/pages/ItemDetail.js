@@ -54,17 +54,24 @@ const ItemDetail = () => {
   const [modal, setModal] = useState(false);
   const [selectedVeganMark, setSelectedVeganMark] = useState(null);
 
+  const [marketData, setMarketData] = useState([]);
+
   const showModal = (markId) => {
     setModal(true);
     setSelectedVeganMark(veganMarkInformation(markId));
   };
 
-  const [marketData, setMarketData] = useState([]);
-
-  const getmarketData = async () => {
-    const response = await getMarket(product.pd_id);
-    setMarketData(response.data);
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getMarket(product.pd_id);
+        setMarketData(response.data);
+      } catch (error) {
+        console.error("데이터 불러오기 실패", error);
+      }
+    };
+    fetchData();
+  });
 
   const veganMarkArray = [
     {
@@ -335,7 +342,7 @@ const ItemDetail = () => {
           </div>
           <div style={{ width: "95%" }}>
             <h3>Where To Buy</h3>
-            {/* {product.sellingSite.map((site, i) => (
+            {/* {product.market.map((site, i) => (
               <SiteImage src={sellingSiteImage(site)} key={i} />
             ))} */}
           </div>
