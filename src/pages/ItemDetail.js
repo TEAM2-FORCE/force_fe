@@ -37,6 +37,13 @@ import skinfood from "../img/SiteImage/Brand/skinfood.png";
 import the_saem from "../img/SiteImage/Brand/the_saem.png";
 import too_cool_for_school from "../img/SiteImage/Brand/too_cool_for_school.png";
 import wakemake from "../img/SiteImage/Brand/wakemake.png";
+import dAlba from "../img/SiteImage/Brand/dAlba.png";
+import efilow from "../img/SiteImage/Brand/efilow.png";
+import haruharuWonder from "../img/SiteImage/Brand/haruharuWonder.png";
+import innisfree from "../img/SiteImage/Brand/innisfree.png";
+import jayjun from "../img/SiteImage/Brand/jayjun.png";
+import manyo from "../img/SiteImage/Brand/manyo.png";
+import ongredients from "../img/SiteImage/Brand/ongredients.png";
 
 const ItemDetail = () => {
   const navigate = useNavigate();
@@ -204,38 +211,52 @@ const ItemDetail = () => {
 
   // 구매처 이미지 띄우는 로직
   const sellingSiteImage = (site) => {
-    if (site === "Oliveyoung") {
+    if (site === "oliveyoung") {
       return 올리브영;
-    } else if (site === "Sephora") {
+    } else if (site === "sephora") {
       return 세포라;
-    } else if (site === "LotteOn") {
+    } else if (site === "lotte_on") {
       return 롯데온;
-    } else if (site === "Coupang") {
+    } else if (site === "coupang") {
       return 쿠팡;
-    } else if (site === "Shinsegae") {
+    } else if (site === "shinsegae") {
       return 신세계;
-    } else if (site === "위메프") {
+    } else if (site === "we_make_price") {
       return 위메프;
-    } else if (site === "Cosnori") {
+    } else if (site === "cosnori") {
       return cosnori;
-    } else if (site === "Dasique") {
+    } else if (site === "dasique") {
       return dasique;
-    } else if (site === "Espoir") {
+    } else if (site === "espoir") {
       return espoir;
-    } else if (site === "Etude") {
+    } else if (site === "etude") {
       return etude;
-    } else if (site === "Peripera") {
+    } else if (site === "peripera") {
       return peripera;
-    } else if (site === "RomNd") {
+    } else if (site === "rom_nd") {
       return romND;
-    } else if (site === "Skinfood") {
+    } else if (site === "skinfood") {
       return skinfood;
-    } else if (site === "The_saem") {
+    } else if (site === "the_saem") {
       return the_saem;
-    } else if (site === "Too_cool_for_school") {
+    } else if (site === "too_cool_for_school") {
       return too_cool_for_school;
-    } else if (site === "Wakemake") {
+    } else if (site === "wakemake") {
       return wakemake;
+    } else if (site === "d_alba") {
+      return dAlba;
+    } else if (site === "efilow") {
+      return efilow;
+    } else if (site === "haruharu_wonder") {
+      return haruharuWonder;
+    } else if (site === "innisfree") {
+      return innisfree;
+    } else if (site === "jayjun") {
+      return jayjun;
+    } else if (site === "manyo") {
+      return manyo;
+    } else if (site === "ongredients") {
+      return ongredients;
     } else {
       return null;
     }
