@@ -43,6 +43,7 @@ const IncipediaDetail = () => {
             <BookmarkClick
               igd_id={ingredient.igd_id}
               detail={true}
+              isBookmarked = {ingredient.bookmarked_igd}
             ></BookmarkClick>
           </Container>
           <div style={{ fontSize: "1.5rem" }}>{ingredient.igd_main_ftn}</div>
