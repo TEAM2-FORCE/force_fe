@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Wrapper } from "../components/layout/Layout";
 import Nav from "../components/layout/Nav";
@@ -43,60 +43,16 @@ const ItemDetail = () => {
   const product = state.product;
   console.log(product);
 
-  // const [modal, setModal] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [selectedVeganMark, setSelectedVeganMark] = useState(null);
 
-  // const handleClick = () => {
-  //   setModal(true);
-  // };
-
-  const cardClicked = (ingredient) => {
-    navigate("/incipediadetail", { state: ingredient });
+  const showModal = (markId) => {
+    setIsVisible(true);
+    setSelectedVeganMark(veganMarkInformation(markId));
   };
 
-  // const siteArray = [
-  // 	{
-  // 		image: 올리브영,
-  // 		링크:
-  // 	}
-  // ]
-
-  // 구매처 이미지 띄우는 로직
-  const sellingSiteImage = (site) => {
-    if (site === "Oliveyoung") {
-      return 올리브영;
-    } else if (site === "Sephora") {
-      return 세포라;
-    } else if (site === "LotteOn") {
-      return 롯데온;
-    } else if (site === "Coupang") {
-      return 쿠팡;
-    } else if (site === "Shinsegae") {
-      return 신세계;
-    } else if (site === "위메프") {
-      return 위메프;
-    } else if (site === "Cosnori") {
-      return cosnori;
-    } else if (site === "Dasique") {
-      return dasique;
-    } else if (site === "Espoir") {
-      return espoir;
-    } else if (site === "Etude") {
-      return etude;
-    } else if (site === "Peripera") {
-      return peripera;
-    } else if (site === "Rom&nd") {
-      return romND;
-    } else if (site === "Skinfood") {
-      return skinfood;
-    } else if (site === "The_saem") {
-      return the_saem;
-    } else if (site === "too_cool_for_school") {
-      return too_cool_for_school;
-    } else if (site === "wakemake") {
-      return wakemake;
-    } else {
-      return null;
-    }
+  const closeModal = () => {
+    setIsVisible(false);
   };
 
   const veganMarkArray = [
@@ -225,19 +181,75 @@ const ItemDetail = () => {
     },
   ];
 
+  // const [modal, setModal] = useState(false);
+
+  // const handleClick = () => {
+  //   setModal(true);
+  // };
+
+  const cardClicked = (ingredient) => {
+    navigate("/incipediadetail", { state: ingredient });
+  };
+
+  // const siteArray = [
+  // 	{
+  // 		image: 올리브영,
+  // 		링크:
+  // 	}
+  // ]
+
+  // 구매처 이미지 띄우는 로직
+  const sellingSiteImage = (site) => {
+    if (site === "Oliveyoung") {
+      return 올리브영;
+    } else if (site === "Sephora") {
+      return 세포라;
+    } else if (site === "LotteOn") {
+      return 롯데온;
+    } else if (site === "Coupang") {
+      return 쿠팡;
+    } else if (site === "Shinsegae") {
+      return 신세계;
+    } else if (site === "위메프") {
+      return 위메프;
+    } else if (site === "Cosnori") {
+      return cosnori;
+    } else if (site === "Dasique") {
+      return dasique;
+    } else if (site === "Espoir") {
+      return espoir;
+    } else if (site === "Etude") {
+      return etude;
+    } else if (site === "Peripera") {
+      return peripera;
+    } else if (site === "Rom&nd") {
+      return romND;
+    } else if (site === "Skinfood") {
+      return skinfood;
+    } else if (site === "The_saem") {
+      return the_saem;
+    } else if (site === "too_cool_for_school") {
+      return too_cool_for_school;
+    } else if (site === "wakemake") {
+      return wakemake;
+    } else {
+      return null;
+    }
+  };
+
   // 비건 마크 띄우는 로직
-  const veganMarkImage = (veganMark) => {
-    if (veganMark === "KoreaVeganmark") {
+  const veganMarkInformation = (veganMarkId) => {
+    if (veganMarkId === 1) {
       return veganMarkArray[0];
-    } else if (veganMark === "FranceVeganMark") {
+    } else if (veganMarkId === 2) {
       return veganMarkArray[1];
-    } else if (veganMark === "ItaliaVeganMark") {
+    } else if (veganMarkId === 3) {
       return veganMarkArray[2];
-    } else if (veganMark === "VeganSocietyMark") {
+    } else if (veganMarkId === 4) {
       return veganMarkArray[3];
-    } else if (veganMark === "PetaMark") {
+    } else if (veganMarkId === 5) {
       return veganMarkArray[4];
-    } else if (veganMark === "PetaVeganMark") {
+    } else if (veganMarkId === 6) {
       return veganMarkArray[5];
     } else {
       return null;
@@ -245,7 +257,8 @@ const ItemDetail = () => {
   };
 
   //이건 필요없는데 비건마크 안 써서 배포하려고! 나중에 비건마크 쓰면 지우기
-  console.log(veganMarkImage);
+  console.log(veganMarkInformation);
+  console.log(product.vegan_cert);
 
   return (
     <Wrapper>
@@ -264,13 +277,13 @@ const ItemDetail = () => {
               {product.pd_brand}
             </h3>
             <VeganMarkContainer>
-              {product.veganmark.map((mark) => (
+              {product.vegan_cert.map((mark) => (
                 <VeganMark
-                  key={mark.id}
-                  src={mark.image}
-                  onClick={
-                    <Modal title={mark.title} description={mark.description} />
-                  }
+                  key={mark.vg_id}
+                  src={veganMarkInformation(mark.vg_id).image}
+                  onClick={() => {
+                    showModal(mark.vg_id);
+                  }}
                 />
               ))}
             </VeganMarkContainer>
@@ -298,12 +311,19 @@ const ItemDetail = () => {
           <div style={{ width: "95%" }}>
             <h3>Where To Buy</h3>
             {product.sellingSite.map((site, i) => (
-              <image src={() => sellingSiteImage(site)} key={i} />
+              <SiteImage src={sellingSiteImage(site)} key={i} />
             ))}
           </div>
         </ItemDescription>
       </Body>
       <Footer></Footer>
+      {isVisible && selectedVeganMark && (
+        <Modal
+          title={selectedVeganMark.title}
+          description={selectedVeganMark.description}
+          closeModal={closeModal}
+        />
+      )}
       {/* {modal && (
         <Modal
           setModal={setModal}
@@ -379,4 +399,11 @@ const Container = styled.div`
 const IngredientText = styled.div`
   font-size: 16px;
   cursor: pointer;
+`;
+
+const SiteImage = styled.img`
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-right: 10px;
 `;
