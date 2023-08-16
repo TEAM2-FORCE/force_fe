@@ -53,6 +53,7 @@ export const FooterContainer = styled.div`
 
 export const FooterStyle = styled.div`
   margin-left: 6%;
+  font-family: Pretendard;
 `;
 
 export const Logo = styled.img`

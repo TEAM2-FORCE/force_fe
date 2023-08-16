@@ -1,7 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
 import IngredientCard from "./IngredientCard";
-// import { getMostWishListed } from '../apis/Item';
 
 const IngredientDataSection = ({ ingredientData }) => {
   return (

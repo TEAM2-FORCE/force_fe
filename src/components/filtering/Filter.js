@@ -85,7 +85,7 @@ export default Filter;
 
 const Container = styled.div`
   border-bottom: green solid 2px;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 `;
 
 const Text = styled.div`

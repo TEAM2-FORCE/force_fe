@@ -14,8 +14,6 @@ import unchecked from "../img/Common/unchecked.png"
 const INCIpedia = () => {
   const [ingredientData, setIngredientData] = useState([]);
   const [boxCheck, setBoxCheck] = useState(false);
-  const OKButtonClicked = () => {};
-  const CleanButtonClicked = () => {};
 
   const changeCheck = async () => {
     if(!boxCheck){
@@ -147,10 +145,6 @@ const INCIpedia = () => {
                 <Alp>Z</Alp>
               </Alphabets>
             </Filter>
-            <Decision>
-              <ClearButton onClick={CleanButtonClicked}>Clear All</ClearButton>
-              <OKButton onClick={OKButtonClicked}>OK</OKButton>
-            </Decision>
           </FilterLists>
 
           <Contents>

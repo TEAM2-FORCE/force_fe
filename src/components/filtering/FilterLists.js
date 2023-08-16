@@ -29,7 +29,7 @@ const FilterLists = ({cg_id, setProductData}) => {
     <Filter text="Vegan Label" check={veganLabel} setCheck={setVeganLabel}/>
     <Decision>
       <ClearButton onClick={CleanButtonClicked}>Clear All</ClearButton>
-      <OKButton onClick={OKButtonClicked}>OK</OKButton>
+      <OKButton onClick={OKButtonClicked}>Apply</OKButton>
     </Decision>
     </Container>
   )

@@ -54,4 +54,5 @@ const ImageSection = styled.div`
 const Category = styled.div`
   align-self: flex-start;
   margin-left: 5%;
+  font-family: Pretendard;
 `;
