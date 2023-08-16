@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import testingX from "../../img/Ingredients/testingX.png";
-import ingredientX from "../../img/Ingredients/ingredientX.png";
+// import testingX from "../../img/Ingredients/testingX.png";
+// import ingredientX from "../../img/Ingredients/ingredientX.png";
 import { useNavigate } from "react-router-dom";
 import WishlistClick from "./WishlistClick";
 
@@ -9,11 +9,7 @@ const ItemCard = ({ product }) => {
   const navigate = useNavigate();
 
   const cardClicked = () => {
-    navigate("/itemdetail", {
-      state: {
-        product: product,
-      },
-    });
+    navigate("/itemdetail", {state: product});
   };
 
   return (
@@ -24,15 +20,15 @@ const ItemCard = ({ product }) => {
       <Contents>
         <IngredientInfo>
           <ProductName>{product.pd_name}</ProductName>
-          <WishlistClick pd_id={product.pd_id} detail={false} isWishlisted={false}/>
+          <WishlistClick cg_id={product.cg_id} pd_id={product.pd_id} detail={false} isWishlisted={product.wished_pd}/>
         </IngredientInfo>
         <div>{product.pd_brand}</div>
         <div>KRW {product.pd_price}</div>
       </Contents>
-      <Bottom>
+      {/* <Bottom>
         <MarkImage src={testingX} alt="testingX"></MarkImage>
         <MarkImage src={ingredientX} alt="ingredientX"></MarkImage>
-      </Bottom>
+      </Bottom> */}
     </Card>
   );
 };
@@ -91,25 +87,25 @@ const ProductName = styled.div`
   font-weight: 700;
   line-height: normal;
   max-width: 90%;
-  height: 110px;
+  height: 70px;
   overflow: hidden;
 `;
-const Bottom = styled.div`
-  display: flex;
-  justify-content: space-around;
-  margin-top: 8px;
-  text-align: center;
+// const Bottom = styled.div`
+//   display: flex;
+//   justify-content: space-around;
+//   margin-top: 8px;
+//   text-align: center;
 
-  font-family: Pretendard;
-  font-size: 0.75rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+//   font-family: Pretendard;
+//   font-size: 0.75rem;
+//   font-style: normal;
+//   font-weight: 600;
+//   line-height: normal;
 
-  padding-left: 10px;
-  padding-right: 10px;
-`;
-const MarkImage = styled.img`
-  width: 40%;
-  margin: 0.1%;
-`;
+//   padding-left: 10px;
+//   padding-right: 10px;
+// `;
+// const MarkImage = styled.img`
+//   width: 40%;
+//   margin: 0.1%;
+// `;

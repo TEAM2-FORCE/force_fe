@@ -1,14 +1,32 @@
 import axios from "axios";
+import { isAuthenticated } from "./Googlelogin";
 
 export const baseURL = "http://vebeserver.kro.kr:8000/";
 
 export const getAllItemsInCategory = (cg_id) => {
   if (cg_id === 0) {
     const url = `${baseURL}/products/`;
-    return axios.get(url);
-  } else {
+    if(isAuthenticated()){
+    const response = axios.get(url, {
+      headers: {
+        Authorization : `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    return response;
+  }
+  return axios.get(url);
+  } 
+  else {
     const url = `${baseURL}/products/category/${cg_id}/`;
-    return axios.get(url);
+    if(isAuthenticated()){
+    const response = axios.get(url, {
+      headers: {
+        Authorization : `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    return response;
+  }
+  return axios.get(url);
   }
 };
 
@@ -60,17 +78,11 @@ export const getItemDetail = (pd_id) => {
 export const postItemWishlist = (cg_id, pd_id) => {
   //상품 위시 추가
   const url = `${baseURL}/products/${cg_id}/${pd_id}/scrap/`;
-  axios
-    .post(
-      url,
-      {},
-      {
-        // 데이터 부분을 빈 객체로 설정
+  axios.post(url, {}, {// 데이터 부분을 빈 객체로 설정
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-      }
-    )
+    })
     .then((response) => {
       console.log("응답:", response.data);
     })
@@ -82,9 +94,7 @@ export const postItemWishlist = (cg_id, pd_id) => {
 export const deleteItemWishlist = (cg_id, pd_id) => {
   //상품 위시 삭제
   const url = `${baseURL}/products/${cg_id}/${pd_id}/scrap/`;
-  axios
-    .delete(url, {
-      // 데이터 부분을 빈 객체로 설정
+  axios.delete(url, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

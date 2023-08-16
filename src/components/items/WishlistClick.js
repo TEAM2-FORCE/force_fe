@@ -4,22 +4,24 @@ import emptyHeart from "../../img/Items/emptyHeart2.png";
 import fullHeart from "../../img/Items/fullHeart.png";
 import { useNavigate } from "react-router-dom";
 import { deleteItemWishlist, postItemWishlist } from "../../apis/Item";
+import { isAuthenticated } from "../../apis/Googlelogin";
 
-const WishlistClick = ({ pd_id, detail, isWishlisted }) => {
+const WishlistClick = ({ cg_id, pd_id, detail, isWishlisted }) => {
   const navigate = useNavigate();
   //이건 수정해야 함
-  const islogin = true;
+  const islogin = isAuthenticated();
   const [wish, setWish] = useState(isWishlisted);
   const whichHeart = () => {
     if (!wish) return emptyHeart;
     else return fullHeart;
   };
-  const wishlistClicked = async () => {
+  const wishlistClicked = async (event) => {
+    event.stopPropagation();
     //여기에 로그인되어있는지 확인하는 거 해야 함
     if (islogin) {
-      if (!wish) await postItemWishlist(pd_id);
+      if (!wish) await postItemWishlist(cg_id, pd_id);
       else {
-        await deleteItemWishlist(pd_id);
+        await deleteItemWishlist(cg_id, pd_id);
       }
     } else {
       navigate("/login");

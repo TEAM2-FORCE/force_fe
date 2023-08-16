@@ -63,8 +63,6 @@ export const getBookmarkIngredients = async () => {
       Authorization : `Bearer ${localStorage.getItem("token")}`,
     },
   });
-  console.log("이거");
-  console.log(response);
   return response;
 
   // //북마크 성분 못 불러올 때를 대비하여 코드 작성

@@ -40,15 +40,11 @@ const Filter = ({ text, check, setCheck }) => {
       if(text === "Include")sourceData = (includeIngredients);
       else if(text === "Exclude") sourceData = (excludeIngredientsData);
       else if(text === "Vegan Label")sourceData = (veganLabelData);
-      console.log(sourceData);
       //// 북마크인거 true로 바꾸기
       if(isAuthenticated()){
         const response = await getBookmarkIngredients();
-        const bookmarkIngredients = response.data;
-        console.log("북마크");
-        // console.log(bookmarkIngredients);        
+        const bookmarkIngredients = response.data;        
         const ingredientNames = bookmarkIngredients.map((bookmark)=>bookmark.ingredient_contents.igd_name);
-        console.log(ingredientNames);
         const newIngredients = sourceData.map((ingredient)=>{
         const isBookmarked = (ingredientNames.length > 0) ? ingredientNames.includes(ingredient.igd_name) : false;
 

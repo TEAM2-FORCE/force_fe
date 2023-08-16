@@ -19,7 +19,6 @@ const BookmarkClick = ({ igd_id, detail, isBookmarked }) => {
     else return fullStar;
   };
   const bookmarkClicked = async (event) => {
-    console.log(bookmark);
     event.stopPropagation();
     //여기에 로그인되어있는지 확인하는 거 해야 함
     if (islogin) {
