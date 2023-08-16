@@ -80,7 +80,7 @@ const MyPage = () => {
               bookmarkData
                 .slice(0, 4)
                 .map((bookmark) => (
-                  <IngredientCard key={bookmark.pd_id} ingredient={bookmark} />
+                  <IngredientCard igd_id={bookmark.igd} ingredient={bookmark.ingredient_contents} />
                 ))}
           </Contents>
         </BookMark>

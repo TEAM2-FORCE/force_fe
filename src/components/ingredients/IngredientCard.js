@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import pink from "../../img/Ingredients/pink.png";
+import cautious from "../../img/Ingredients/cautious.png";
 import { useNavigate } from "react-router-dom";
 import BookmarkClick from "./BookmarkClick";
 import { isAuthenticated } from "../../apis/Googlelogin";
@@ -28,7 +28,7 @@ const IngredientCard = ({ igd_id, ingredient }) => {
         {ingredient.igd_info}
       </Contents>
       <Bottom>
-        <MarkImage src={pink} alt="ingredientX"></MarkImage>
+        <MarkImage src={cautious} alt="ingredientX"></MarkImage>
       </Bottom>
     </Card>
   );
