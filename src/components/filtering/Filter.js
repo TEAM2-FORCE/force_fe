@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import CheckItemList from "./CheckItemList";
 import { getBookmarkIngredients } from "../../apis/Ingredient";
@@ -34,7 +34,7 @@ const Filter = ({ text, check, setCheck }) => {
   // })
   const [ingredients, setIngredients] = useState([]);
   
-  const fetchData = useCallback(async()=>{
+  const fetchData = async()=>{
     try{
       let sourceData;
       if(text === "Include")sourceData = (includeIngredients);
@@ -67,7 +67,7 @@ const Filter = ({ text, check, setCheck }) => {
     }catch(error){
       console.error("북마크 성분 불러오기 실패", error);
     }
-  },);
+  };
 
   useEffect(()=>{
     fetchData();

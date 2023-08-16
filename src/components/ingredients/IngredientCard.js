@@ -74,6 +74,8 @@ const IngredientName = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  width: 80%;
+  overflow: hidden;
 `;
 
 // const WishButton = styled.button`
