@@ -6,6 +6,7 @@ import Footer from "../components/layout/Footer";
 import Modal from "./Modal";
 import { useLocation, useNavigate } from "react-router-dom";
 import WishlistClick from "../components/items/WishlistClick";
+import { getMarket } from "../apis/Item";
 
 import KoreaVeganMark from "../img/VeganMark/KoreaVeganMark.png";
 import VeganSocietyMark from "../img/VeganMark/VeganSocietyMark.png";
@@ -43,16 +44,19 @@ const ItemDetail = () => {
   const product = state.product;
   console.log(product);
 
-  const [isVisible, setIsVisible] = useState(false);
+  const [modal, setModal] = useState(false);
   const [selectedVeganMark, setSelectedVeganMark] = useState(null);
 
   const showModal = (markId) => {
-    setIsVisible(true);
+    setModal(true);
     setSelectedVeganMark(veganMarkInformation(markId));
   };
 
-  const closeModal = () => {
-    setIsVisible(false);
+  const [marketData, setMarketData] = useState([]);
+
+  const getmarketData = async () => {
+    const response = await getMarket(product.pd_id);
+    setMarketData(response.data);
   };
 
   const veganMarkArray = [
@@ -222,15 +226,15 @@ const ItemDetail = () => {
       return etude;
     } else if (site === "Peripera") {
       return peripera;
-    } else if (site === "Rom&nd") {
+    } else if (site === "RomNd") {
       return romND;
     } else if (site === "Skinfood") {
       return skinfood;
     } else if (site === "The_saem") {
       return the_saem;
-    } else if (site === "too_cool_for_school") {
+    } else if (site === "Too_cool_for_school") {
       return too_cool_for_school;
-    } else if (site === "wakemake") {
+    } else if (site === "Wakemake") {
       return wakemake;
     } else {
       return null;
@@ -238,18 +242,18 @@ const ItemDetail = () => {
   };
 
   // 비건 마크 띄우는 로직
-  const veganMarkInformation = (veganMarkId) => {
-    if (veganMarkId === 1) {
+  const veganMarkInformation = (veganMark) => {
+    if (veganMark === 1) {
       return veganMarkArray[0];
-    } else if (veganMarkId === 2) {
+    } else if (veganMark === 2) {
       return veganMarkArray[1];
-    } else if (veganMarkId === 3) {
+    } else if (veganMark === 3) {
       return veganMarkArray[2];
-    } else if (veganMarkId === 4) {
+    } else if (veganMark === 4) {
       return veganMarkArray[3];
-    } else if (veganMarkId === 5) {
+    } else if (veganMark === 5) {
       return veganMarkArray[4];
-    } else if (veganMarkId === 6) {
+    } else if (veganMark === 6) {
       return veganMarkArray[5];
     } else {
       return null;
@@ -317,11 +321,11 @@ const ItemDetail = () => {
         </ItemDescription>
       </Body>
       <Footer></Footer>
-      {isVisible && selectedVeganMark && (
+      {modal && selectedVeganMark && (
         <Modal
           title={selectedVeganMark.title}
           description={selectedVeganMark.description}
-          closeModal={closeModal}
+          setModal={setModal}
         />
       )}
       {/* {modal && (

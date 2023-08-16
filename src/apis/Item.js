@@ -60,33 +60,41 @@ export const getItemDetail = (pd_id) => {
 export const postItemWishlist = (cg_id, pd_id) => {
   //상품 위시 추가
   const url = `${baseURL}/products/${cg_id}/${pd_id}/scrap/`;
-  axios.post(url, {}, { // 데이터 부분을 빈 객체로 설정
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-  })
-  .then(response => {
-    console.log('응답:', response.data);
-  })
-  .catch(error => {
-    console.error('오류 발생:', error);
-  });
+  axios
+    .post(
+      url,
+      {},
+      {
+        // 데이터 부분을 빈 객체로 설정
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    )
+    .then((response) => {
+      console.log("응답:", response.data);
+    })
+    .catch((error) => {
+      console.error("오류 발생:", error);
+    });
 }; //권한 필요, 로그인할 때 발급된 액세스 토큰
 
 export const deleteItemWishlist = (cg_id, pd_id) => {
   //상품 위시 삭제
   const url = `${baseURL}/products/${cg_id}/${pd_id}/scrap/`;
-  axios.delete(url, { // 데이터 부분을 빈 객체로 설정
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
-    }
-  })
-  .then(response => {
-    console.log('응답:', response.data);
-  })
-  .catch(error => {
-    console.error('오류 발생:', error);
-  });
+  axios
+    .delete(url, {
+      // 데이터 부분을 빈 객체로 설정
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+    .then((response) => {
+      console.log("응답:", response.data);
+    })
+    .catch((error) => {
+      console.error("오류 발생:", error);
+    });
 }; //권한 필요, 로그인할 때 발급된 액세스 토큰
 
 export const getWishlistItems = () => {
@@ -94,7 +102,7 @@ export const getWishlistItems = () => {
   const url = `${baseURL}/products/?sort=name/`;
   const response = axios.get(url, {
     headers: {
-      Authorization : `Bearer ${localStorage.getItem("token")}`,
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
   });
   return response;
@@ -107,10 +115,15 @@ export const getItemSearch = (text) => {
 };
 
 export const getFilteredData = (include, exclude, veganLabel) => {
-  const includeStr = include.join(',');
-  const excludeStr = exclude.join(',');
-  const veganLabelStr = veganLabel.join(',');
-  const url = `${baseURL}/products/filter/?include_ingredients=${includeStr}&exclude_ingredients=${excludeStr}&vg_company=${veganLabelStr}`
+  const includeStr = include.join(",");
+  const excludeStr = exclude.join(",");
+  const veganLabelStr = veganLabel.join(",");
+  const url = `${baseURL}/products/filter/?include_ingredients=${includeStr}&exclude_ingredients=${excludeStr}&vg_company=${veganLabelStr}`;
   console.log(url);
   return axios.get(url);
-}
+};
+
+export const getMarket = (pd_id) => {
+  const url = `${baseURL}/products/${pd_id}/market/`;
+  return axios.get(url);
+};

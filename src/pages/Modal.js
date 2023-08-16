@@ -3,20 +3,17 @@ import styled from "styled-components";
 
 import CancelIcon from "../img/MarkInModal/CancelIcon.png";
 
-const Modal = ({ title, description }) => {
-  // const cancelModal = () => {
-  //   setModal(false);
-  // };
+const Modal = ({ title, description, setModal }) => {
+  const cancelModal = () => {
+    setModal(false);
+  };
 
   return (
     <Container>
       <ModalBackground>
         <ModalBlock>
           <Header>
-            <CancelButton
-              src={CancelIcon}
-              // onClick={cancelModal}
-            />
+            <CancelButton src={CancelIcon} onClick={cancelModal} />
           </Header>
           <Body>
             <h2>{title}</h2>
