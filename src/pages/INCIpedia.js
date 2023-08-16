@@ -134,7 +134,7 @@ const INCIpedia = () => {
             <Filter>
               <Text>Go To...</Text>
               <Alphabets>
-                <Alp onClick={numberClicked}>1</Alp>
+                <Alp onClick={numberClicked}>#</Alp>
                 {
                   alphabets.map((alphabet)=>(
                     <Alp onClick={()=>alphabetClicked(alphabet)}>{alphabet}</Alp>
@@ -199,7 +199,7 @@ const Search = styled.div`
   margin: 3%;
 `;
 const Filter = styled.div`
-  margin-top: 15px;
+  margin-top: 12px;
   border-bottom: green solid 2px;
   margin-bottom: 15px;
 `;
@@ -227,10 +227,11 @@ const Alphabets = styled.div`
 const Alp = styled.div`
   width: 10%;
   cursor: pointer;
+  font-family: Pretendard;
 `;
 const Item = styled.div`
   display: flex;
-  margin: 7px 5px 5px 15px;
+  margin: 7px 8px 8px 15px;
   align-items: center;
 `;
 

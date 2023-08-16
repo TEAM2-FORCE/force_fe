@@ -90,7 +90,7 @@ export const SearchBar = styled.div`
   align-items: center;
   gap: 0.625rem;
   border-radius: 1.25rem 1.25rem 1.25rem 1.25rem;
-  border: 1px solid var(--dark, #3c9075);
+  border: 1px solid var(--dark, #010D09);
   margin-right: 3%;
 `;
 
