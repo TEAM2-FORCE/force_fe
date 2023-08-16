@@ -1,5 +1,8 @@
 [
-    {"igd_key": 1, "igd_name": "BHT", "igd_isBookmarked": false},
-    {"igd_key": 2, "igd_name": "Brilliant Blue FCF", "igd_isBookmarked": false},
-    {"igd_key": 3, "igd_name": "Fast Acid Magenta", "igd_isBookmarked": false}
+    {"igd_key": 1, "igd_name": "Korea agency of Vegan Certification and Services", "igd_isBookmarked": false},
+    {"igd_key": 2, "igd_name": "Expertise Vegan Europe (EVE VEGAN)", "igd_isBookmarked": false},
+    {"igd_key": 3, "igd_name": "V Label Italia srl", "igd_isBookmarked": false},
+    {"igd_key": 4, "igd_name": "The Vegan Society", "igd_isBookmarked": false},
+    {"igd_key": 5, "igd_name": "PETA- Animal test-free", "igd_isBookmarked": false},
+    {"igd_key": 6, "igd_name": "PETA- Animal test-free and vegan", "igd_isBookmarked": false}
   ]
