@@ -14,7 +14,8 @@ import unchecked from "../img/Common/unchecked.png"
 const INCIpedia = () => {
   const [ingredientData, setIngredientData] = useState([]);
   const [boxCheck, setBoxCheck] = useState(false);
-
+  const alphabets = new Array(26).fill().map((_, idx) => String.fromCharCode(65 + idx));
+  
   const changeCheck = async () => {
     if(!boxCheck){
       try {
@@ -41,6 +42,9 @@ const INCIpedia = () => {
     if (boxCheck) return checked;
     else return unchecked;
   };
+  const alphabetClicked = (alphabet) => {
+    console.log(alphabet);
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,6 +52,7 @@ const INCIpedia = () => {
         const response = await getAllIngredients();
         console.log(response);
         setIngredientData(response.data);
+
       } catch (error) {
         console.error("데이터 불러오기 실패", error);
       }
@@ -117,32 +122,11 @@ const INCIpedia = () => {
             <Filter>
               <Text>Go To...</Text>
               <Alphabets>
-                <Alp>A</Alp>
-                <Alp>B</Alp>
-                <Alp>C</Alp>
-                <Alp>D</Alp>
-                <Alp>E</Alp>
-                <Alp>F</Alp>
-                <Alp>G</Alp>
-                <Alp>H</Alp>
-                <Alp>I</Alp>
-                <Alp>J</Alp>
-                <Alp>K</Alp>
-                <Alp>L</Alp>
-                <Alp>M</Alp>
-                <Alp>N</Alp>
-                <Alp>O</Alp>
-                <Alp>P</Alp>
-                <Alp>Q</Alp>
-                <Alp>R</Alp>
-                <Alp>S</Alp>
-                <Alp>T</Alp>
-                <Alp>U</Alp>
-                <Alp>V</Alp>
-                <Alp>W</Alp>
-                <Alp>X</Alp>
-                <Alp>Y</Alp>
-                <Alp>Z</Alp>
+                {
+                  alphabets.map((alphabet)=>(
+                    <Alp onClick={()=>alphabetClicked(alphabet)}>{alphabet}</Alp>
+                  ))
+                }
               </Alphabets>
             </Filter>
           </FilterLists>
@@ -213,38 +197,6 @@ const Text = styled.div`
   line-height: normal;
   margin: 10px 10px 10px 0px;
 `;
-const Decision = styled.div`
-  top: 0%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`;
-const ClearButton = styled.button`
-  color: var(--light-grey, #919392);
-  font-family: Pretendard;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  background-color: white;
-  border: none;
-`;
-
-const OKButton = styled.button`
-  border-radius: 0.25rem;
-  border: 1px solid var(--dark-gray, #414241);
-  display: flex;
-  padding: 0.25rem 0.5rem;
-  align-items: flex-start;
-  gap: 0.25rem;
-  background-color: white;
-
-  font-family: Pretendard;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-`;
 const Contents = styled.div`
   width: 83%;
   height: 100%;
@@ -259,6 +211,7 @@ const Alphabets = styled.div`
 `;
 const Alp = styled.div`
   width: 10%;
+  cursor: pointer;
 `;
 const Item = styled.div`
   display: flex;

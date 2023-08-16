@@ -109,7 +109,7 @@ export const deleteItemWishlist = (cg_id, pd_id) => {
 
 export const getWishlistItems = () => {
   //상품 위시리스트 목록 불러오기
-  const url = `${baseURL}/products/?sort=name/`;
+  const url = `${baseURL}/products/wish/`;
   const response = axios.get(url, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,

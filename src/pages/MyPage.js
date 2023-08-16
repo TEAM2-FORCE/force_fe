@@ -38,11 +38,11 @@ const MyPage = () => {
       console.log(response.data);
       const name = response.data.first_name + " " + response.data.last_name;
       setUserName(name);
-      console.log("북마크");
+      console.log("위시");
       const responseWishlist = await getWishlistItems();
       setWishlistData(responseWishlist.data);
       const responseBookmark = await getBookmarkIngredients();
-      console.log(responseBookmark);
+      console.log(responseWishlist.data);
       setBookmarkData(responseBookmark.data);
 
     };
@@ -77,7 +77,7 @@ const MyPage = () => {
               wishlistData
                 .slice(0, 4)
                 .map((wishlist) => (
-                  <ItemCard key={wishlist.pd_id} product={wishlist} />
+                  <ItemCard key={wishlist.pd_id} product={wishlist.products_contents} />
                 ))}
           </Contents>
         </WishList>
