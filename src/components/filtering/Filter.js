@@ -73,44 +73,6 @@ const Filter = ({ text, check, setCheck }) => {
     fetchData();
   },[]);
   
-  // useEffect(()=>{
-  //   const fetchData = useCallback(async () => {
-  //     try{
-  //       let sourceData;
-  //       if(text === "Include")sourceData = (includeIngredients);
-  //       else if(text === "Exclude") sourceData = (excludeIngredientsData);
-  //       else if(text === "Vegan Label")sourceData = (veganLabelData);
-  //       console.log(sourceData);
-  //       //// 북마크인거 true로 바꾸기
-  //       if(isAuthenticated()){
-  //         const response = await getBookmarkIngredients();
-  //         const bookmarkIngredients = response.data;
-  //         console.log("북마크");
-  //         console.log(bookmarkIngredients);
-          
-  //         const ingredientNames = bookmarkIngredients.map((bookmark)=>bookmark.igd_name);
-  //         const newIngredients = sourceData.map((ingredient)=>{
-  //         const isBookmarked = (ingredientNames.length > 0) ? ingredientNames.includes(ingredient.igd_name) : false;
-
-  //         return {
-  //           ...ingredient,
-  //           igd_isBookmarked: isBookmarked,
-  //           };
-  //         });
-  //         setIngredients(newIngredients);
-  //       }
-  //       else{
-  //         setIngredients(sourceData);
-  //       }
-        
-
-  //     }catch(error){
-  //       console.error("북마크 성분 불러오기 실패", error);
-  //     }
-  //   });
-  //   fetchData();
-  // },[text, ingredients]);
-  
   return (
     <Container>
       <Text>{text}</Text>

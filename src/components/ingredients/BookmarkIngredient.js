@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import cautious from "../../img/Ingredients/cautious.png";
-import pink from "../../img/Ingredients/pink.png";
 import BookmarkClick from "./BookmarkClick";
 
 const BookmarkIngredient = ({ bookmarkIngredient }) => {

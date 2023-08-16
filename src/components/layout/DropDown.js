@@ -122,7 +122,7 @@ const CategoryText = styled.text`
   font-family: Pretendard;
   font-size: 1rem;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: normal;
   cursor: pointer;
 `;

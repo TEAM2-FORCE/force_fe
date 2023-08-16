@@ -21,5 +21,5 @@ export default CheckItemList;
 const CheckItems = styled.div`
   height: 150px;
   overflow: auto; //박스 넘어가면 스크롤바
-  padding-bottom: 8px;
+  margin-bottom: 8px;
 `;

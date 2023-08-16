@@ -113,7 +113,7 @@ const Right = styled.button`
   cursor: pointer;
 
   position: relative;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #919392;
 `;
 
 const SortBar = styled.div`
@@ -126,6 +126,7 @@ const SortBar = styled.div`
   height: 13rem;
   z-index: 1;
   background-color: white;
+  margin-top: 1px;
 `;
 const SortButton = styled.button`
   display: flex;
@@ -140,7 +141,6 @@ const SortButton = styled.button`
   // opacity:${(props) => (props["data-isselected"] ? "1" : "1")};
   background-color: white;
   border-bottom: 1px solid black;
-  border-top: 1px solid black;
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
