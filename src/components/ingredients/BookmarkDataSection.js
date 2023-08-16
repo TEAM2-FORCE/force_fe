@@ -7,7 +7,7 @@ const BookmarkDataSection = ({ bookmarkData }) => {
     <Cards>
       {bookmarkData &&
         bookmarkData.map((bookmarkIngredient) => (
-          <BookmarkIngredient bookmarkIngredient={bookmarkIngredient} />
+          <BookmarkIngredient bookmarkIngredient={bookmarkIngredient.ingredient_contents} />
         ))}
     </Cards>
   );

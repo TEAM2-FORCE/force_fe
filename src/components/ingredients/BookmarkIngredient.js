@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import blue from "../../img/Ingredients/blue.png";
+import cautious from "../../img/Ingredients/cautious.png";
 import pink from "../../img/Ingredients/pink.png";
 import BookmarkClick from "./BookmarkClick";
 
@@ -10,12 +10,11 @@ const BookmarkIngredient = ({ bookmarkIngredient }) => {
       <Contents>
         <IngredientInfo>
           <IngredientName>{bookmarkIngredient.igd_name}</IngredientName>
-          <BookmarkClick></BookmarkClick>
+          <BookmarkClick igd_id={bookmarkIngredient.igd_id} detail={false} isBookmarked={true}></BookmarkClick>
         </IngredientInfo>
       </Contents>
       <Marks>
-        <MarkImage src={blue} alt="testingX"></MarkImage>
-        <MarkImage src={pink} alt="ingredientX"></MarkImage>
+        <MarkImage src={cautious} alt="testingX"></MarkImage>
       </Marks>
 
       <Text>{bookmarkIngredient.igd_main_ftn}</Text>
@@ -33,6 +32,7 @@ const Card = styled.div`
   max-height: 25rem;
   margin: 25px;
   position: relative;
+  border-bottom: 1px solid black;
 `;
 const Contents = styled.div`
   display: flex;

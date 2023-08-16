@@ -22,6 +22,7 @@ const MyPage = () => {
     navigate("/wishlist", { state: wishlistData });
   };
   const moreBookMark = () => {
+    console.log(bookmarkData);
     navigate("/bookmark", { state: bookmarkData });
   };
 
