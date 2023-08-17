@@ -5,6 +5,7 @@ export const baseURL = "http://vebeserver.kro.kr:8000/";
 
 export const getAllItemsInCategory = (cg_id) => {
   if (cg_id === 0) {
+    console.log("모든상품");
     const url = `${baseURL}/products/`;
     if(isAuthenticated()){
     const response = axios.get(url, {
@@ -75,9 +76,9 @@ export const getItemDetail = (pd_id) => {
   return axios.get(url);
 };
 
-export const postItemWishlist = (cg_id, pd_id) => {
+export const postItemWishlist = (pd_id) => {
   //상품 위시 추가
-  const url = `${baseURL}/products/${cg_id}/${pd_id}/scrap/`;
+  const url = `${baseURL}/products/${pd_id}/wish/`;
   axios.post(url, {}, {// 데이터 부분을 빈 객체로 설정
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -91,9 +92,10 @@ export const postItemWishlist = (cg_id, pd_id) => {
     });
 }; //권한 필요, 로그인할 때 발급된 액세스 토큰
 
-export const deleteItemWishlist = (cg_id, pd_id) => {
+export const deleteItemWishlist = (pd_id) => {
   //상품 위시 삭제
-  const url = `${baseURL}/products/${cg_id}/${pd_id}/scrap/`;
+  console.log("삭제"+pd_id);
+  const url = `${baseURL}/products/${pd_id}/wish/`;
   axios.delete(url, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,

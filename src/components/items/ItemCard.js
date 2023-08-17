@@ -20,7 +20,7 @@ const ItemCard = ({ product }) => {
       <Contents>
         <IngredientInfo>
           <ProductName>{product.pd_name}</ProductName>
-          <WishlistClick cg_id={product.cg_id} pd_id={product.pd_id} detail={false} isWishlisted={product.wished_pd}/>
+          <WishlistClick pd_id={product.pd_id} detail={false} isWishlisted={product.wished_pd}/>
         </IngredientInfo>
         <div>{product.pd_brand}</div>
         <div>KRW {product.pd_price}</div>

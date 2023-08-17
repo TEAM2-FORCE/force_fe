@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { deleteItemWishlist, postItemWishlist } from "../../apis/Item";
 import { isAuthenticated } from "../../apis/Googlelogin";
 
-const WishlistClick = ({ cg_id, pd_id, detail, isWishlisted }) => {
+const WishlistClick = ({ pd_id, detail, isWishlisted }) => {
   const navigate = useNavigate();
   //이건 수정해야 함
   const islogin = isAuthenticated();
@@ -19,9 +19,9 @@ const WishlistClick = ({ cg_id, pd_id, detail, isWishlisted }) => {
     event.stopPropagation();
     //여기에 로그인되어있는지 확인하는 거 해야 함
     if (islogin) {
-      if (!wish) await postItemWishlist(cg_id, pd_id);
+      if (!wish) await postItemWishlist(pd_id);
       else {
-        await deleteItemWishlist(cg_id, pd_id);
+        await deleteItemWishlist(pd_id);
       }
     } else {
       navigate("/login");
