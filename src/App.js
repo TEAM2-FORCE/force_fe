@@ -11,6 +11,7 @@ import BookmarkPage from "./pages/BookmarkPage";
 import WishlistPage from "./pages/WishlistPage";
 import ListUpPage from "./pages/ListUpPage";
 import GoogleOAuth2RedirectHandler from "./pages/GoogleOAuth2RedirectHandler";
+import ReLogin from "./pages/ReLogin";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/listuppage" element={<ListUpPage />} />
 
         <Route path="/login" element={<Login />} />
+        <Route path="/relogin" element={<ReLogin />} />
         <Route
           path="/oauth2redirect"
           element={<GoogleOAuth2RedirectHandler />}

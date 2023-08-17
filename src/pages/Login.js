@@ -4,29 +4,30 @@ import mainLogo from "../img/Logo/MainLogo.png";
 import subLogo from "../img/Logo/SubLogo.png";
 import loginText from "../img/LogIn/loginText.png";
 import google from "../img/LogIn/google.png";
+import { useNavigate } from "react-router";
 const Login = () => {
-
-    const googleLogin = () => {
-      window.location.href ="https://accounts.google.com/o/oauth2/auth?" +
-      `client_id=${process.env.REACT_APP_GOOGLE_CLIENT_ID}&`+
-      `redirect_uri=${process.env.REACT_APP_GOOGLE_REDIRECT_URI}&`+
-      "response_type=code&"+
-      "scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile";
-    }
+  const navigate = useNavigate();
+  const googleLogin = () => {
+    window.location.href ="https://accounts.google.com/o/oauth2/auth?" +
+    `client_id=${process.env.REACT_APP_GOOGLE_CLIENT_ID}&`+
+    `redirect_uri=${process.env.REACT_APP_GOOGLE_REDIRECT_URI}&`+
+    "response_type=code&"+
+    "scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile";
+  }
+  const gotoHome = () => {
+    navigate('/');
+  }
 
   return (
     <LoginWindow>
       <Container>
         <Left>
-          <Text color="white" weight="400">
-            VEBE is a team from LIKELION, year of 11th at <br />
-            Chung-Ang University, Korea.
-            <br />
-            Our aim is to blah blah blah blah blah <br />
-            VEBE is a team from LIKELION, year of 11th at <br />
-            Chung-Ang University, Korea.
-            <br />
-            Our aim is to blah blah blah blah blah
+          <Text>
+          VEBE is a Vegan Beauty Service.<br />
+          We take the first step to enhance you experience<br />
+          on Vegan Beauty Products.<br />
+          Make choices that best fit your values<br />
+          through informations we provide.
           </Text>
         </Left>
         <Right>
@@ -40,9 +41,9 @@ const Login = () => {
             <IconStyled src={google} alt="Icon"></IconStyled>
             <ButtonText>Log in with Google</ButtonText>
             </Button>
-            <Text color="rgba(145, 147, 146, 1)" weight="700">
+            <BottomText onClick={gotoHome}>
               Use without Log in
-            </Text>
+            </BottomText>
           </Bottom>
         </Right>
       </Container>
@@ -96,18 +97,13 @@ const Right = styled.div`
 `;
 
 const Text = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  color: ${(props) => props.color};
-  text-align: center;
-  font-family: Pretendard;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: ${(props) => props.weight};
-  line-height: normal;
+color: var(--white, #FDFFFD);
+text-align: center;
+font-family: Pretendard;
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
 `;
 
 const Middle = styled.div`
@@ -185,3 +181,15 @@ const IconStyled = styled.img`
   margin-left: 8px;
   padding: 0;
 `;
+
+const BottomText = styled.div`
+color: var(--light-grey, #919392);
+text-align: center;
+/* small em */
+font-family: Pretendard;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+cursor: pointer;
+`

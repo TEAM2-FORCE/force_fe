@@ -69,8 +69,11 @@ const Nav = () => {
     }
   };
 
+  const write = () => {
+    // console.log(typeof token == 'undefined');
+  }
   return (
-    <Container>
+    <Container onClick={write}>
       <NavContainer>
         <Left>
           <Logo onClick={logoClicked} src={logo} />

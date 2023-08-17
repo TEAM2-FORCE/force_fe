@@ -17,9 +17,14 @@ const GoogleOAuth2RedirectHandler = () => {
         console.log(response.access_token);
         //서버에서 받은 토콘을 저장하고 로그인 처리
         const token = response.access_token;
-        localStorage.setItem("token", token);
-        // localStorage.setItem("token", 123);
-        navigate('/');
+        if(typeof token == 'undefined'){
+          navigate('/relogin');
+        }
+        else{
+          localStorage.setItem("token", token);
+          navigate('/');
+
+        }
       }
       else{
         console.error("인증 코드가 유효하지 않습니다.");
