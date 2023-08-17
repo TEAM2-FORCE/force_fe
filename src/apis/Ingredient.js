@@ -6,10 +6,10 @@ export const baseURL = "https://vebeserver.o-r.kr";
 export const getAllIngredients = () => {
   //모든 성분 조회
   const url = `${baseURL}/ingredients/list/`;
-  if(isAuthenticated()){
+  if (isAuthenticated()) {
     const response = axios.get(url, {
       headers: {
-        Authorization : `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
     return response;
@@ -32,17 +32,23 @@ export const getIngredientSearch = (text) => {
 export const postIngredientBookmark = (igd_id) => {
   //성분 북마크 표시
   const url = `${baseURL}/ingredients/${igd_id}/bm/`;
-  axios.post(url, {}, { // 데이터 부분을 빈 객체로 설정
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-  })
-  .then(response => {
-    console.log('응답:', response.data);
-  })
-  .catch(error => {
-    console.error('오류 발생:', error);
-  });
+  axios
+    .post(
+      url,
+      {},
+      {
+        // 데이터 부분을 빈 객체로 설정
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    )
+    .then((response) => {
+      console.log("응답:", response.data);
+    })
+    .catch((error) => {
+      console.error("오류 발생:", error);
+    });
 }; //권한 필요, 로그인할 때 발급된 액세스 토큰
 
 export const deleteIngredientBookmark = (igd_id) => {
@@ -51,7 +57,7 @@ export const deleteIngredientBookmark = (igd_id) => {
   axios.delete(url, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
-    }
+    },
   });
 }; //권한 필요, 로그인할 때 발급된 액세스 토큰
 
@@ -60,13 +66,13 @@ export const getBookmarkIngredients = async () => {
   const url = `${baseURL}/ingredients/bm/`;
   const response = axios.get(url, {
     headers: {
-      Authorization : `Bearer ${localStorage.getItem("token")}`,
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
   });
   return response;
-}
+};
 
 export const getFilteredIngredients = () => {
   const url = `${baseURL}/ingredients/filter/?igd_caution=false/`;
   return axios.get(url);
-}
+};

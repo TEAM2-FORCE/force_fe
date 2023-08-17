@@ -91,8 +91,6 @@ const INCIpedia = () => {
     const response = await getIngredientSearch(userInput);
     console.log(response);
     setIngredientData(response.data);
-    const input = document.querySelector(`${SearchBar} Input`);
-    input.value = "";
     inputRef.current.value = "";
   };
 
