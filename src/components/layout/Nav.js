@@ -59,7 +59,7 @@ const Nav = () => {
     // const response = await getItemSearch(userInput);
     // console.log(response);
     // setProductDatas(response.data);
-    navigate("/listuppage", {
+    navigate("/products", {
       state: {
         userInput: userInput,
       },
