@@ -113,6 +113,7 @@ const INCIpedia = () => {
       <Section>
         <Center>
           <FilterLists>
+            <Text>Search By Name</Text>
             <Search>
               <SearchBar>
                 <input
@@ -182,7 +183,7 @@ const Top = styled.div`
   justify-content: space-between;
   float: top;
   margin-top: 2%;
-  margin-bottom: 1%;
+  margin-bottom: 40px;
 `;
 const Left = styled.div`
   float: left;
@@ -218,13 +219,13 @@ const Filter = styled.div`
   margin-bottom: 15px;
 `;
 const Text = styled.div`
-  color: var(--dark-gray, var(--dark-gray, #414241));
+  color: #000;
+  text-align: justify;
   font-family: Pretendard;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  margin: 10px 10px 10px 0px;
 `;
 const Contents = styled.div`
   width: 83%;
