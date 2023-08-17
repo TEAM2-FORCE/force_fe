@@ -45,6 +45,7 @@ import innisfree from "../img/SiteImage/Brand/innisfree.png";
 import jayjun from "../img/SiteImage/Brand/jayjun.png";
 import manyo from "../img/SiteImage/Brand/manyo.png";
 import ongredients from "../img/SiteImage/Brand/ongredients.png";
+import defaultImage from "../img/Common/checked.png"
 
 const ItemDetail = () => {
   const navigate = useNavigate();
@@ -212,7 +213,7 @@ const ItemDetail = () => {
   // };
 
   const cardClicked = (ingredient) => {
-    navigate("/incipediadetail", { state: ingredient });
+    navigate("/ingredients/detail", { state: ingredient });
   };
 
   // const siteArray = [
@@ -318,7 +319,7 @@ const ItemDetail = () => {
               {certificationData.map((mark) => (
                 <VeganMark
                   key={mark.vg_id}
-                  src={veganMarkInformation(mark.vg_company).image}
+                  src={veganMarkInformation(mark.vg_company).image || defaultImage }
                   onClick={() => {
                     showModal(mark.vg_company);
                   }}

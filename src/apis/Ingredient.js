@@ -1,7 +1,7 @@
 import axios from "axios";
 import { isAuthenticated } from "./Googlelogin";
 
-export const baseURL = "http://vebeserver.kro.kr:8000/";
+export const baseURL = "https://vebeserver.o-r.kr";
 
 export const getAllIngredients = () => {
   //모든 성분 조회

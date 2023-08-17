@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseURL = "http://vebeserver.kro.kr:8000/";
+export const baseURL = "https://vebeserver.o-r.kr";
 
 export const postLogin = async (code)=>{
   try{
