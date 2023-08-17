@@ -28,42 +28,22 @@ const SearchTop = ({ cg_id, which, setProductData, name }) => {
 
   //sort버튼별
   const mostWishlistedSort = async () => {
-    navigate(`/products/${name[cg_id]}?sort=wish`, {
-      state: {
-        cg_id: cg_id,
-      },
-    });
     setWhichSortBy("Most Wishlisted");
     const response = await getMostWishListed(cg_id);
     setProductData(response.data);
   };
   const priceLowToHigh = async () => {
-    navigate(`/products/${name[cg_id]}?sort=price`, {
-      state: {
-        cg_id: cg_id,
-      },
-    });
     setWhichSortBy("Price Low To High");
     const response = await getPriceLowToHigh(cg_id);
     setProductData(response.data);
   };
   const priceHighToLow = async () => {
-    navigate(`/products/${name[cg_id]}?sort=-price`, {
-      state: {
-        cg_id: cg_id,
-      },
-    });
     setWhichSortBy("Price High To Low");
     const response = await getPriceHighToLow(cg_id);
     console.log(response);
     setProductData(response.data);
   };
   const abcSort = async () => {
-    navigate(`/products/${name[cg_id]}?sort=name`, {
-      state: {
-        cg_id: cg_id,
-      },
-    });
     setWhichSortBy("ABC");
     const response = await getABC(cg_id);
     setProductData(response.data);

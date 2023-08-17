@@ -16,7 +16,7 @@ const Modal = ({ veganMark, title, description, setModal }) => {
           <Header>
             <CancelButton src={CancelIcon} onClick={cancelModal} />
             <VeganMarkContainer>
-              <img src={circle} />
+              <img src={circle} alt="veganmark" />
               <ImageContainer>
                 <Image src={veganMark} />
               </ImageContainer>
@@ -34,6 +34,7 @@ const Modal = ({ veganMark, title, description, setModal }) => {
                       objectFit: "cover",
                       marginBottom: "10%",
                     }}
+                    alt="noMark"
                   />
                   <div>{des.text}</div>
                 </Description>

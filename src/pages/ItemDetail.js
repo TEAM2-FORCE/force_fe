@@ -27,6 +27,7 @@ import 신세계 from "../img/SiteImage/ShoppingSite/신세계.png";
 import 쿠팡 from "../img/SiteImage/ShoppingSite/쿠팡.png";
 import 위메프 from "../img/SiteImage/ShoppingSite/위메프.png";
 import 롯데온 from "../img/SiteImage/ShoppingSite/롯데온.png";
+import gmarket from "../img/SiteImage/ShoppingSite/gmarket.png";
 
 import cosnori from "../img/SiteImage/Brand/cosnori.png";
 import dasique from "../img/SiteImage/Brand/dasique.png";
@@ -45,7 +46,7 @@ import innisfree from "../img/SiteImage/Brand/innisfree.png";
 import jayjun from "../img/SiteImage/Brand/jayjun.png";
 import manyo from "../img/SiteImage/Brand/manyo.png";
 import ongredients from "../img/SiteImage/Brand/ongredients.png";
-import defaultImage from "../img/Common/checked.png"
+import defaultImage from "../img/Common/checked.png";
 
 const ItemDetail = () => {
   const navigate = useNavigate();
@@ -72,7 +73,6 @@ const ItemDetail = () => {
           product.pd_id
         );
         setCertificationData(VeganCertificationResponse.data);
-        console.log(product);
       } catch (error) {
         console.error("데이터 불러오기 실패", error);
       }
@@ -237,6 +237,8 @@ const ItemDetail = () => {
       return 신세계;
     } else if (site === "we_make_price") {
       return 위메프;
+    } else if (site === "gmarket") {
+      return gmarket;
     } else if (site === "cosnori") {
       return cosnori;
     } else if (site === "dasique") {
@@ -282,13 +284,18 @@ const ItemDetail = () => {
       return veganMarkArray[0];
     } else if (veganMark === "Expertise Vegan Europe") {
       return veganMarkArray[1];
-    } else if (veganMark === "V LABEL ITALIA s.r.l.") {
+    } else if (veganMark === "V Label Italia srl") {
       return veganMarkArray[2];
     } else if (veganMark === "The Vegan Society") {
       return veganMarkArray[3];
-    } else if (veganMark === "PETA- Animal test-free") {
+    } else if (
+      veganMark === "PETA Beauty without bunny - global animal test-free"
+    ) {
       return veganMarkArray[4];
-    } else if (veganMark === "PETA- Animal test-free and vegan") {
+    } else if (
+      veganMark ===
+      "PETA Beauty without bunny - global animal test-free and vegan"
+    ) {
       return veganMarkArray[5];
     } else {
       return null;
@@ -319,7 +326,9 @@ const ItemDetail = () => {
               {certificationData.map((mark) => (
                 <VeganMark
                   key={mark.vg_id}
-                  src={veganMarkInformation(mark.vg_company).image || defaultImage }
+                  src={
+                    veganMarkInformation(mark.vg_company).image || defaultImage
+                  }
                   onClick={() => {
                     showModal(mark.vg_company);
                   }}
