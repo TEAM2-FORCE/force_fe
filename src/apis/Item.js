@@ -32,20 +32,20 @@ export const getAllItemsInCategory = (cg_id) => {
 
 export const getPriceLowToHigh = (cg_id) => {
   if (cg_id === 0) {
-    const url = `${baseURL}/products/?sort=price/`;
+    const url = `${baseURL}/products/?sort=price`;
     return axios.get(url);
   } else {
-    const url = `${baseURL}/products/category/${cg_id}/?sort=price/`;
+    const url = `${baseURL}/products/category/${cg_id}/?sort=price`;
     return axios.get(url);
   }
 };
 
 export const getPriceHighToLow = (cg_id) => {
   if (cg_id === 0) {
-    const url = `${baseURL}/products/?sort=-price/`;
+    const url = `${baseURL}/products/?sort=-price`;
     return axios.get(url);
   } else {
-    const url = `${baseURL}/products/category/${cg_id}/?sort=-price/`;
+    const url = `${baseURL}/products/category/${cg_id}/?sort=-price`;
     return axios.get(url);
   }
 };
@@ -62,10 +62,10 @@ export const getMostWishListed = (cg_id) => {
 
 export const getABC = (cg_id) => {
   if (cg_id === 0) {
-    const url = `${baseURL}/products/?sort=name/`;
+    const url = `${baseURL}/products/?sort=name`;
     return axios.get(url);
   } else {
-    const url = `${baseURL}/products/category/${cg_id}/?sort=name/`;
+    const url = `${baseURL}/products/category/${cg_id}/?sort=name`;
     return axios.get(url);
   }
 };
