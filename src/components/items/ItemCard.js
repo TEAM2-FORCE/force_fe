@@ -9,7 +9,7 @@ const ItemCard = ({ product }) => {
   const navigate = useNavigate();
 
   const cardClicked = () => {
-    navigate("/itemdetail", {state: product});
+    navigate("/products/detail", { state: { product: product } });
   };
 
   return (
@@ -20,7 +20,11 @@ const ItemCard = ({ product }) => {
       <Contents>
         <IngredientInfo>
           <ProductName>{product.pd_name}</ProductName>
-          <WishlistClick pd_id={product.pd_id} detail={false} isWishlisted={product.wished_pd}/>
+          <WishlistClick
+            pd_id={product.pd_id}
+            detail={false}
+            isWishlisted={product.wished_pd}
+          />
         </IngredientInfo>
         <div>{product.pd_brand}</div>
         <div>KRW {product.pd_price}</div>

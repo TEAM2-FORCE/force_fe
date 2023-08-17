@@ -7,27 +7,26 @@ export const getAllItemsInCategory = (cg_id) => {
   if (cg_id === 0) {
     console.log("모든상품");
     const url = `${baseURL}/products/`;
-    if(isAuthenticated()){
-    const response = axios.get(url, {
-      headers: {
-        Authorization : `Bearer ${localStorage.getItem("token")}`,
-      },
-    });
-    return response;
-  }
-  return axios.get(url);
-  } 
-  else {
+    if (isAuthenticated()) {
+      const response = axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      return response;
+    }
+    return axios.get(url);
+  } else {
     const url = `${baseURL}/products/category/${cg_id}/`;
-    if(isAuthenticated()){
-    const response = axios.get(url, {
-      headers: {
-        Authorization : `Bearer ${localStorage.getItem("token")}`,
-      },
-    });
-    return response;
-  }
-  return axios.get(url);
+    if (isAuthenticated()) {
+      const response = axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      return response;
+    }
+    return axios.get(url);
   }
 };
 
@@ -79,11 +78,17 @@ export const getItemDetail = (pd_id) => {
 export const postItemWishlist = (pd_id) => {
   //상품 위시 추가
   const url = `${baseURL}/products/${pd_id}/wish/`;
-  axios.post(url, {}, {// 데이터 부분을 빈 객체로 설정
+  axios
+    .post(
+      url,
+      {},
+      {
+        // 데이터 부분을 빈 객체로 설정
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-    })
+      }
+    )
     .then((response) => {
       console.log("응답:", response.data);
     })
@@ -94,9 +99,10 @@ export const postItemWishlist = (pd_id) => {
 
 export const deleteItemWishlist = (pd_id) => {
   //상품 위시 삭제
-  console.log("삭제"+pd_id);
+  console.log("삭제" + pd_id);
   const url = `${baseURL}/products/${pd_id}/wish/`;
-  axios.delete(url, {
+  axios
+    .delete(url, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -135,10 +141,10 @@ export const getFilteredData = (include, exclude, veganLabel) => {
 
   const queryParams = [];
 
-  if(includeStr)queryParams.push(`include_ingredients=${includeStr}`);
-  if(excludeStr)queryParams.push(`exclude_ingredients=${excludeStr}`);
-  if(veganLabelStr)queryParams.push(`vg_company=${veganLabelStr}`);
-  if(queryParams.length>0)url = `${url}?${queryParams.join("&")}`;
+  if (includeStr) queryParams.push(`include_ingredients=${includeStr}`);
+  if (excludeStr) queryParams.push(`exclude_ingredients=${excludeStr}`);
+  if (veganLabelStr) queryParams.push(`vg_company=${veganLabelStr}`);
+  if (queryParams.length > 0) url = `${url}?${queryParams.join("&")}`;
 
   // const url = `${baseURL}/products/filter/?include_ingredients=${includeStr}&exclude_ingredients=${excludeStr}&vg_company=${veganLabelStr}`;
   console.log(url);
@@ -147,5 +153,10 @@ export const getFilteredData = (include, exclude, veganLabel) => {
 
 export const getMarket = (pd_id) => {
   const url = `${baseURL}/products/${pd_id}/market/`;
+  return axios.get(url);
+};
+
+export const getVeganCertification = (pd_id) => {
+  const url = `${baseURL}/products/${pd_id}/vegan/`;
   return axios.get(url);
 };

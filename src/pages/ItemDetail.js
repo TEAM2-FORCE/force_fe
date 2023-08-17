@@ -7,6 +7,7 @@ import Modal from "./Modal";
 import { useLocation, useNavigate } from "react-router-dom";
 import WishlistClick from "../components/items/WishlistClick";
 import { getMarket } from "../apis/Item";
+import { getVeganCertification } from "../apis/Item";
 
 import KoreaVeganMark from "../img/VeganMark/KoreaVeganMark.png";
 import VeganSocietyMark from "../img/VeganMark/VeganSocietyMark.png";
@@ -49,29 +50,34 @@ const ItemDetail = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const product = state.product;
-  console.log(product);
 
   const [modal, setModal] = useState(false);
   const [selectedVeganMark, setSelectedVeganMark] = useState(null);
 
   const [marketData, setMarketData] = useState([]);
+  const [certificationData, setCertificationData] = useState([]);
 
-  const showModal = (markId) => {
+  const showModal = (mark) => {
     setModal(true);
-    setSelectedVeganMark(veganMarkInformation(markId));
+    setSelectedVeganMark(veganMarkInformation(mark));
   };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getMarket(product.pd_id);
-        setMarketData(response.data);
+        const marketResponse = await getMarket(product.pd_id);
+        setMarketData(marketResponse.data);
+        const VeganCertificationResponse = await getVeganCertification(
+          product.pd_id
+        );
+        setCertificationData(VeganCertificationResponse.data);
+        console.log(product);
       } catch (error) {
         console.error("데이터 불러오기 실패", error);
       }
     };
     fetchData();
-  },[]);
+  }, []);
 
   const veganMarkArray = [
     {
@@ -81,7 +87,7 @@ const ItemDetail = () => {
       description: [
         {
           icon: NoAnimalMaterial,
-          text: `No animal-derived 
+          text: `No animal-derived
 					raw materials.`,
         },
         {
@@ -101,7 +107,7 @@ const ItemDetail = () => {
       description: [
         {
           icon: NoAnimalMaterial,
-          text: `No raw material and 
+          text: `No raw material and
 					manufacturing aids of animal origin`,
         },
         {
@@ -110,7 +116,7 @@ const ItemDetail = () => {
         },
         {
           icon: NoAnimalMaterial,
-          text: `No animal-derived materials 
+          text: `No animal-derived materials
 					in packaging`,
         },
       ],
@@ -122,7 +128,7 @@ const ItemDetail = () => {
       description: [
         {
           icon: NoAnimalExperiment,
-          text: `No animal 
+          text: `No animal${(<br />)}
 					experiment and testing`,
         },
         {
@@ -131,13 +137,13 @@ const ItemDetail = () => {
         },
         {
           icon: NoAnimalMaterial,
-          text: `No animal-derived 
+          text: `No animal-derived
 					raw materials and ingredients`,
         },
         {
           icon: NoGenetiChange,
-          text: `No Genetically 
-					Modified Organisms 
+          text: `No Genetically
+					Modified Organisms
 					components`,
         },
       ],
@@ -149,7 +155,7 @@ const ItemDetail = () => {
       description: [
         {
           icon: NoAnimalMaterial,
-          text: `No animal-derived 
+          text: `No animal-derived
 					ingredients`,
         },
         {
@@ -163,7 +169,7 @@ const ItemDetail = () => {
         },
         {
           icon: NoContamination,
-          text: `No cross-contamination 
+          text: `No cross-contamination$
 					with No-Vegan `,
         },
       ],
@@ -192,7 +198,7 @@ const ItemDetail = () => {
         },
         {
           icon: NoAnimalMaterial,
-          text: `No animal-derived 
+          text: `No animal-derived
 					ingredients`,
         },
       ],
@@ -271,17 +277,17 @@ const ItemDetail = () => {
 
   // 비건 마크 띄우는 로직
   const veganMarkInformation = (veganMark) => {
-    if (veganMark === 1) {
+    if (veganMark === "Korea agency of Vegan Certification and Services") {
       return veganMarkArray[0];
-    } else if (veganMark === 2) {
+    } else if (veganMark === "Expertise Vegan Europe") {
       return veganMarkArray[1];
-    } else if (veganMark === 3) {
+    } else if (veganMark === "V LABEL ITALIA s.r.l.") {
       return veganMarkArray[2];
-    } else if (veganMark === 4) {
+    } else if (veganMark === "The Vegan Society") {
       return veganMarkArray[3];
-    } else if (veganMark === 5) {
+    } else if (veganMark === "PETA- Animal test-free") {
       return veganMarkArray[4];
-    } else if (veganMark === 6) {
+    } else if (veganMark === "PETA- Animal test-free and vegan") {
       return veganMarkArray[5];
     } else {
       return null;
@@ -309,12 +315,12 @@ const ItemDetail = () => {
               {product.pd_brand}
             </h3>
             <VeganMarkContainer>
-              {product.vegan_cert.map((mark) => (
+              {certificationData.map((mark) => (
                 <VeganMark
                   key={mark.vg_id}
-                  src={veganMarkInformation(mark.vg_id).image}
+                  src={veganMarkInformation(mark.vg_company).image}
                   onClick={() => {
-                    showModal(mark.vg_id);
+                    showModal(mark.vg_company);
                   }}
                 />
               ))}
@@ -323,7 +329,7 @@ const ItemDetail = () => {
             <br />
           </div>
           <div>
-            <h3>Ingredients</h3>
+            <h1>Ingredients</h1>
             <IngredientContainer style={{ marginTop: "0.8rem" }}>
               {product.ingredients &&
                 product.ingredients.map((ingredient, index) => (
@@ -340,17 +346,26 @@ const ItemDetail = () => {
             <br />
             <br />
           </div>
-          <div style={{ width: "95%" }}>
-            <h3>Where To Buy</h3>
-            {/* {product.market.map((site, i) => (
-              <SiteImage src={sellingSiteImage(site)} key={i} />
-            ))} */}
+          <div
+            style={{ width: "95%", display: "flex", flexDirection: "column" }}
+          >
+            <h1>Where To Buy</h1>
+            {marketData.map((market) => (
+              <SiteImage
+                src={sellingSiteImage(market.mk_name)}
+                onClick={() => {
+                  window.open(market.mk_link);
+                }}
+                key={market.mk_id}
+              />
+            ))}
           </div>
         </ItemDescription>
       </Body>
       <Footer></Footer>
       {modal && selectedVeganMark && (
         <Modal
+          veganMark={selectedVeganMark.image}
           title={selectedVeganMark.title}
           description={selectedVeganMark.description}
           setModal={setModal}
@@ -437,5 +452,5 @@ const SiteImage = styled.img`
   width: 100px;
   height: 100px;
   object-fit: contain;
-  margin-right: 10px;
+  cursor: pointer;
 `;

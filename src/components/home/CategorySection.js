@@ -9,7 +9,7 @@ import skincare from "../../img/Mainpage/Skincare.png";
 const CategorySection = ({ whereTo, name, cg_id }) => {
   const navigate = useNavigate();
   const goto = (where) => {
-    navigate(`/${where}`, {
+    navigate(`/${where}/${name.toLowerCase().replace(/(\s*)/g, "")}`, {
       state: {
         cg_id: cg_id,
       },

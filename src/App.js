@@ -20,12 +20,13 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mypage" element={<MyPage />} />
-        <Route path="/itemdetail" element={<ItemDetail />} />
-        <Route path="/incipediadetail" element={<IncipediaDetail />} />
-        <Route path="/incipedia" element={<INCIpedia />} />
-        <Route path="/bookmark" element={<BookmarkPage />} />
-        <Route path="/wishlist" element={<WishlistPage />} />
-        <Route path="/listuppage" element={<ListUpPage />} />
+        <Route path="/mypage/bookmark" element={<BookmarkPage />} />
+        <Route path="/mypage/wishlist" element={<WishlistPage />} />
+        <Route path="/products" element={<ListUpPage />} />
+        <Route path="/products/:category" element={<ListUpPage />} />
+        <Route path="/products/detail" element={<ItemDetail />} />
+        <Route path="/ingredients" element={<INCIpedia />} />
+        <Route path="/ingredients/detail" element={<IncipediaDetail />} />
 
         <Route path="/login" element={<Login />} />
         <Route path="/relogin" element={<ReLogin />} />

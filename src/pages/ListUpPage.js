@@ -13,9 +13,9 @@ import { useLocation } from "react-router-dom";
 const ListUpPage = () => {
   const { state } = useLocation();
   const cg_id = state.cg_id;
-  // const category_id = state.category_id;
   const userInput = state.userInput;
   const [productData, setProductData] = useState([]);
+
   const whichPage = () => {
     if (cg_id === 0) {
       return "All products";
@@ -36,24 +36,24 @@ const ListUpPage = () => {
       try {
         const response = await getAllItemsInCategory(cg_id);
         setProductData(response.data);
-        console.log("이거!!!");
-        console.log(response.data);
+        console.log(productData);
       } catch (error) {
         console.error("데이터 불러오기 실패", error);
       }
     };
     fetchData();
-  },[]);
 
-  const searchProduct = async () => {
-    const response = await getItemSearch(userInput);
-    console.log(response);
-    setProductData(response.data);
-  };
+    const searchProduct = async () => {
+      const searchResponse = await getItemSearch(userInput);
+      console.log(searchResponse);
+      setProductData(searchResponse.data);
+    };
+    if (userInput) {
+      searchProduct();
+    }
+  }, [cg_id, userInput]);
 
-  if (userInput) {
-    searchProduct();
-  }
+  const name = ["all products", "makeup", "skincare", "suncare", "masks"];
 
   return (
     <Wrapper>
@@ -64,6 +64,7 @@ const ListUpPage = () => {
           cg_id={cg_id}
           which={whichPage(cg_id)}
           setProductData={setProductData}
+          name={name}
         />
       </Top>
 

@@ -8,11 +8,15 @@ import {
   getPriceHighToLow,
   getPriceLowToHigh,
 } from "../../apis/Item";
+import { useNavigate } from "react-router";
 
-const SearchTop = ({ cg_id, which, setProductData }) => {
+const SearchTop = ({ cg_id, which, setProductData, name }) => {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
   const [whichSortBy, setWhichSortBy] = useState("Most Wishlisted");
+
+  const navigate = useNavigate;
+
   const sortClick = () => {
     setOpen(!open);
     setVisible(!visible);
@@ -24,22 +28,42 @@ const SearchTop = ({ cg_id, which, setProductData }) => {
 
   //sort버튼별
   const mostWishlistedSort = async () => {
+    navigate(`/products/${name[cg_id]}?sort=wish`, {
+      state: {
+        cg_id: cg_id,
+      },
+    });
     setWhichSortBy("Most Wishlisted");
     const response = await getMostWishListed(cg_id);
     setProductData(response.data);
   };
   const priceLowToHigh = async () => {
+    navigate(`/products/${name[cg_id]}?sort=price`, {
+      state: {
+        cg_id: cg_id,
+      },
+    });
     setWhichSortBy("Price Low To High");
     const response = await getPriceLowToHigh(cg_id);
     setProductData(response.data);
   };
   const priceHighToLow = async () => {
+    navigate(`/products/${name[cg_id]}?sort=-price`, {
+      state: {
+        cg_id: cg_id,
+      },
+    });
     setWhichSortBy("Price High To Low");
     const response = await getPriceHighToLow(cg_id);
     console.log(response);
     setProductData(response.data);
   };
   const abcSort = async () => {
+    navigate(`/products/${name[cg_id]}?sort=name`, {
+      state: {
+        cg_id: cg_id,
+      },
+    });
     setWhichSortBy("ABC");
     const response = await getABC(cg_id);
     setProductData(response.data);

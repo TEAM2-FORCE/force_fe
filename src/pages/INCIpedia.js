@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { Wrapper } from "../components/layout/Layout";
 import Nav from "../components/layout/Nav";
@@ -8,17 +8,19 @@ import searchIcon from "../img/Nav/searchIcon.png";
 import IngredientDataSection from "../components/ingredients/IngredientDataSection";
 import { getAllIngredients, getFilteredIngredients } from "../apis/Ingredient";
 import { getIngredientSearch } from "../apis/Ingredient";
-import onImg from "../img/Common/on.png"
-import offImg from "../img/Common/off.png"
+import onImg from "../img/Common/on.png";
+import offImg from "../img/Common/off.png";
 
 const INCIpedia = () => {
   const [ingredientData, setIngredientData] = useState([]);
   const [on, setOn] = useState(false);
   const [filteredIngredientData, setFilteredIngredientData] = useState([]);
-  const alphabets = new Array(26).fill().map((_, idx) => String.fromCharCode(65 + idx));
-  
+  const alphabets = new Array(26)
+    .fill()
+    .map((_, idx) => String.fromCharCode(65 + idx));
+
   const changeCheck = async () => {
-    if(!on){
+    if (!on) {
       try {
         const response = await getFilteredIngredients();
         console.log(response);
@@ -27,7 +29,7 @@ const INCIpedia = () => {
         console.error("데이터 불러오기 실패", error);
       }
     }
-    if(on){
+    if (on) {
       try {
         const response = await getAllIngredients();
         console.log(response);
@@ -35,7 +37,6 @@ const INCIpedia = () => {
       } catch (error) {
         console.error("데이터 불러오기 실패", error);
       }
-
     }
     setOn(!on);
   };
@@ -44,9 +45,11 @@ const INCIpedia = () => {
     else return offImg;
   };
   const alphabetClicked = (alphabet) => {
-    const wordsData = ingredientData.filter((ingredient=>ingredient.igd_name.toUpperCase().startsWith(alphabet)));
+    const wordsData = ingredientData.filter((ingredient) =>
+      ingredient.igd_name.toUpperCase().startsWith(alphabet)
+    );
     setFilteredIngredientData(wordsData);
-  }
+  };
 
   function startsWithNumber(word) {
     const firstCharacter = word.charAt(0);
@@ -54,9 +57,11 @@ const INCIpedia = () => {
   }
 
   const numberClicked = () => {
-    const wordsData = ingredientData.filter((ingredient)=>startsWithNumber(ingredient.igd_name));
+    const wordsData = ingredientData.filter((ingredient) =>
+      startsWithNumber(ingredient.igd_name)
+    );
     setFilteredIngredientData(wordsData);
-  }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,7 +70,6 @@ const INCIpedia = () => {
         console.log(response);
         setIngredientData(response.data);
         setFilteredIngredientData(response.data);
-
       } catch (error) {
         console.error("데이터 불러오기 실패", error);
       }
@@ -80,6 +84,8 @@ const INCIpedia = () => {
     console.log(e.target.value);
   };
 
+  const inputRef = useRef();
+
   const searchClick = async () => {
     // navigate(`/ingredients?search=${userInput}`);
     const response = await getIngredientSearch(userInput);
@@ -87,6 +93,7 @@ const INCIpedia = () => {
     setIngredientData(response.data);
     const input = document.querySelector(`${SearchBar} Input`);
     input.value = "";
+    inputRef.current.value = "";
   };
 
   const activeEnter = (e) => {
@@ -109,6 +116,7 @@ const INCIpedia = () => {
             <Search>
               <SearchBar>
                 <input
+                  ref={inputRef}
                   type="text"
                   placeholder="Search Ingredient"
                   style={{
@@ -126,21 +134,27 @@ const INCIpedia = () => {
             <Filter>
               <Text>Caution Ingredients Only</Text>
               <Item>
-              <Button onClick={changeCheck}>
-                <img src={onOff()} alt="checkbox"></img>
-              </Button>
+                <Button onClick={changeCheck}>
+                  <img src={onOff()} alt="checkbox"></img>
+                </Button>
               </Item>
             </Filter>
             <Filter>
               <Text>Go To...</Text>
               <Alphabets>
                 <Alp onClick={numberClicked}>#</Alp>
-                {
-                  alphabets.map((alphabet)=>(
-                    <Alp onClick={()=>alphabetClicked(alphabet)}>{alphabet}</Alp>
-                  ))
-                }
-                <Alp onClick={()=>{setFilteredIngredientData(ingredientData)}}>All</Alp>
+                {alphabets.map((alphabet) => (
+                  <Alp onClick={() => alphabetClicked(alphabet)}>
+                    {alphabet}
+                  </Alp>
+                ))}
+                <Alp
+                  onClick={() => {
+                    setFilteredIngredientData(ingredientData);
+                  }}
+                >
+                  All
+                </Alp>
               </Alphabets>
             </Filter>
           </FilterLists>

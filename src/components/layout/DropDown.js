@@ -38,7 +38,9 @@ const DropDown = ({ setDropDown }) => {
 
   const navigate = useNavigate();
   const onClickCategory = (num) => {
-    navigate("/listuppage", { state: { cg_id: num } });
+    navigate(`/products/${categories[num].text.toLowerCase()}`, {
+      state: { cg_id: num },
+    });
   };
 
   return (

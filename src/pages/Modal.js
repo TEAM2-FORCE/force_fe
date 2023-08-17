@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import circle from "../img/MarkInModal/Circle.png";
 
 import CancelIcon from "../img/MarkInModal/CancelIcon.png";
 
-const Modal = ({ title, description, setModal }) => {
+const Modal = ({ veganMark, title, description, setModal }) => {
   const cancelModal = () => {
     setModal(false);
   };
@@ -14,19 +15,29 @@ const Modal = ({ title, description, setModal }) => {
         <ModalBlock>
           <Header>
             <CancelButton src={CancelIcon} onClick={cancelModal} />
+            <VeganMarkContainer>
+              <img src={circle} />
+              <ImageContainer>
+                <Image src={veganMark} />
+              </ImageContainer>
+            </VeganMarkContainer>
           </Header>
           <Body>
             <h2>{title}</h2>
             <Wrapper>
-              {description.map((explanation) => {
+              {description.map((des) => (
                 <Description>
                   <img
-                    src={explanation.icon}
-                    style={{ width: "5rem", height: "5rem" }}
+                    src={des.icon}
+                    style={{
+                      height: "40%",
+                      objectFit: "cover",
+                      marginBottom: "10%",
+                    }}
                   />
-                  <div>{explanation.text}</div>
-                </Description>;
-              })}
+                  <div>{des.text}</div>
+                </Description>
+              ))}
               {/* <Description>
                 <img
                   src={description.icon}
@@ -85,8 +96,8 @@ const ModalBackground = styled.div`
 const ModalBlock = styled.div`
   position: absolute;
   background-color: white;
-  width: 51.24rem;
-  height: 30rem;
+  width: 75%;
+  height: 90%;
   box-shadow: 1px 1px 1px 1px gray;
   display: flex;
   flex-direction: column;
@@ -95,6 +106,8 @@ const ModalBlock = styled.div`
 
 const Header = styled.div`
   position: relative;
+  display: flex;
+  justify-content: center;
   margin: 0;
   height: 10rem;
   width: 100%;
@@ -105,26 +118,30 @@ const Header = styled.div`
 const Body = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-evenly;
   align-items: center;
   text-align: center;
   width: 100%;
   background-color: white;
   color: black;
+  padding-top: 7%;
 `;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
+  margin-top: 3%;
 `;
 
 const Description = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  width: 33.33%;
+  width: 24.8%;
+  margin: 0;
+  padding: 0;
 `;
 
 const CancelButton = styled.img`
@@ -136,4 +153,22 @@ const CancelButton = styled.img`
   top: 3rem;
   left: 90%;
   cursor: pointer;
+`;
+
+const VeganMarkContainer = styled.div`
+  position: relative;
+  top: 40%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const ImageContainer = styled.div`
+  position: absolute;
+  top: 20%;
+  left: 20%;
+`;
+
+const Image = styled.img`
+  width: 80%;
+  height: 80%;
 `;

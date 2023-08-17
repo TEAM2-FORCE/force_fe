@@ -8,7 +8,7 @@ import { isAuthenticated } from "../../apis/Googlelogin";
 const IngredientCard = ({ igd_id, ingredient }) => {
   const navigate = useNavigate();
   const cardClicked = () => {
-    navigate("/incipediadetail", { state: ingredient });
+    navigate("/ingredients/detail", { state: ingredient });
   };
 
   return (
@@ -17,21 +17,27 @@ const IngredientCard = ({ igd_id, ingredient }) => {
         <IngredientInfo>
           <IngredientName>{ingredient.igd_name}</IngredientName>
           <SmallBookmark>
-            {
-              isAuthenticated() ? 
-            <BookmarkClick igd_id={igd_id} detail={false} isBookmarked={ingredient.bookmarked_igd}></BookmarkClick>
-            :
-            <BookmarkClick igd_id={igd_id} detail={false} isBookmarked={false}></BookmarkClick>
-            }
+            {isAuthenticated() ? (
+              <BookmarkClick
+                igd_id={igd_id}
+                detail={false}
+                isBookmarked={ingredient.bookmarked_igd}
+              ></BookmarkClick>
+            ) : (
+              <BookmarkClick
+                igd_id={igd_id}
+                detail={false}
+                isBookmarked={false}
+              ></BookmarkClick>
+            )}
           </SmallBookmark>
         </IngredientInfo>
         {ingredient.igd_info}
       </Contents>
       <Bottom>
-        {
-          ingredient.igd_caution ?
-          <MarkImage src={cautious} alt="ingredientX"></MarkImage> : null
-        }
+        {ingredient.igd_caution ? (
+          <MarkImage src={cautious} alt="ingredientX"></MarkImage>
+        ) : null}
       </Bottom>
     </Card>
   );
