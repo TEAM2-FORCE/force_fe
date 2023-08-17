@@ -13,7 +13,7 @@ import myPageIcon from "../../img/Nav/myPageIcon.png";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 
-import logo from "/../../img/Logo/MainLogo.png";
+import logo from "../../img/Logo/MainLogo.png";
 import DropDown from "../DropDown";
 import { isAuthenticated } from "../../apis/Googlelogin";
 
