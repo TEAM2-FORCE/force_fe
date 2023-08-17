@@ -67,6 +67,6 @@ export const getBookmarkIngredients = async () => {
 }
 
 export const getFilteredIngredients = () => {
-  const url = `${baseURL}/ingredients/filter/?igd_caution=true/`;
+  const url = `${baseURL}/ingredients/filter/?igd_caution=false/`;
   return axios.get(url);
 }

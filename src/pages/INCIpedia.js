@@ -133,7 +133,7 @@ const INCIpedia = () => {
               </SearchBar>
             </Search>
             <Filter>
-              <Text>Caution Ingredients Only</Text>
+              <Text>Cautious Ingredients Only</Text>
               <Item>
                 <Button onClick={changeCheck}>
                   <img src={onOff()} alt="checkbox"></img>
