@@ -12,11 +12,11 @@ const FilterLists = ({cg_id, setProductData}) => {
     // console.log("include: "+include);
     // console.log("exclude: "+exclude);
     // console.log("veganlabel: "+veganLabel);
-
-    const response = await getFilteredData(include, exclude, veganLabel);
-    setProductData(response.data);
-
-
+    
+    if(include.length>0 || exclude.length>0 || veganLabel.length>0){
+      const response = await getFilteredData(include, exclude, veganLabel);
+      setProductData(response.data);
+    }
   }
   const CleanButtonClicked = () => {
     //새로고침 하는 코드
