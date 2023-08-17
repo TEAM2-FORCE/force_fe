@@ -12,6 +12,15 @@ const ItemCard = ({ product }) => {
     navigate("/products/detail", { state: { product: product } });
   };
 
+  const priceMark = () => {
+    const price = product.pd_price;
+    if(product.pd_price >= 1000){
+    const formattedPrice = price.toLocaleString('en-US');
+    return formattedPrice;
+    }
+    return price;
+  }
+
   return (
     <Card onClick={cardClicked}>
       <Center>
@@ -27,7 +36,7 @@ const ItemCard = ({ product }) => {
           />
         </IngredientInfo>
         <div>{product.pd_brand}</div>
-        <div>KRW {product.pd_price}</div>
+        <div>KRW {priceMark()}</div>
       </Contents>
       {/* <Bottom>
         <MarkImage src={testingX} alt="testingX"></MarkImage>

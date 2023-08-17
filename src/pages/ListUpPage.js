@@ -36,7 +36,7 @@ const ListUpPage = () => {
       try {
         const response = await getAllItemsInCategory(cg_id);
         setProductData(response.data);
-        console.log(productData);
+        console.log(response.data);
       } catch (error) {
         console.error("데이터 불러오기 실패", error);
       }
