@@ -5,7 +5,7 @@ export const baseURL = "https://vebeserver.o-r.kr";
 export const postLogin = async (code) => {
   try {
     const response = await axios.post(
-      `${baseURL}/accounts/google/callback/`,
+      `${baseURL}/accounts/google/callback`,
       { code },
       { withCredentials: true }
     );
