@@ -296,12 +296,12 @@ const ItemDetail = () => {
 
   const priceMark = () => {
     const price = product.pd_price;
-    if(product.pd_price >= 1000){
-    const formattedPrice = price.toLocaleString('en-US');
-    return formattedPrice;
+    if (product.pd_price >= 1000) {
+      const formattedPrice = price.toLocaleString("en-US");
+      return formattedPrice;
     }
     return price;
-  }
+  };
 
   return (
     <Wrapper>
@@ -312,16 +312,14 @@ const ItemDetail = () => {
         </ImageContainer>
         <ItemDescription>
           <div style={{ width: "95%" }}>
-          <BrandText style={{ fontWeight: 500 }}>
+            <BrandText style={{ fontWeight: 500 }}>
               {product.pd_brand}
             </BrandText>
             <Container>
               <ProductName style={{ margin: 0 }}>{product.pd_name}</ProductName>
               <WishlistClick pd_id={product.pd_id} detail={true} />
             </Container>
-            <Text style={{ fontWeight: 500 }}>
-              {priceMark()} KRW
-            </Text>
+            <Text style={{ fontWeight: 500 }}>{priceMark()} KRW</Text>
             <VeganMarkContainer>
               {certificationData.map((mark) => (
                 <VeganMark
@@ -339,7 +337,7 @@ const ItemDetail = () => {
             <br />
           </div>
           <div>
-              {/* <ItemDescription> */}
+            {/* <ItemDescription> */}
             <h1>Ingredients</h1>
             <IngredientContainer style={{ marginTop: "0.8rem" }}>
               {product.ingredients &&
@@ -352,9 +350,8 @@ const ItemDetail = () => {
                     {index < product.ingredients.length - 1 && ", "}
                   </IngredientText>
                 ))}
-
             </IngredientContainer>
-          {/* </ItemDescription> */}
+            {/* </ItemDescription> */}
             <br />
             <br />
             <br />
@@ -370,6 +367,7 @@ const ItemDetail = () => {
                   window.open(market.mk_link);
                 }}
                 key={market.mk_id}
+                style={{ margin: "0" }}
               />
             ))}
           </div>
@@ -413,33 +411,33 @@ const ImageContainer = styled.div`
   // background-color: yellow;
 `;
 const BrandText = styled.div`
-color: var(--light-grey, #919392);
-/* small text */
-font-family: Pretendard;
-font-size: 0.875rem;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-`
+  color: var(--light-grey, #919392);
+  /* small text */
+  font-family: Pretendard;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+`;
 const ProductName = styled.div`
-color: var(--black, #010D09);
-/* Mid Title */
-font-family: Pretendard;
-font-size: 2rem;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-`
+  color: var(--black, #010d09);
+  /* Mid Title */
+  font-family: Pretendard;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`;
 const Text = styled.div`
-color: var(--dark-gray, var(--dark-gray, #414241));
-/* Mid text */
-font-family: Pretendard;
-font-size: 1rem;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-margin-top: 7px;
-`
+  color: var(--dark-gray, var(--dark-gray, #414241));
+  /* Mid text */
+  font-family: Pretendard;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 7px;
+`;
 const ItemImage = styled.img`
   width: 70%;
   object-fit: contain;

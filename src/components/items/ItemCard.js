@@ -14,12 +14,12 @@ const ItemCard = ({ product }) => {
 
   const priceMark = () => {
     const price = product.pd_price;
-    if(product.pd_price >= 1000){
-    const formattedPrice = price.toLocaleString('en-US');
-    return formattedPrice;
+    if (product.pd_price >= 1000) {
+      const formattedPrice = price.toLocaleString("en-US");
+      return formattedPrice;
     }
     return price;
-  }
+  };
 
   return (
     <Card onClick={cardClicked}>
@@ -27,7 +27,7 @@ const ItemCard = ({ product }) => {
         <Picture src={product.pd_image} alt="item" />
       </Center>
       <Contents>
-      <BrandText>{product.pd_brand}</BrandText>
+        <BrandText>{product.pd_brand}</BrandText>
         <IngredientInfo>
           <ProductName>{product.pd_name}</ProductName>
           <WishlistClick
@@ -35,7 +35,7 @@ const ItemCard = ({ product }) => {
             detail={false}
             isWishlisted={product.wished_pd}
           />
-        </IngredientInfo>        
+        </IngredientInfo>
         <div>KRW {priceMark()}</div>
       </Contents>
     </Card>
@@ -52,7 +52,6 @@ const Card = styled.div`
   max-width: 20%;
   margin: 2%;
   position: relative;
-
 `;
 const Center = styled.div`
   display: flex;
@@ -63,7 +62,6 @@ const Center = styled.div`
   height: 50%;
   margin-bottom: 1%;
   overflow: hidden;
-  
 `;
 
 const Picture = styled.img`
@@ -94,7 +92,7 @@ const IngredientInfo = styled.div`
 `;
 const ProductName = styled.div`
   font-family: Pretendard;
-  font-size: 0.875rem;
+  font-size: 14px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -104,10 +102,10 @@ const ProductName = styled.div`
   margin-bottom: 5px;
 `;
 const BrandText = styled.div`
-color: var(--dark-gray, var(--dark-gray, #414241));
-font-family: Pretendard;
-font-size: 0.875rem;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-`
+  color: var(--dark-gray, var(--dark-gray, #414241));
+  font-family: Pretendard;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+`;

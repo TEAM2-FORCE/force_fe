@@ -12,8 +12,8 @@ const WishlistClick = ({ pd_id, detail, isWishlisted }) => {
   const islogin = isAuthenticated();
   const [wish, setWish] = useState(isWishlisted);
   const whichHeart = () => {
-    if (!wish) return emptyHeart;
-    else return fullHeart;
+    if (!wish) return "/img/Items/wishHeart.png";
+    else return "/img/Items/wishFullHeart.png";
   };
   const wishlistClicked = async (event) => {
     event.stopPropagation();
@@ -40,7 +40,12 @@ const WishlistClick = ({ pd_id, detail, isWishlisted }) => {
           </WishButton> */}
       {detail ? (
         <WishlistButton onClick={wishlistClicked}>
-          <img src={whichHeart()} alt="wish" width="30px"></img>
+          <img
+            src={whichHeart()}
+            alt="wish"
+            width="14px"
+            style={{ marginBottom: "25px" }}
+          ></img>
         </WishlistButton>
       ) : (
         <IconImage
@@ -66,6 +71,7 @@ const WishlistButton = styled.button`
 `;
 
 const IconImage = styled.img`
-  height: 24px;
+  width: 14px;
   object-fit: contain;
+  margin-bottom: 25px;
 `;
