@@ -9,17 +9,17 @@ import WishlistClick from "../components/items/WishlistClick";
 import { getMarket } from "../apis/Item";
 import { getVeganCertification } from "../apis/Item";
 
-import KoreaVeganMark from "../img/VeganMark/KoreaVeganMark.png";
-import VeganSocietyMark from "../img/VeganMark/VeganSocietyMark.png";
-import FranceVeganMark from "../img/VeganMark/FranceVeganMark.png";
-import ItaliaVeganMark from "../img/VeganMark/ItaliaVeganMark.png";
-import PetaMark from "../img/VeganMark/PetaMark.png";
-import PetaVeganMark from "../img/VeganMark/PetaVeganMark.png";
+import KoreaVeganMark from "../img/VeganMark/Mark/KoreaVeganMark.png";
+import VeganSocietyMark from "../img/VeganMark/Mark/VeganSocietyMark.png";
+import FranceVeganMark from "../img/VeganMark/Mark/FranceVeganMark.png";
+import ItaliaVeganMark from "../img/VeganMark/Mark/ItaliaVeganMark.png";
+import PetaMark from "../img/VeganMark/Mark/PetaMark.png";
+import PetaVeganMark from "../img/VeganMark/Mark/PetaVeganMark.png";
 
-import NoAnimalMaterial from "../img/MarkInModal/NoAnimalMaterial.png";
-import NoAnimalExperiment from "../img/MarkInModal/NoAnimalExperiment.png";
-import NoContamination from "../img/MarkInModal/NoContamination.png";
-import NoGenetiChange from "../img/MarkInModal/NoGeneticChange.png";
+import NoAnimalMaterial from "../img/MarkInModal/NoMark/NoAnimalMaterial.png";
+import NoAnimalExperiment from "../img/MarkInModal/NoMark/NoAnimalExperiment.png";
+import NoContamination from "../img/MarkInModal/NoMark/NoContamination.png";
+import NoGenetiChange from "../img/MarkInModal/NoMark/NoGeneticChange.png";
 
 import 올리브영 from "../img/SiteImage/ShoppingSite/올리브영.png";
 import 세포라 from "../img/SiteImage/ShoppingSite/sephora.png";

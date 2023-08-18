@@ -13,7 +13,6 @@ import myPageIcon from "../../img/Nav/myPageIcon.png";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 
-import logo from "../../img/Logo/MainLogo.png";
 import DropDown from "./DropDown";
 import { isAuthenticated } from "../../apis/Googlelogin";
 
@@ -81,7 +80,10 @@ const Nav = () => {
     <Container onClick={write}>
       <NavContainer>
         <Left>
-          <Logo onClick={logoClicked} src={logo} />
+          <Logo
+            onClick={logoClicked}
+            src={`${process.env.PUBLIC_URL}/img/Logo/MainLogo.png`}
+          />
         </Left>
         <Center>
           <NavCategory
