@@ -80,10 +80,7 @@ const Nav = () => {
     <Container onClick={write}>
       <NavContainer>
         <Left>
-          <Logo
-            onClick={logoClicked}
-            src={`${process.env.PUBLIC_URL}/img/Logo/MainLogo.png`}
-          />
+          <Logo onClick={logoClicked} src={"/img/Logo/MainLogo.png"} />
         </Left>
         <Center>
           <NavCategory
