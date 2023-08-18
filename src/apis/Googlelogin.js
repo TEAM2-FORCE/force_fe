@@ -16,12 +16,11 @@ export const postLogin = async () => {
   // }
   console.log("버튼클릭");
   try {
-    const token = await axios.post(
-      `${baseURL}/accounts/google/login/`,
-      {});
+    const token = await axios.get(
+      `${baseURL}/accounts/google/login/`);
     console.log("토큰");
     console.log(token);
-    localStorage.setItem("token", token);
+    localStorage.setItem("token", token.data.access_token);
     //   navigate('/');
     // if(typeof token == 'undefined'){
     //   navigate('/relogin');

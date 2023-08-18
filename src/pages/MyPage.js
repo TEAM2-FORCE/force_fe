@@ -16,7 +16,7 @@ import { getUserName } from "../apis/Googlelogin";
 const MyPage = () => {
   const [wishlistData, setWishlistData] = useState([]);
   const [bookmarkData, setBookmarkData] = useState([]);
-  const [userName, setUserName] = useState("");
+  // const [userName, setUserName] = useState("");
   const navigate = useNavigate();
   const setLogOut = () => {};
 
@@ -37,7 +37,7 @@ const MyPage = () => {
       const response = await getUserName();
       console.log(response.data);
       const name = response.data.first_name + " " + response.data.last_name;
-      setUserName(name);
+      // setUserName(name);
       console.log("위시");
       const responseWishlist = await getWishlistItems();
       setWishlistData(responseWishlist.data);
@@ -63,7 +63,7 @@ const MyPage = () => {
           </Up>
           <ProfileContent>
             <PictureStyled src={profile} alt="profile"></PictureStyled>
-            <ProfileText>{userName}</ProfileText>
+            <ProfileText>VEBE</ProfileText>
           </ProfileContent>
         </Profile>
 
