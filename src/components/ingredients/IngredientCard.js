@@ -79,7 +79,7 @@ const IngredientInfo = styled.div`
 `;
 const IngredientName = styled.div`
   font-family: Pretendard;
-  font-size: 1.25rem;
+  font-size: 14px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;

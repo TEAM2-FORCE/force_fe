@@ -4,8 +4,6 @@ import {
   deleteIngredientBookmark,
   postIngredientBookmark,
 } from "../../apis/Ingredient";
-import emptyStar from "../../img/Ingredients/emptyStar2.png";
-import fullStar from "../../img/Ingredients/fullStar.png";
 import { useNavigate } from "react-router-dom";
 import { isAuthenticated } from "../../apis/Googlelogin";
 
@@ -15,8 +13,8 @@ const BookmarkClick = ({ igd_id, detail, isBookmarked }) => {
   const islogin = isAuthenticated();
   const [bookmark, setBookmark] = useState(isBookmarked);
   const whichStar = () => {
-    if (!bookmark) return emptyStar;
-    else return fullStar;
+    if (!bookmark) return "/img/Ingredients/cardStar.png";
+    else return "/img/Ingredients/cardfullStar.png";
   };
   const bookmarkClicked = async (event) => {
     event.stopPropagation();
@@ -25,7 +23,7 @@ const BookmarkClick = ({ igd_id, detail, isBookmarked }) => {
       if (!bookmark) await postIngredientBookmark(igd_id);
       else {
         await deleteIngredientBookmark(igd_id);
-      }      
+      }
     } else {
       navigate("/login");
     }
@@ -36,7 +34,11 @@ const BookmarkClick = ({ igd_id, detail, isBookmarked }) => {
     <>
       {detail ? (
         <BookmarkButton onClick={bookmarkClicked}>
-          <img src={whichStar()} alt="wish" width="20px"></img>
+          <img
+            src={whichStar()}
+            alt="wish"
+            style={{ width: "14px", height: "14px" }}
+          ></img>
         </BookmarkButton>
       ) : (
         <IconImage src={whichStar()} alt="favorite" onClick={bookmarkClicked} />
@@ -56,7 +58,7 @@ const BookmarkButton = styled.button`
   align-items: center;
 `;
 const IconImage = styled.img`
-  height: 32px;
+  height: 14px;
   object-fit: contain;
   margin-left: 10px;
 `;
