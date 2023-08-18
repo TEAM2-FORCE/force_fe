@@ -475,7 +475,6 @@ const IngredientContainer = styled.div`
   font-size: 0.8rem;
   width: 90%;
   flex-wrap: wrap;
-  overflow-y: scroll;
 `;
 
 const Container = styled.div`
