@@ -327,6 +327,7 @@ const ItemDetail = () => {
             <br />
           </div>
           <div>
+              {/* <ItemDescription> */}
             <h1>Ingredients</h1>
             <IngredientContainer style={{ marginTop: "0.8rem" }}>
               {product.ingredients &&
@@ -339,7 +340,9 @@ const ItemDetail = () => {
                     {index < product.ingredients.length - 1 && ", "}
                   </IngredientText>
                 ))}
+
             </IngredientContainer>
+          {/* </ItemDescription> */}
             <br />
             <br />
             <br />
@@ -433,6 +436,9 @@ const IngredientContainer = styled.div`
   display: flex;
   flex-direction: row;
   font-size: 0.8rem;
+  width: 90%;
+  flex-wrap: wrap;
+  overflow-y: scroll;
 `;
 
 const Container = styled.div`
