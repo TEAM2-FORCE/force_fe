@@ -104,7 +104,7 @@ const Right = styled.button`
   align-items: center;
   justify-content: right;
 
-  width: 11rem;
+  width: 11.5rem;
   font-family: Pretendard;
   font-size: 1rem;
   font-style: normal;
@@ -126,7 +126,7 @@ const SortBar = styled.div`
   align-items: center;
   top: 100%;
   right: 0%;
-  width: 11rem;
+  width: 11.5rem;
   height: 10rem;
   z-index: 1;
   background-color: white;
