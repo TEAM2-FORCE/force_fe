@@ -24,8 +24,8 @@ const Home = () => {
         <ImageSection>
           <CategorySection whereTo="products" name="Makeup" cg_id={1} />
           <CategorySection whereTo="products" name="Skincare" cg_id={2} />
-          <CategorySection whereTo="products" name="Suncare" cg_id={3} />
-          <CategorySection whereTo="products" name="Masks" cg_id={4} />
+          <CategorySection whereTo="products" name="Suncare" cg_id={4} />
+          <CategorySection whereTo="products" name="Masks" cg_id={3} />
         </ImageSection>
       </Section>
       <Footer></Footer>
