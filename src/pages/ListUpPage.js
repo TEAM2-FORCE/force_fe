@@ -23,9 +23,9 @@ const ListUpPage = () => {
     } else if (cg_id === 1) {
       return "Makeup";
     } else if (cg_id === 2) {
-      return "Skin Care";
+      return "Skincare";
     } else if (cg_id === 3) {
-      return "Sun Care";
+      return "Suncare";
     } else if (cg_id === 4) {
       return "Masks";
     }
@@ -71,7 +71,13 @@ const ListUpPage = () => {
 
       <Section>
         <Center>
-          <FilterLists clean={clean} setClean={setClean} cg_id={cg_id} productData={productData} setProductData={setProductData} />
+          <FilterLists
+            clean={clean}
+            setClean={setClean}
+            cg_id={cg_id}
+            productData={productData}
+            setProductData={setProductData}
+          />
           <Contents>
             <ItemDataSection productData={productData} />
           </Contents>

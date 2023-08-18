@@ -16,9 +16,9 @@ const CategorySection = ({ whereTo, name, cg_id }) => {
     });
   };
   const imageMapping = {
-    "Make Up": makeup,
-    "Sun Care": suncare,
-    "Skin Care": skincare,
+    Makeup: makeup,
+    Suncare: suncare,
+    Skincare: skincare,
     Masks: mask,
     // all: all,
   };
