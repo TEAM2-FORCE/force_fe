@@ -27,6 +27,7 @@ const ItemCard = ({ product }) => {
         <Picture src={product.pd_image} alt="item" />
       </Center>
       <Contents>
+      <BrandText>{product.pd_brand}</BrandText>
         <IngredientInfo>
           <ProductName>{product.pd_name}</ProductName>
           <WishlistClick
@@ -34,14 +35,9 @@ const ItemCard = ({ product }) => {
             detail={false}
             isWishlisted={product.wished_pd}
           />
-        </IngredientInfo>
-        <div>{product.pd_brand}</div>
+        </IngredientInfo>        
         <div>KRW {priceMark()}</div>
       </Contents>
-      {/* <Bottom>
-        <MarkImage src={testingX} alt="testingX"></MarkImage>
-        <MarkImage src={ingredientX} alt="ingredientX"></MarkImage>
-      </Bottom> */}
     </Card>
   );
 };
@@ -56,22 +52,25 @@ const Card = styled.div`
   max-width: 20%;
   margin: 2%;
   position: relative;
+
 `;
 const Center = styled.div`
   display: flex;
   flex-direction: center;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 100%;
   height: 50%;
   margin-bottom: 1%;
+  overflow: hidden;
+  
 `;
 
 const Picture = styled.img`
   align-items: center;
   display: flex;
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  // height: 100%;
 `;
 
 const Contents = styled.div`
@@ -95,30 +94,20 @@ const IngredientInfo = styled.div`
 `;
 const ProductName = styled.div`
   font-family: Pretendard;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   max-width: 90%;
-  height: 70px;
+  height: 47px;
   overflow: hidden;
+  margin-bottom: 5px;
 `;
-// const Bottom = styled.div`
-//   display: flex;
-//   justify-content: space-around;
-//   margin-top: 8px;
-//   text-align: center;
-
-//   font-family: Pretendard;
-//   font-size: 0.75rem;
-//   font-style: normal;
-//   font-weight: 600;
-//   line-height: normal;
-
-//   padding-left: 10px;
-//   padding-right: 10px;
-// `;
-// const MarkImage = styled.img`
-//   width: 40%;
-//   margin: 0.1%;
-// `;
+const BrandText = styled.div`
+color: var(--dark-gray, var(--dark-gray, #414241));
+font-family: Pretendard;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+`
