@@ -5,14 +5,19 @@ import subLogo from "../img/Logo/SubLogo.png";
 import loginText from "../img/LogIn/loginText.png";
 import google from "../img/LogIn/google.png";
 import { useNavigate } from "react-router";
+import { postLogin } from "../apis/Googlelogin";
+
 const Login = () => {
   const navigate = useNavigate();
-  const googleLogin = () => {
-    window.location.href ="https://accounts.google.com/o/oauth2/auth?" +
-    `client_id=${process.env.REACT_APP_GOOGLE_CLIENT_ID}&`+
-    `redirect_uri=${process.env.REACT_APP_GOOGLE_REDIRECT_URI}&`+
-    "response_type=code&"+
-    "scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile";
+  const googleLogin = async () => {
+    const response = await postLogin();
+    console.log(response);
+    
+    // window.location.href ="https://accounts.google.com/o/oauth2/auth?" +
+    // `client_id=${process.env.REACT_APP_GOOGLE_CLIENT_ID}&`+
+    // `redirect_uri=${process.env.REACT_APP_GOOGLE_REDIRECT_URI}&`+
+    // "response_type=code&"+
+    // "scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile";
   }
   const gotoHome = () => {
     navigate('/');
