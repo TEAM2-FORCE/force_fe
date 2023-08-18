@@ -102,7 +102,7 @@ const ProductName = styled.div`
   margin-bottom: 5px;
 `;
 const BrandText = styled.div`
-  color: var(--dark-gray, var(--dark-gray, #414241));
+  color: var(--light-grey, #919392);
   font-family: Pretendard;
   font-size: 0.875rem;
   font-style: normal;

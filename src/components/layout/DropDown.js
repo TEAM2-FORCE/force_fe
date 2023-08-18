@@ -27,12 +27,12 @@ const DropDown = ({ setDropDown }) => {
     {
       image: Suncare,
       text: "Suncare",
-      category_id: 3,
+      category_id: 4,
     },
     {
       image: Masks,
       text: "Masks",
-      category_id: 4,
+      category_id: 3,
     },
   ];
 
