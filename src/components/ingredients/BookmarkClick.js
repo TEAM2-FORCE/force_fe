@@ -34,11 +34,10 @@ const BookmarkClick = ({ igd_id, detail, isBookmarked }) => {
     <>
       {detail ? (
         <BookmarkButton onClick={bookmarkClicked}>
-          <img
+          <Image
             src={whichStar()}
             alt="wish"
-            style={{ width: "14px", height: "14px" }}
-          ></img>
+          ></Image>
         </BookmarkButton>
       ) : (
         <IconImage src={whichStar()} alt="favorite" onClick={bookmarkClicked} />
@@ -57,6 +56,9 @@ const BookmarkButton = styled.button`
   justify-content: space-center;
   align-items: center;
 `;
+const Image= styled.img`
+  width: 32px;
+`
 const IconImage = styled.img`
   height: 14px;
   object-fit: contain;
