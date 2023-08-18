@@ -1,12 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import fullStar from "../../img/Ingredients/fullStar.png";
 import checked from "../../img/Common/checked.png";
 import unchecked from "../../img/Common/unchecked.png";
 
-const CheckItem = ({ingredient, check, setCheck}) => {
+const CheckItem = ({ingredient, check, setCheck, productData, clean, setClean, cg_id}) => {
   const [boxCheck, setBoxCheck] = useState(false); // 박스체크
     const wish = ingredient.igd_isBookmarked;
+
+  
+
+  useEffect(()=>{
+    console.log("다른 카테고리");
+    console.log("클린");
+    if(boxCheck)changeCheck();
+    setClean(false);
+    
+  }, [cg_id]);
+
+  useEffect(()=>{
+    console.log("체크리스트");
+    if(clean === true ){
+      console.log("클린");
+      if(boxCheck)changeCheck();
+      setClean(false);
+    }
+  },[productData, clean]);
 
   const changeCheck = () => {
     if(!boxCheck){

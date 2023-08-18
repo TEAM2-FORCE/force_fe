@@ -2,7 +2,7 @@ import React from "react";
 import CheckItem from "./CheckItem";
 import { styled } from "styled-components";
 
-const CheckItemList = ({ingredients, check, setCheck}) => {
+const CheckItemList = ({ingredients, check, setCheck, productData, clean, setClean, cg_id}) => {
   return (
     <CheckItems>
       {ingredients.map((ingredient)=>(
@@ -10,7 +10,12 @@ const CheckItemList = ({ingredients, check, setCheck}) => {
         key={ingredient.igd_key} 
         ingredient={ingredient} 
         check={check} 
-        setCheck={setCheck}/>
+        setCheck={setCheck}
+        productData={productData}
+        clean={clean}
+        setClean={setClean}
+        cg_id={cg_id}
+        />
       ))}
     </CheckItems>
   );

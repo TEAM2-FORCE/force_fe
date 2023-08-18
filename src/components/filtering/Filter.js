@@ -7,7 +7,7 @@ import excludeIngredientsData from "../../Json/excludeIngredients.json"
 import veganLabelData from "../../Json/veganLabelIngredients.json"
 import { isAuthenticated } from "../../apis/Googlelogin";
 
-const Filter = ({ text, check, setCheck }) => {
+const Filter = ({ text, check, setCheck, productData, clean, setClean, cg_id }) => {
   ////백엔드에서 api 불러올 수 있으면 ingredients 이걸로 바꾸기!
   // const [ingredients, setIngredients] = useState([]);
   // useEffect(()=>{
@@ -72,7 +72,7 @@ const Filter = ({ text, check, setCheck }) => {
   return (
     <Container>
       <Text>{text}</Text>
-      <CheckItemList ingredients = {ingredients} check = {check} setCheck={setCheck}/>
+      <CheckItemList ingredients = {ingredients} check = {check} setCheck={setCheck} productData={productData} clean={clean} setClean={setClean} cg_id={cg_id}/>
     </Container>
   );
 };

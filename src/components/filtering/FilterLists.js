@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import Filter from './Filter';
 import { getFilteredData } from '../../apis/Item';
 
-const FilterLists = ({clean, setClean, cg_id, setProductData}) => {
+const FilterLists = ({clean, setClean, cg_id, productData, setProductData}) => {
   const [include, setInclude] = useState([]);
   const [exclude, setExclude] = useState([]);
   const [veganLabel, setVeganLabel] = useState([]);
@@ -21,14 +21,17 @@ const FilterLists = ({clean, setClean, cg_id, setProductData}) => {
   const CleanButtonClicked = async () => {
     //새로고침 하는 코드
     // window.location.reload();
-    if(clean === 1) await setClean(0);
-    else if(clean === 0) await setClean(1);
+    if(clean === false) {
+      await setClean(true);
+      await setClean(false);
+    }
+    // else if(clean === 0) await setClean(1);
   }
   return (
     <Container>
-    <Filter text="Include" check={include} setCheck={setInclude}/>
-    <Filter text="Exclude" check={exclude} setCheck ={setExclude}/>
-    <Filter text="Vegan Label" check={veganLabel} setCheck={setVeganLabel}/>
+    <Filter text="Include" check={include} setCheck={setInclude} productData={productData} clean={clean} setClean={setClean} cg_id={cg_id}/>
+    <Filter text="Exclude" check={exclude} setCheck ={setExclude} productData={productData} clean={clean} setClean={setClean} cg_id={cg_id}/>
+    <Filter text="Vegan Label" check={veganLabel} setCheck={setVeganLabel} productData={productData} clean={clean} setClean={setClean} cg_id={cg_id}/>
     <Decision>
       <ClearButton onClick={CleanButtonClicked}>Clear All</ClearButton>
       <OKButton onClick={OKButtonClicked}>Apply</OKButton>
