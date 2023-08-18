@@ -20,7 +20,7 @@ export const postLogin = async () => {
       `${baseURL}/accounts/google/login/`);
     console.log("토큰");
     console.log(token);
-    localStorage.setItem("token", token);
+    localStorage.setItem("token", token.data.access_token);
     //   navigate('/');
     // if(typeof token == 'undefined'){
     //   navigate('/relogin');
