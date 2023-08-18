@@ -25,11 +25,11 @@ const MyPage = () => {
     navigate('/');
   }
   const moreWishList = () => {
-    navigate("/wishlist", { state: wishlistData });
+    navigate("/mypage/wishlist", { state: wishlistData });
   };
   const moreBookMark = () => {
     console.log(bookmarkData);
-    navigate("/bookmark", { state: bookmarkData });
+    navigate("/mypage/bookmark", { state: bookmarkData });
   };
 
   useEffect(() => {

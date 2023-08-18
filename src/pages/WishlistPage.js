@@ -11,6 +11,12 @@ const WishlistPage = () => {
   const { state } = useLocation();
   const wishlistData = state;
   console.log(wishlistData);
+  const datas = (data)=>{
+    const wishlists = wishlistData.map(wishlist => wishlist.products_contents);
+    // console.log(wishlist);
+    return wishlists;
+
+  }
   return (
     <Wrapper>
       <Nav />
@@ -22,7 +28,7 @@ const WishlistPage = () => {
       <Section>
         <Center>
           <Contents>
-            <ItemDataSection productData={wishlistData}></ItemDataSection>
+            <ItemDataSection productData={datas(wishlistData)}></ItemDataSection>
           </Contents>
         </Center>
       </Section>
