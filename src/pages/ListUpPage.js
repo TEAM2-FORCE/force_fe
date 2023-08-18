@@ -24,9 +24,9 @@ const ListUpPage = () => {
       return "Makeup";
     } else if (cg_id === 2) {
       return "Skincare";
-    } else if (cg_id === 3) {
-      return "Suncare";
     } else if (cg_id === 4) {
+      return "Suncare";
+    } else if (cg_id === 3) {
       return "Masks";
     }
   };
