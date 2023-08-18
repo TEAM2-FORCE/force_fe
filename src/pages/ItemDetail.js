@@ -357,7 +357,12 @@ const ItemDetail = () => {
             <br />
           </div>
           <div
-            style={{ width: "95%", display: "flex", flexDirection: "column" }}
+            style={{
+              width: "95%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+            }}
           >
             <h1>Where To Buy</h1>
             {marketData.map((market) => (
@@ -367,7 +372,6 @@ const ItemDetail = () => {
                   window.open(market.mk_link);
                 }}
                 key={market.mk_id}
-                style={{ margin: "0" }}
               />
             ))}
           </div>
@@ -486,8 +490,8 @@ const IngredientText = styled.div`
 `;
 
 const SiteImage = styled.img`
-  width: 100px;
-  height: 100px;
+  height: 36px;
   object-fit: contain;
   cursor: pointer;
+  margin: 10px 0;
 `;
