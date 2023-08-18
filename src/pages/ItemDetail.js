@@ -9,17 +9,17 @@ import WishlistClick from "../components/items/WishlistClick";
 import { getMarket } from "../apis/Item";
 import { getVeganCertification } from "../apis/Item";
 
-import KoreaVeganMark from "../img/VeganMark/Mark/KoreaVeganMark.png";
-import VeganSocietyMark from "../img/VeganMark/Mark/VeganSocietyMark.png";
-import FranceVeganMark from "../img/VeganMark/Mark/FranceVeganMark.png";
-import ItaliaVeganMark from "../img/VeganMark/Mark/ItaliaVeganMark.png";
-import PetaMark from "../img/VeganMark/Mark/PetaMark.png";
-import PetaVeganMark from "../img/VeganMark/Mark/PetaVeganMark.png";
+import KoreaVeganMark from "../img/VeganMark/KoreaVeganMark.png";
+import VeganSocietyMark from "../img/VeganMark/VeganSocietyMark.png";
+import FranceVeganMark from "../img/VeganMark/FranceVeganMark.png";
+import ItaliaVeganMark from "../img/VeganMark/ItaliaVeganMark.png";
+import PetaMark from "../img/VeganMark/PetaMark.png";
+import PetaVeganMark from "../img/VeganMark/PetaVeganMark.png";
 
-import NoAnimalMaterial from "../img/MarkInModal/NoMark/NoAnimalMaterial.png";
-import NoAnimalExperiment from "../img/MarkInModal/NoMark/NoAnimalExperiment.png";
-import NoContamination from "../img/MarkInModal/NoMark/NoContamination.png";
-import NoGenetiChange from "../img/MarkInModal/NoMark/NoGeneticChange.png";
+import NoAnimalMaterial from "../img/MarkInModal/NoAnimalMaterial.png";
+import NoAnimalExperiment from "../img/MarkInModal/NoAnimalExperiment.png";
+import NoContamination from "../img/MarkInModal/NoContamination.png";
+import NoGenetiChange from "../img/MarkInModal/NoGeneticChange.png";
 
 import 올리브영 from "../img/SiteImage/ShoppingSite/올리브영.png";
 import 세포라 from "../img/SiteImage/ShoppingSite/sephora.png";
@@ -83,40 +83,40 @@ const ItemDetail = () => {
   const veganMarkArray = [
     {
       id: 1,
-      image: KoreaVeganMark,
+      image: "/img/VeganMark/KoreaVeganMark.png",
       title: "Korea Agency of Vegan Certification and Services",
       description: [
         {
-          icon: NoAnimalMaterial,
+          icon: "/img/MarkInModal/NoAnimalMaterial.png",
           text: `No animal-derived
 					raw materials.`,
         },
         {
-          icon: NoAnimalExperiment,
+          icon: "/img/MarkInModal/NoAnimalExperiment.png",
           text: "No animal testing",
         },
         {
-          icon: NoContamination,
+          icon: "/img/MarkInModal/NoContamination.png",
           text: "No cross-contamination",
         },
       ],
     },
     {
       id: 2,
-      image: FranceVeganMark,
+      image: "/img/VeganMark/FranceVeganMark.png",
       title: "EXPERTISE VEGAN EUROPE",
       description: [
         {
-          icon: NoAnimalMaterial,
+          icon: "/img/MarkInModal/NoAnimalMaterial.png",
           text: `No raw material and
 					manufacturing aids of animal origin`,
         },
         {
-          icon: NoAnimalExperiment,
+          icon: "/img/MarkInModal/NoAnimalExperiment.png",
           text: `No animal testing`,
         },
         {
-          icon: NoAnimalMaterial,
+          icon: "/img/MarkInModal/NoAnimalMaterial.png",
           text: `No animal-derived materials
 					in packaging`,
         },
@@ -124,25 +124,25 @@ const ItemDetail = () => {
     },
     {
       id: 3,
-      image: ItaliaVeganMark,
+      image: "/img/VeganMark/ItaliaVeganMark.png",
       title: "V LABEL ITALIA s.r.l.",
       description: [
         {
-          icon: NoAnimalExperiment,
+          icon: "/img/MarkInModal/NoAnimalExperiment.png",
           text: `No animal${(<br />)}
 					experiment and testing`,
         },
         {
-          icon: NoContamination,
+          icon: "/img/MarkInModal/NoContamination.png",
           text: `No cross-contamination `,
         },
         {
-          icon: NoAnimalMaterial,
+          icon: "/img/MarkInModal/NoAnimalMaterial.png",
           text: `No animal-derived
 					raw materials and ingredients`,
         },
         {
-          icon: NoGenetiChange,
+          icon: "/img/MarkInModal/NoGeneticChange.png",
           text: `No Genetically
 					Modified Organisms
 					components`,
@@ -151,25 +151,25 @@ const ItemDetail = () => {
     },
     {
       id: 4,
-      image: VeganSocietyMark,
+      image: "/img/VeganMark/VeganSociety.png",
       title: "The Vegan Society",
       description: [
         {
-          icon: NoAnimalMaterial,
+          icon: "/img/MarkInModal/NoAnimalMaterial.png",
           text: `No animal-derived
 					ingredients`,
         },
         {
-          icon: NoAnimalExperiment,
+          icon: "/img/MarkInModal/NoAnimalExperiment.png",
           text: `No animal experiments`,
         },
         {
-          icon: NoGenetiChange,
+          icon: "/img/MarkInModal/NoGeneticChange.png",
           text: `No genetically
 					modified creature`,
         },
         {
-          icon: NoContamination,
+          icon: "/img/MarkInModal/NoContamination.png",
           text: `No cross-contamination$
 					with No-Vegan `,
         },
@@ -177,28 +177,28 @@ const ItemDetail = () => {
     },
     {
       id: 5,
-      image: PetaMark,
+      image: "/img/VeganMark/PetaMark.png",
       title: `People for the Ethical Treatment of Animals
 			-Animal Test Free`,
       description: [
         {
-          icon: NoAnimalExperiment,
+          icon: "/img/MarkInModal/NoAnimalExperiment.png",
           text: `No animal testing`,
         },
       ],
     },
     {
       id: 6,
-      image: PetaVeganMark,
+      image: "/img/VeganMark/PetaVeganMark.png",
       title: `People for the Ethical Treatment of Animals
 			-Animal Test Free and Vegan`,
       description: [
         {
-          icon: NoAnimalExperiment,
+          icon: "/img/MarkInModal/NoAnimalExperiment.png",
           text: `No animal testing`,
         },
         {
-          icon: NoAnimalMaterial,
+          icon: "/img/MarkInModal/NoAnimalMaterial.png",
           text: `No animal-derived
 					ingredients`,
         },
