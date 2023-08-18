@@ -11,9 +11,10 @@ const Login = () => {
   const navigate = useNavigate();
   const googleLogin = async () => {
     const response = await postLogin();
+    console.log("토큰");
     console.log(response);
-    
-    
+    navigate('/');
+
     // window.location.href ="https://accounts.google.com/o/oauth2/auth?" +
     // `client_id=${process.env.REACT_APP_GOOGLE_CLIENT_ID}&`+
     // `redirect_uri=${process.env.REACT_APP_GOOGLE_REDIRECT_URI}&`+
@@ -45,7 +46,7 @@ const Login = () => {
             {/* <GoogleLogin></GoogleLogin> */}
             <Button onClick={googleLogin}>
             <IconStyled src={google} alt="Icon"></IconStyled>
-            <ButtonText>Log in with Google</ButtonText>
+            <ButtonText>Start by Logging in</ButtonText>
             </Button>
             <BottomText onClick={gotoHome}>
               Use without Log in
