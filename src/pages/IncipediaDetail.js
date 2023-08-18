@@ -29,15 +29,15 @@ const IncipediaDetail = () => {
   }, []);
 
   const dataAvailability = (data) => {
-    if (data == 1) {
+    if (data === 1) {
       return "none";
-    } else if (data == 2) {
+    } else if (data === 2) {
       return "limited";
-    } else if (data == 3) {
+    } else if (data === 3) {
       return "fair";
-    } else if (data == 4) {
+    } else if (data === 4) {
       return "good";
-    } else if (data == 5) {
+    } else if (data === 5) {
       return "robust";
     }
   };

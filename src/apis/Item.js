@@ -145,8 +145,10 @@ export const getFilteredData = (include, exclude, veganLabel) => {
   if (excludeStr) queryParams.push(`exclude_ingredients=${excludeStr}`);
   if (veganLabelStr) queryParams.push(`vg_company=${veganLabelStr}`);
   if (queryParams.length > 0) url = `${url}?${queryParams.join("&")}`;
-
-  // const url = `${baseURL}/products/filter/?include_ingredients=${includeStr}&exclude_ingredients=${excludeStr}&vg_company=${veganLabelStr}`;
+  if(url.includes("1,2-Hexanediol")){
+    const newUrl = url.replace('1,2-Hexanediol', '1*2-Hexanediol');
+    return axios.get(newUrl);
+  }
   console.log(url);
   return axios.get(url);
 };
