@@ -70,7 +70,7 @@ const WishlistButton = styled.button`
 `;
 const Image = styled.img`
   width: 28px;
-`
+`;
 
 const IconImage = styled.img`
   width: 14px;

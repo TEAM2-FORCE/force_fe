@@ -319,7 +319,7 @@ const ItemDetail = () => {
               <ProductName style={{ margin: 0 }}>{product.pd_name}</ProductName>
               <WishlistClick pd_id={product.pd_id} detail={true} />
             </Container>
-            <Text style={{ fontWeight: 500 }}>{priceMark()} KRW</Text>
+            <Text style={{ fontWeight: 500 }}>KRW {priceMark()}</Text>
             <VeganMarkContainer>
               {certificationData.map((mark) => (
                 <VeganMark
@@ -338,7 +338,7 @@ const ItemDetail = () => {
           </div>
           <div>
             {/* <ItemDescription> */}
-            <h1>Ingredients</h1>
+            <SubTitle>Ingredients</SubTitle>
             <IngredientContainer style={{ marginTop: "0.8rem" }}>
               {product.ingredients &&
                 product.ingredients.map((ingredient, index) => (
@@ -364,7 +364,7 @@ const ItemDetail = () => {
               alignItems: "flex-start",
             }}
           >
-            <h1>Where To Buy</h1>
+            <SubTitle>Where To Buy</SubTitle>
             {marketData.map((market) => (
               <SiteImage
                 src={sellingSiteImage(market.mk_name)}
@@ -461,7 +461,7 @@ const VeganMarkContainer = styled.div`
   justify-content: flex-start;
   height: 2rem;
   gap: 0.75rem;
-  margin-top: 10px;
+  margin-top: 15px;
 `;
 const VeganMark = styled.img`
   width: 2rem;
@@ -493,4 +493,13 @@ const SiteImage = styled.img`
   object-fit: contain;
   cursor: pointer;
   margin: 10px 0;
+`;
+
+const SubTitle = styled.div`
+  font-family: Pretendard;
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 30px;
 `;
