@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import Filter from './Filter';
 import { getFilteredData } from '../../apis/Item';
 
-const FilterLists = ({cg_id, setProductData}) => {
+const FilterLists = ({clean, setClean, cg_id, setProductData}) => {
   const [include, setInclude] = useState([]);
   const [exclude, setExclude] = useState([]);
   const [veganLabel, setVeganLabel] = useState([]);
@@ -18,9 +18,11 @@ const FilterLists = ({cg_id, setProductData}) => {
       setProductData(response.data);
     }
   }
-  const CleanButtonClicked = () => {
+  const CleanButtonClicked = async () => {
     //새로고침 하는 코드
-    window.location.reload();
+    // window.location.reload();
+    if(clean === 1) await setClean(0);
+    else if(clean === 0) await setClean(1);
   }
   return (
     <Container>

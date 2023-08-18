@@ -15,6 +15,7 @@ const ListUpPage = () => {
   const cg_id = state.cg_id;
   const userInput = state.userInput;
   const [productData, setProductData] = useState([]);
+  const [clean, setClean] = useState(1);
 
   const whichPage = () => {
     if (cg_id === 0) {
@@ -51,7 +52,7 @@ const ListUpPage = () => {
     if (userInput) {
       searchProduct();
     }
-  }, [cg_id, userInput]);
+  }, [cg_id, userInput, clean]);
 
   const name = ["all products", "makeup", "skincare", "suncare", "masks"];
 
@@ -70,7 +71,7 @@ const ListUpPage = () => {
 
       <Section>
         <Center>
-          <FilterLists cg_id={cg_id} setProductData={setProductData} />
+          <FilterLists clean={clean} setClean={setClean} cg_id={cg_id} setProductData={setProductData} />
           <Contents>
             <ItemDataSection productData={productData} />
           </Contents>
