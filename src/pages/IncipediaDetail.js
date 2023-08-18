@@ -53,7 +53,6 @@ const IncipediaDetail = () => {
           <br />
           <Container2>
             <h2>Products Including</h2>
-            <More>View More</More>
           </Container2>
           <ProductContainer>
             {productData
@@ -93,27 +92,11 @@ const Container2 = styled.div`
   width: 100%;
 `;
 
-// const IconImage = styled.img`
-//   height: 32px;
-//   object-fit: contain;
-//   margin-left: 10px;
-// `;
-
 const BodySection = styled.div`
   width: 88%;
 `;
-
-const More = styled.div`
-  color: var(--dark-gray, var(--dark-gray, #414241));
-  font-family: Pretendard;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  cursor: pointer;
-`;
-
 const ProductContainer = styled.div`
   display: flex;
   justify-content: flex-start;
+  overflow: hidden;
 `;
