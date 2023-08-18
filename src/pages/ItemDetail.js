@@ -457,7 +457,7 @@ const VeganMarkContainer = styled.div`
   justify-content: flex-start;
   height: 2rem;
   gap: 0.75rem;
-  margin-top: 0;
+  margin-top: 10px;
 `;
 const VeganMark = styled.img`
   width: 2rem;
