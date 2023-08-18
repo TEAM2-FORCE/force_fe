@@ -152,10 +152,16 @@ const IncipediaDetail = () => {
           </Container2>
           <ProductContainer>
             {productData
+              .slice(0, 5)
               .filter((product) => ingredient.products.includes(product.pd_id))
               .map((filteredProduct) => (
                 <ItemCard product={filteredProduct} />
               ))}
+            {/* {wishlistData &&
+              wishlistData
+                .slice(0, 4)
+                .map((wishlist) => (
+                  <ItemCard key={wishlist.pd_id} product={wishlist.products_contents} /> */}
           </ProductContainer>
         </BodySection>
       </Body>
