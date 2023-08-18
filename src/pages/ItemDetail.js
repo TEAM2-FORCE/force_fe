@@ -290,9 +290,18 @@ const ItemDetail = () => {
     }
   };
 
-  //이건 필요없는데 비건마크 안 써서 배포하려고! 나중에 비건마크 쓰면 지우기
-  console.log(veganMarkInformation);
-  console.log(product.vegan_cert);
+  // //이건 필요없는데 비건마크 안 써서 배포하려고! 나중에 비건마크 쓰면 지우기
+  // console.log(veganMarkInformation);
+  // console.log(product.vegan_cert);
+
+  const priceMark = () => {
+    const price = product.pd_price;
+    if(product.pd_price >= 1000){
+    const formattedPrice = price.toLocaleString('en-US');
+    return formattedPrice;
+    }
+    return price;
+  }
 
   return (
     <Wrapper>
@@ -303,13 +312,16 @@ const ItemDetail = () => {
         </ImageContainer>
         <ItemDescription>
           <div style={{ width: "95%" }}>
+          <BrandText style={{ fontWeight: 500 }}>
+              {product.pd_brand}
+            </BrandText>
             <Container>
-              <h1 style={{ margin: 0 }}>{product.pd_name}</h1>
+              <ProductName style={{ margin: 0 }}>{product.pd_name}</ProductName>
               <WishlistClick pd_id={product.pd_id} detail={true} />
             </Container>
-            <h3 style={{ fontWeight: 500, marginTop: "0.5rem" }}>
-              {product.pd_brand}
-            </h3>
+            <Text style={{ fontWeight: 500 }}>
+              {priceMark()} KRW
+            </Text>
             <VeganMarkContainer>
               {certificationData.map((mark) => (
                 <VeganMark
@@ -395,18 +407,42 @@ const Body = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  width: 35%;
+  width: 40%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  // background-color: yellow;
 `;
-
+const BrandText = styled.div`
+color: var(--light-grey, #919392);
+/* small text */
+font-family: Pretendard;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+`
+const ProductName = styled.div`
+color: var(--black, #010D09);
+/* Mid Title */
+font-family: Pretendard;
+font-size: 2rem;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+`
+const Text = styled.div`
+color: var(--dark-gray, var(--dark-gray, #414241));
+/* Mid text */
+font-family: Pretendard;
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-top: 7px;
+`
 const ItemImage = styled.img`
-  width: 20rem;
-  height: 20rem;
+  width: 70%;
   object-fit: contain;
-  margin-top: 3%;
-  margin-left: 15%;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 
@@ -416,7 +452,6 @@ const ItemDescription = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   width: 55%;
-  margin-left: 10%;
 `;
 
 const VeganMarkContainer = styled.div`

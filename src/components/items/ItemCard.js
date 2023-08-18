@@ -99,7 +99,7 @@ const ProductName = styled.div`
   font-weight: 700;
   line-height: normal;
   max-width: 90%;
-  height: 47px;
+  height: 41px;
   overflow: hidden;
   margin-bottom: 5px;
 `;

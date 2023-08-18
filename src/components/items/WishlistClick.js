@@ -40,7 +40,7 @@ const WishlistClick = ({ pd_id, detail, isWishlisted }) => {
           </WishButton> */}
       {detail ? (
         <WishlistButton onClick={wishlistClicked}>
-          <img src={whichHeart()} alt="wish" width="20px"></img>
+          <img src={whichHeart()} alt="wish" width="30px"></img>
         </WishlistButton>
       ) : (
         <IconImage
@@ -62,6 +62,7 @@ const WishlistButton = styled.button`
   display: flex;
   justify-content: space-center;
   align-items: center;
+  // background-color: yellow;
 `;
 
 const IconImage = styled.img`
