@@ -18,7 +18,7 @@ const Modal = ({ veganMark, title, description, setModal }) => {
             <VeganMarkContainer>
               <img src={circle} alt="veganmark" />
               <ImageContainer>
-                <Image src={veganMark} />
+                <Image src={veganMark}/>
               </ImageContainer>
             </VeganMarkContainer>
           </Header>
@@ -161,15 +161,20 @@ const VeganMarkContainer = styled.div`
   top: 40%;
   display: flex;
   flex-direction: column;
+  display: flex;
+  justify-content: center;
+  algin-items: center;
+  z-index: 101;
+  height: 100%;
 `;
 
 const ImageContainer = styled.div`
   position: absolute;
-  top: 20%;
   left: 20%;
 `;
 
 const Image = styled.img`
-  width: 80%;
-  height: 80%;
+  width: 70%;
+  height: 70%;
+  margin-left: 5px;
 `;
