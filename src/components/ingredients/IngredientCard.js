@@ -32,7 +32,7 @@ const IngredientCard = ({ igd_id, ingredient }) => {
             )}
           </SmallBookmark>
         </IngredientInfo>
-        {ingredient.igd_info}
+        <IngredientDetail>{ingredient.igd_info}</IngredientDetail>
       </Contents>
       <Bottom>
         {ingredient.igd_caution ? (
@@ -115,3 +115,12 @@ const MarkImage = styled.img`
   margin-right: 2%;
 `;
 const SmallBookmark = styled.div``;
+
+const IngredientDetail = styled.div`
+  color: var(--light-grey, #919392);
+  font-family: Pretendard;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+`;
