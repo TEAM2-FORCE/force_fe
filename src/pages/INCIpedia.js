@@ -90,7 +90,7 @@ const INCIpedia = () => {
     // navigate(`/ingredients?search=${userInput}`);
     const response = await getIngredientSearch(userInput);
     console.log(response);
-    setIngredientData(response.data);
+    setFilteredIngredientData(response.data);
     inputRef.current.value = "";
   };
 

@@ -36,7 +36,7 @@ const MyPage = () => {
     const fetchData = async () => {
       const response = await getUserName();
       console.log(response.data);
-      const name = response.data.first_name + " " + response.data.last_name;
+      // const name = response.data.first_name + " " + response.data.last_name;
       // setUserName(name);
       console.log("위시");
       const responseWishlist = await getWishlistItems();
