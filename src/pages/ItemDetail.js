@@ -9,18 +9,6 @@ import WishlistClick from "../components/items/WishlistClick";
 import { getMarket } from "../apis/Item";
 import { getVeganCertification } from "../apis/Item";
 
-import KoreaVeganMark from "../img/VeganMark/KoreaVeganMark.png";
-import VeganSocietyMark from "../img/VeganMark/VeganSocietyMark.png";
-import FranceVeganMark from "../img/VeganMark/FranceVeganMark.png";
-import ItaliaVeganMark from "../img/VeganMark/ItaliaVeganMark.png";
-import PetaMark from "../img/VeganMark/PetaMark.png";
-import PetaVeganMark from "../img/VeganMark/PetaVeganMark.png";
-
-import NoAnimalMaterial from "../img/MarkInModal/NoAnimalMaterial.png";
-import NoAnimalExperiment from "../img/MarkInModal/NoAnimalExperiment.png";
-import NoContamination from "../img/MarkInModal/NoContamination.png";
-import NoGenetiChange from "../img/MarkInModal/NoGeneticChange.png";
-
 import 올리브영 from "../img/SiteImage/ShoppingSite/올리브영.png";
 import 세포라 from "../img/SiteImage/ShoppingSite/sephora.png";
 import 신세계 from "../img/SiteImage/ShoppingSite/신세계.png";
@@ -151,7 +139,7 @@ const ItemDetail = () => {
     },
     {
       id: 4,
-      image: "/img/VeganMark/VeganSociety.png",
+      image: "/img/VeganMark/VeganSocietyMark.png",
       title: "The Vegan Society",
       description: [
         {
