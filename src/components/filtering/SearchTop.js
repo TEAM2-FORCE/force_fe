@@ -104,7 +104,7 @@ const Right = styled.button`
   align-items: center;
   justify-content: right;
 
-  width: 13rem;
+  width: 11.5rem;
   font-family: Pretendard;
   font-size: 1rem;
   font-style: normal;
@@ -126,8 +126,8 @@ const SortBar = styled.div`
   align-items: center;
   top: 100%;
   right: 0%;
-  width: 13rem;
-  height: 13rem;
+  width: 11.5rem;
+  height: 10rem;
   z-index: 1;
   background-color: white;
   margin-top: 1px;
@@ -139,12 +139,13 @@ const SortButton = styled.button`
   height: 25%;
   width: 100%;
   border: none;
+  padding: 0rem 1rem 0rem 0rem;
 
   // background-color: ${(props) =>
     props["data-isselected"] ? "rgba(46, 190, 143)" : "white"};
   // opacity:${(props) => (props["data-isselected"] ? "1" : "1")};
   background-color: white;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--light-grey, #919392);
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
@@ -162,9 +163,9 @@ const Text = styled.div`
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   line-height: normal;
-  margin: 10px 10px 10px 0px;
+  margin: 10px 0px 10px 19px;
   width: 100%;
 `;
 const IconStyled = styled.img`
