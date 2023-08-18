@@ -14,6 +14,7 @@ export const postLogin = async () => {
   //   console.error("postLogin error", error);
   //   throw error;
   // }
+  console.log("버튼클릭");
   try {
     const token = await axios.post(
       `${baseURL}/accounts/google/login/`,
