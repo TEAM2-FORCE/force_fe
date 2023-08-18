@@ -206,7 +206,7 @@ const ProductContainer = styled.div`
 const EWGWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  height: 130px;
+  height: 80px;
 `;
 
 const InformationWrapper = styled.div`
