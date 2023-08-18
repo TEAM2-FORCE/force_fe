@@ -111,7 +111,7 @@ const INCIpedia = () => {
       <Section>
         <Center>
           <FilterLists>
-            <Text>Search By Name</Text>
+            <Text style={{ marginBottom: "5px" }}>Search By Name</Text>
             <Search>
               <SearchBar>
                 <input
@@ -130,8 +130,10 @@ const INCIpedia = () => {
                 <SearchButton src={searchIcon} onClick={searchClick} />
               </SearchBar>
             </Search>
-            <Filter>
-              <Text>Cautious Ingredients Only</Text>
+            <Filter style={{ paddingBottom: "5px" }}>
+              <Text style={{ marginTop: "10px", marginBottom: "8px" }}>
+                Cautious Ingredients Only
+              </Text>
               <Item>
                 <Button onClick={changeCheck}>
                   <img src={onOff()} alt="checkbox"></img>
@@ -212,9 +214,9 @@ const Search = styled.div`
   margin: 3%;
 `;
 const Filter = styled.div`
-  margin-top: 12px;
+  margin-top: 0;
   border-bottom: green solid 2px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 `;
 const Text = styled.div`
   color: #000;
@@ -224,6 +226,7 @@ const Text = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  margin: 0;
 `;
 const Contents = styled.div`
   width: 83%;
@@ -235,7 +238,7 @@ const Alphabets = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  margin: 8px 0;
 `;
 const Alp = styled.div`
   width: 10%;
@@ -244,7 +247,7 @@ const Alp = styled.div`
 `;
 const Item = styled.div`
   display: flex;
-  margin: 7px 8px 8px 15px;
+  margin: 7px 8px 8px 4px;
   align-items: center;
 `;
 
