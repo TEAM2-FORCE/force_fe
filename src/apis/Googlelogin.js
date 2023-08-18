@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const baseURL = "https://vebeserver.o-r.kr";
 
-export const postLogin = async (code) => {
+export const postLogin = async () => {
   // try {
   //   const response = await axios.post(
   //     `${baseURL}/accounts/google/callback`,
@@ -15,12 +15,22 @@ export const postLogin = async (code) => {
   //   throw error;
   // }
   try {
-    const response = await axios.post(
+    const token = await axios.post(
       `${baseURL}/accounts/google/login/`,
-      {},{ withCredentials: true }
-    );
-    console.log(response);
-    return response.data;
+      {});
+    console.log("토큰");
+    console.log(token);
+    localStorage.setItem("token", token);
+    //   navigate('/');
+    // if(typeof token == 'undefined'){
+    //   navigate('/relogin');
+    // }
+    // else{
+      
+
+    // }
+    
+    return token;
   }catch(error){
     console.error("postLogin error", error);
     throw error;

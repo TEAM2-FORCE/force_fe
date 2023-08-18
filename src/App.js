@@ -30,10 +30,10 @@ const App = () => {
 
         <Route path="/login" element={<Login />} />
         <Route path="/relogin" element={<ReLogin />} />
-        <Route
+        {/* <Route
           path="/oauth2redirect"
           element={<GoogleOAuth2RedirectHandler />}
-        />
+        /> */}
       </Routes>
     </BrowserRouter>
   );
